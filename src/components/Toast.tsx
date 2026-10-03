@@ -9,12 +9,10 @@ export default function Toast() {
 
   return (
     <div
+      key={toast.id}
       role="status"
       aria-live="polite"
-      className="fixed bottom-6 left-1/2 z-[80] -translate-x-1/2 flex items-center gap-3 px-5 py-3.5 rounded-full bg-[var(--bg-card)] border border-[var(--gold)]/40 shadow-2xl shadow-black/50 animate-[toastIn_0.3s_ease-out]"
-      style={{
-        animation: "toastIn 0.3s ease-out",
-      }}
+      className="fixed bottom-6 left-1/2 z-[80] -translate-x-1/2 flex items-center gap-3 px-5 py-3.5 rounded-full bg-[var(--bg-card)] border border-[rgba(201,168,76,0.45)] shadow-2xl animate-toast-in"
     >
       <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--gold)] text-black text-sm font-bold shrink-0">
         ✓
@@ -40,19 +38,6 @@ export default function Toast() {
       >
         ×
       </button>
-
-      <style jsx global>{`
-        @keyframes toastIn {
-          from {
-            opacity: 0;
-            transform: translate(-50%, 12px);
-          }
-          to {
-            opacity: 1;
-            transform: translate(-50%, 0);
-          }
-        }
-      `}</style>
     </div>
   );
 }
