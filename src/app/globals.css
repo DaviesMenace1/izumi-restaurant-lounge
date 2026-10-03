@@ -10,7 +10,6 @@
   --gold: #a67c2d;
   --gold-light: #c9a84c;
   --border: rgba(28, 25, 23, 0.1);
-  --font-bonny: "Bonny", Georgia, serif;
 }
 
 @theme inline {
@@ -22,7 +21,7 @@
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-border: var(--border);
-  --font-display: var(--font-bonny);
+  --font-display: var(--font-quicksand);
   --font-body: var(--font-outfit);
 }
 
@@ -49,16 +48,17 @@ html {
 }
 
 h1 {
-  font-family: var(--font-bonny), Georgia, "Times New Roman", serif;
-  letter-spacing: -0.02em;
-  font-weight: 400;
+  font-family: var(--font-quicksand), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  font-weight: 700;
   color: var(--text);
 }
 
 h2,
 h3 {
-  font-family: var(--font-bauhaus), var(--font-josefin), system-ui, sans-serif;
-  letter-spacing: 0.03em;
+  font-family: var(--font-quicksand), system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  font-weight: 600;
   color: var(--text);
 }
 
