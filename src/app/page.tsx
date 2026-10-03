@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const MENU_COVER =
+  "https://contactless-9b492.web.app/restaurants/izumi/images/IZUMI%20-%20FOOD%20MENU%20ONLINE/IZUMI%20-%20FOOD%20MENU%20ONLINE-page-001.jpg";
+
 export default function HomePage() {
   return (
     <>
@@ -9,7 +12,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c0c] to-[#111]" />
         <div
           className="absolute inset-0 opacity-[0.18] mix-blend-luminosity bg-cover bg-center"
-          style={{ backgroundImage: "url(/images/menu-cover.jpg)" }}
+          style={{ backgroundImage: `url(${MENU_COVER})` }}
         />
         <div className="relative z-10 mx-auto max-w-[1200px] w-[92%] py-16 md:py-24">
           <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-5">
@@ -77,33 +80,9 @@ export default function HomePage() {
               />
               <span className="text-[0.7rem] text-[var(--text-muted)]">4.3 ★ · 1,400+ reviews</span>
             </a>
-            <div className="opacity-85">
-              <Image
-                src="/images/81880bd8b04586a3cfd870d31d7bf8acc646be96.jpg"
-                alt="Booking.com"
-                width={100}
-                height={28}
-                className="h-7 w-auto object-contain"
-              />
-            </div>
-            <div className="opacity-85">
-              <Image
-                src="/images/ea07c05bc76796c58c54856832b6c6300a19231e.jpg"
-                alt="Uber Eats"
-                width={80}
-                height={28}
-                className="h-7 w-auto object-contain"
-              />
-            </div>
-            <div className="opacity-85">
-              <Image
-                src="/images/ad998aa1756fc21799c6321a1c54429b073257af.jpg"
-                alt="Partner"
-                width={40}
-                height={28}
-                className="h-7 w-auto object-contain"
-              />
-            </div>
+            <span className="text-sm tracking-wide text-[var(--text-muted)] opacity-80">Booking.com</span>
+            <span className="text-sm tracking-wide text-[var(--text-muted)] opacity-80">Uber Eats</span>
+            <span className="text-sm tracking-wide text-[var(--text-muted)] opacity-80">Delivery</span>
           </div>
         </div>
       </section>
@@ -154,7 +133,7 @@ export default function HomePage() {
           <div className="relative">
             <div className="border border-[var(--border)] p-3 bg-[var(--bg-card)]">
               <Image
-                src="/images/menu-cover.jpg"
+                src={MENU_COVER}
                 alt="Izumi atmosphere"
                 width={600}
                 height={800}
