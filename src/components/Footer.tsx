@@ -1,34 +1,73 @@
 import Link from "next/link";
-import Image from "next/image";
+
+function TripAdvisorMark() {
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden>
+        <circle cx="12" cy="12" r="11" fill="#00aa6c" />
+        <circle cx="8.5" cy="11" r="2.4" fill="white" />
+        <circle cx="15.5" cy="11" r="2.4" fill="white" />
+        <circle cx="8.5" cy="11" r="1" fill="#00aa6c" />
+        <circle cx="15.5" cy="11" r="1" fill="#00aa6c" />
+      </svg>
+      <span className="text-[0.85rem] font-semibold text-[#00aa6c]">Tripadvisor</span>
+    </span>
+  );
+}
+
+function BookingMark() {
+  return (
+    <span className="inline-flex items-center">
+      <span className="text-[0.95rem] font-bold tracking-tight">
+        <span className="text-[#003580]">Booking</span>
+        <span className="text-[#009fe3]">.com</span>
+      </span>
+    </span>
+  );
+}
+
+function UberEatsMark() {
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-black text-[0.55rem] font-bold text-white">
+        UE
+      </span>
+      <span className="text-[0.85rem] font-semibold text-[#06c167]">Uber Eats</span>
+    </span>
+  );
+}
+
+function GlovoMark() {
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#FFC244] text-[0.7rem] font-bold text-black">
+        G
+      </span>
+      <span className="text-[0.85rem] font-bold text-[#1a1a1a]">Glovo</span>
+    </span>
+  );
+}
 
 const partners = [
   {
     name: "TripAdvisor",
     href: "https://www.tripadvisor.com/Restaurant_Review-g293841-d14032948-Reviews-Izumi_Restaurant_Lounge-Kampala_Central_Region.html",
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Tripadvisor_2025_Logo.svg/320px-Tripadvisor_2025_Logo.svg.png",
-    w: 120,
-    h: 24,
+    Mark: TripAdvisorMark,
   },
   {
     name: "Booking.com",
     href: "https://www.booking.com",
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Booking.com_logo.svg/200px-Booking.com_logo.svg.png",
-    w: 110,
-    h: 20,
+    Mark: BookingMark,
   },
   {
     name: "Uber Eats",
     href: "https://www.ubereats.com",
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Uber_Eats_2020_logo.svg/200px-Uber_Eats_2020_logo.svg.png",
-    w: 90,
-    h: 24,
+    Mark: UberEatsMark,
   },
   {
     name: "Glovo",
     href: "https://glovoapp.com/ug/en/kampala/izumi-restaurant-and-lounge/",
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Glovo_logo.svg/200px-Glovo_logo.svg.png",
-    w: 70,
-    h: 28,
+    Mark: GlovoMark,
   },
 ];
 
@@ -36,33 +75,25 @@ export default function Footer() {
   return (
     <footer className="border-t border-[var(--border)] pt-14 pb-8 bg-[var(--bg-elevated)]">
       <div className="mx-auto max-w-[1200px] w-[92%]">
-        {/* Trustees / partners */}
         <div className="mb-12">
           <p className="text-center text-[0.7rem] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-6">
             Trusted partners
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-5">
             {partners.map((p) => (
               <a
                 key={p.name}
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                className="opacity-90 hover:opacity-100 transition-opacity"
                 title={p.name}
               >
-                <Image
-                  src={p.src}
-                  alt={p.name}
-                  width={p.w}
-                  height={p.h}
-                  className="h-6 w-auto object-contain"
-                  unoptimized
-                />
+                <p.Mark />
               </a>
             ))}
           </div>
-          <p className="text-center text-xs text-[var(--text-muted)] mt-4">
+          <p className="text-center text-xs text-[var(--text-muted)] mt-5">
             4.3 ★ on TripAdvisor · 1,400+ reviews
           </p>
         </div>
@@ -71,7 +102,7 @@ export default function Footer() {
           <div>
             <span
               className="text-xl tracking-[0.12em] text-[var(--gold)] font-semibold block mb-2"
-              style={{ fontFamily: "Georgia, serif" }}
+              style={{ fontFamily: "var(--font-quicksand), system-ui, sans-serif" }}
             >
               IZUMI
             </span>
