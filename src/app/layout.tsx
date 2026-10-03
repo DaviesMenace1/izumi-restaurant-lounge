@@ -46,6 +46,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_UG",
   },
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -63,6 +67,7 @@ export default function RootLayout({
           href="https://api.fontshare.com/v2/css?f[]=bonny@400,700&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body className={`${outfit.className} min-h-screen flex flex-col antialiased`}>
         <Header />
