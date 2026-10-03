@@ -18,7 +18,7 @@ export default function HomePage() {
           <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-5">
             Kololo · Kampala
           </p>
-          <h1 className="font-[family-name:var(--font-cormorant)] text-[clamp(2.8rem,7vw,4.5rem)] font-medium leading-[1.1] tracking-tight mb-6">
+          <h1 className="text-[clamp(2.8rem,7vw,4.5rem)] font-medium leading-[1.1] tracking-tight mb-6">
             The Art of
             <br />
             Pan-Asian Dining
@@ -92,7 +92,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1200px] w-[92%] grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--gold)] mb-3">Our Story</p>
-            <h2 className="font-[family-name:var(--font-cormorant)] text-[clamp(2rem,4vw,2.75rem)] font-medium leading-tight mb-6">
+            <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-medium leading-tight mb-6">
               Izumi — Natural Spring
             </h2>
             <p className="text-[var(--text-muted)] mb-4 text-[1.02rem]">
@@ -105,21 +105,15 @@ export default function HomePage() {
             </p>
             <div className="flex gap-8 pt-6 border-t border-[var(--border)]">
               <div>
-                <span className="block font-[family-name:var(--font-cormorant)] text-2xl text-[var(--gold)]">
-                  8+
-                </span>
+                <span className="block text-2xl text-[var(--gold)]">8+</span>
                 <span className="text-xs text-[var(--text-muted)]">Years</span>
               </div>
               <div>
-                <span className="block font-[family-name:var(--font-cormorant)] text-2xl text-[var(--gold)]">
-                  4.3
-                </span>
+                <span className="block text-2xl text-[var(--gold)]">4.3</span>
                 <span className="text-xs text-[var(--text-muted)]">TripAdvisor</span>
               </div>
               <div>
-                <span className="block font-[family-name:var(--font-cormorant)] text-2xl text-[var(--gold)]">
-                  2019
-                </span>
+                <span className="block text-2xl text-[var(--gold)]">2019</span>
                 <span className="text-xs text-[var(--text-muted)]">Restaurant Week Winner</span>
               </div>
             </div>
@@ -144,9 +138,7 @@ export default function HomePage() {
               <span className="block text-[0.65rem] tracking-[0.1em] uppercase mb-1">
                 Kampala Restaurant Week
               </span>
-              <strong className="font-[family-name:var(--font-cormorant)] text-base font-semibold">
-                Innovative Dish Winner 2019
-              </strong>
+              <strong className="text-base font-semibold">Innovative Dish Winner 2019</strong>
             </div>
           </div>
         </div>
@@ -157,7 +149,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1200px] w-[92%]">
           <div className="text-center mb-14">
             <p className="text-xs tracking-[0.2em] uppercase text-[var(--gold)] mb-3">The Menu</p>
-            <h2 className="font-[family-name:var(--font-cormorant)] text-[clamp(2rem,4vw,2.75rem)] font-medium">
+            <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-medium">
               Fresh. Balanced. Shareable.
             </h2>
             <p className="text-[var(--text-muted)] max-w-lg mx-auto mt-4">
@@ -176,9 +168,7 @@ export default function HomePage() {
                 className="bg-[var(--bg-card)] border border-[var(--border)] p-6 hover:border-[rgba(201,168,76,0.4)] transition-colors"
               >
                 <div className="text-2xl mb-3">{cat.icon}</div>
-                <h3 className="font-[family-name:var(--font-cormorant)] text-xl font-medium mb-2">
-                  {cat.title}
-                </h3>
+                <h3 className="text-xl font-medium mb-2">{cat.title}</h3>
                 <p className="text-sm text-[var(--text-muted)]">{cat.desc}</p>
               </div>
             ))}
@@ -206,7 +196,7 @@ export default function HomePage() {
       <section className="py-24">
         <div className="mx-auto max-w-[1200px] w-[92%] text-center">
           <p className="text-xs tracking-[0.2em] uppercase text-[var(--gold)] mb-3">Visit Us</p>
-          <h2 className="font-[family-name:var(--font-cormorant)] text-[clamp(2rem,4vw,2.75rem)] font-medium mb-4">
+          <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-medium mb-4">
             Ready for an evening at Izumi?
           </h2>
           <p className="text-[var(--text-muted)] max-w-md mx-auto mb-8">
