@@ -1,205 +1,309 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const MENU_COVER =
-  "https://contactless-9b492.web.app/restaurants/izumi/images/IZUMI%20-%20FOOD%20MENU%20ONLINE/IZUMI%20-%20FOOD%20MENU%20ONLINE-page-001.jpg";
+const IMG = {
+  sushi: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=900&q=80",
+  salmon: "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=900&q=80",
+  sashimi: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=900&q=80",
+  tempura: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=900&q=80",
+  curry: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=900&q=80",
+  noodles: "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=900&q=80",
+  katsu: "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=900&q=80",
+  seafood: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=900&q=80",
+  salad: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=80",
+  interior: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80",
+  cover:
+    "https://contactless-9b492.web.app/restaurants/izumi/images/IZUMI%20-%20FOOD%20MENU%20ONLINE/IZUMI%20-%20FOOD%20MENU%20ONLINE-page-001.jpg",
+};
 
 export default function HomePage() {
   return (
     <>
-      <section className="relative min-h-screen flex items-center pt-[72px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c0c] to-[#111]" />
-        <div
-          className="absolute inset-0 opacity-[0.18] mix-blend-luminosity bg-cover bg-center"
-          style={{ backgroundImage: `url(${MENU_COVER})` }}
-        />
-        <div className="relative z-10 mx-auto max-w-[1200px] w-[92%] py-16 md:py-24">
-          <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-5">
+      {/* ── ASYMMETRIC HERO (not centered full-bleed) ── */}
+      <section className="pt-[72px] min-h-[90vh] grid lg:grid-cols-12 gap-0">
+        {/* Left — copy panel */}
+        <div className="lg:col-span-5 flex flex-col justify-center px-[6%] py-16 lg:py-24 bg-[var(--bg)] relative z-10">
+          <p className="text-xs tracking-[0.3em] uppercase text-[var(--gold)] mb-6">
             Kololo · Kampala
           </p>
-          <h1 className="text-[clamp(2.8rem,7vw,4.5rem)] font-medium leading-[1.1] tracking-tight mb-6">
+          <h1 className="text-[clamp(2.6rem,5.5vw,3.8rem)] font-medium leading-[1.08] tracking-tight mb-6">
             The Art of
             <br />
-            Pan-Asian Dining
+            <span className="text-[var(--gold)]">Pan-Asian</span>
+            <br />
+            Dining
           </h1>
-          <p className="text-[1.05rem] text-[var(--text-muted)] max-w-md font-light mb-10">
-            Contemporary Japanese sushi, Thai classics and live teppanyaki in an elegant lounge setting.
-            The original Pan-Asian destination in Kampala since 2018.
+          <p className="text-[var(--text-muted)] text-[1.05rem] max-w-sm mb-10 leading-relaxed">
+            Japanese precision, Thai warmth, live teppanyaki — Kampala's original
+            Pan-Asian restaurant and lounge since 2018.
           </p>
-          <div className="flex flex-wrap gap-4 mb-14">
+          <div className="flex flex-wrap gap-3 mb-12">
             <Link
               href="/reservations"
-              className="inline-flex items-center justify-center px-7 py-3.5 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors"
+              className="inline-flex px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors rounded-full"
             >
-              Reserve Your Table
+              Reserve a Table
             </Link>
             <Link
               href="/menu"
-              className="inline-flex items-center justify-center px-7 py-3.5 text-xs font-medium tracking-[0.1em] uppercase border border-white/30 hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors"
+              className="inline-flex px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase border border-white/25 hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors rounded-full"
             >
-              Explore Menu
+              View Menu
             </Link>
           </div>
-          <div className="flex flex-wrap gap-10 pt-8 border-t border-[var(--border)]">
+          <div className="flex gap-10 text-sm">
             <div>
-              <span className="block text-[0.7rem] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
+              <span className="block text-[0.65rem] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
                 Open
               </span>
-              <span className="text-[0.95rem]">Tue – Sun · 12:00 – 23:00</span>
+              Tue – Sun · 12–23:00
             </div>
             <div>
-              <span className="block text-[0.7rem] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
-                Location
+              <span className="block text-[0.65rem] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
+                Address
               </span>
-              <span className="text-[0.95rem]">38 Upper Kololo Terrace</span>
+              38 Upper Kololo Terrace
             </div>
+          </div>
+        </div>
+
+        {/* Right — image mosaic */}
+        <div className="lg:col-span-7 grid grid-cols-2 grid-rows-2 min-h-[50vh] lg:min-h-0">
+          <div className="relative col-span-2 row-span-1 overflow-hidden">
+            <Image
+              src={IMG.sushi}
+              alt="Izumi sushi platter"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 1024px) 100vw, 58vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg)] via-transparent to-transparent opacity-40 lg:opacity-60" />
+          </div>
+          <div className="relative overflow-hidden">
+            <Image
+              src={IMG.salmon}
+              alt="Salmon roll"
+              fill
+              className="object-cover"
+              sizes="30vw"
+            />
+          </div>
+          <div className="relative overflow-hidden">
+            <Image
+              src={IMG.sashimi}
+              alt="Fresh sashimi"
+              fill
+              className="object-cover"
+              sizes="30vw"
+            />
           </div>
         </div>
       </section>
 
-      <section className="py-10 border-b border-[var(--border)] bg-[var(--bg-elevated)]">
-        <div className="mx-auto max-w-[1200px] w-[92%]">
-          <p className="text-center text-[0.7rem] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-6">
-            Trusted by diners and partners
+      {/* ── IMAGE STRIP ── */}
+      <section className="grid grid-cols-2 md:grid-cols-4 h-[28vh] md:h-[36vh]">
+        {[
+          { src: IMG.tempura, label: "Tempura" },
+          { src: IMG.katsu, label: "Katsu" },
+          { src: IMG.curry, label: "Curries" },
+          { src: IMG.noodles, label: "Noodles" },
+        ].map((item) => (
+          <div key={item.label} className="relative overflow-hidden group">
+            <Image
+              src={item.src}
+              alt={item.label}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+              sizes="25vw"
+            />
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
+            <span className="absolute bottom-4 left-4 text-xs tracking-[0.15em] uppercase text-white/90">
+              {item.label}
+            </span>
+          </div>
+        ))}
+      </section>
+
+      {/* ── TRUST ── */}
+      <section className="py-8 border-b border-[var(--border)] bg-[var(--bg-elevated)]">
+        <div className="mx-auto max-w-[1200px] w-[92%] flex flex-wrap justify-center items-center gap-8 md:gap-14">
+          <a
+            href="https://www.tripadvisor.com/Restaurant_Review-g293841-d14032948-Reviews-Izumi_Restaurant_Lounge-Kampala_Central_Region.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 opacity-85 hover:opacity-100 transition-opacity"
+          >
+            <Image
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Tripadvisor_2025_Logo.svg/320px-Tripadvisor_2025_Logo.svg.png"
+              alt="TripAdvisor"
+              width={110}
+              height={20}
+              className="h-5 w-auto"
+            />
+            <span className="text-[0.75rem] text-[var(--text-muted)]">4.3 ★ · 1,400+ reviews</span>
+          </a>
+          <span className="text-sm text-[var(--text-muted)] opacity-70">Booking.com</span>
+          <span className="text-sm text-[var(--text-muted)] opacity-70">Uber Eats</span>
+          <span className="text-sm text-[var(--text-muted)] opacity-70">Glovo</span>
+        </div>
+      </section>
+
+      {/* ── STORY with image background ── */}
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={IMG.interior}
+            alt="Restaurant atmosphere"
+            fill
+            className="object-cover opacity-25"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-[var(--bg)]/90 to-[var(--bg)]" />
+        </div>
+        <div className="relative z-10 mx-auto max-w-[900px] w-[92%] text-center">
+          <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-4">Our Story</p>
+          <h2 className="text-[clamp(2rem,4vw,3rem)] font-medium mb-6">Izumi — Natural Spring</h2>
+          <p className="text-[var(--text-muted)] text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+            Named after the Japanese word for natural spring, Izumi brings authentic Pan-Asian
+            cuisine to Uganda. Fresh sushi daily, live teppanyaki, Thai curries and an elegant
+            lounge — since 2018.
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
-            <a
-              href="https://www.tripadvisor.com/Restaurant_Review-g293841-d14032948-Reviews-Izumi_Restaurant_Lounge-Kampala_Central_Region.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-1 opacity-85 hover:opacity-100 transition-opacity"
-            >
-              <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Tripadvisor_2025_Logo.svg/320px-Tripadvisor_2025_Logo.svg.png"
-                alt="TripAdvisor"
-                width={120}
-                height={22}
-                className="h-[22px] w-auto"
-              />
-              <span className="text-[0.7rem] text-[var(--text-muted)]">4.3 ★ · 1,400+ reviews</span>
-            </a>
-            <span className="text-sm tracking-wide text-[var(--text-muted)] opacity-80">Booking.com</span>
-            <span className="text-sm tracking-wide text-[var(--text-muted)] opacity-80">Uber Eats</span>
-            <span className="text-sm tracking-wide text-[var(--text-muted)] opacity-80">Delivery</span>
+          <div className="flex justify-center gap-12 mb-10">
+            <div>
+              <span className="block text-3xl text-[var(--gold)] font-medium">8+</span>
+              <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Years</span>
+            </div>
+            <div>
+              <span className="block text-3xl text-[var(--gold)] font-medium">4.3</span>
+              <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">TripAdvisor</span>
+            </div>
+            <div>
+              <span className="block text-3xl text-[var(--gold)] font-medium">2019</span>
+              <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Award</span>
+            </div>
           </div>
+          <Link
+            href="/about"
+            className="inline-flex text-xs tracking-[0.12em] uppercase text-[var(--gold)] hover:underline"
+          >
+            Read the full story →
+          </Link>
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="mx-auto max-w-[1200px] w-[92%] grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <div>
-            <p className="text-xs tracking-[0.2em] uppercase text-[var(--gold)] mb-3">Our Story</p>
-            <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-medium leading-tight mb-6">
-              Izumi — Natural Spring
-            </h2>
-            <p className="text-[var(--text-muted)] mb-4 text-[1.02rem]">
-              Named after the Japanese word for natural spring, Izumi symbolizes freshness and purity.
-              Opened in 2018, we brought authentic Pan-Asian cuisine to Uganda — the first of its kind.
-            </p>
-            <p className="text-[var(--text-muted)] mb-8 text-[1.02rem]">
-              Japanese precision meets Thai warmth: sushi and sashimi prepared daily, live teppanyaki,
-              fragrant curries and inventive fusion rolls.
-            </p>
-            <div className="flex gap-8 pt-6 border-t border-[var(--border)]">
-              <div>
-                <span className="block text-2xl text-[var(--gold)]">8+</span>
-                <span className="text-xs text-[var(--text-muted)]">Years</span>
-              </div>
-              <div>
-                <span className="block text-2xl text-[var(--gold)]">4.3</span>
-                <span className="text-xs text-[var(--text-muted)]">TripAdvisor</span>
-              </div>
-              <div>
-                <span className="block text-2xl text-[var(--gold)]">2019</span>
-                <span className="text-xs text-[var(--text-muted)]">Restaurant Week Winner</span>
-              </div>
-            </div>
-            <Link
-              href="/about"
-              className="inline-block mt-8 text-xs tracking-[0.1em] uppercase text-[var(--gold)] hover:underline"
-            >
-              Read our full story →
-            </Link>
-          </div>
-          <div className="relative">
-            <div className="border border-[var(--border)] p-3 bg-[var(--bg-card)]">
-              <Image
-                src={MENU_COVER}
-                alt="Izumi atmosphere"
-                width={600}
-                height={800}
-                className="w-full aspect-[3/4] object-cover object-top"
-              />
-            </div>
-            <div className="absolute -bottom-4 -right-2 md:right-0 bg-[var(--gold)] text-black p-4 max-w-[180px]">
-              <span className="block text-[0.65rem] tracking-[0.1em] uppercase mb-1">
-                Kampala Restaurant Week
-              </span>
-              <strong className="text-base font-semibold">Innovative Dish Winner 2019</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-[var(--bg-elevated)]">
+      {/* ── MENU PREVIEWS with real photos ── */}
+      <section className="py-20 bg-[var(--bg-elevated)]">
         <div className="mx-auto max-w-[1200px] w-[92%]">
-          <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.2em] uppercase text-[var(--gold)] mb-3">The Menu</p>
-            <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-medium">
-              Fresh. Balanced. Shareable.
-            </h2>
-            <p className="text-[var(--text-muted)] max-w-lg mx-auto mt-4">
-              From classic nigiri and inventive rolls to Thai curries, teppanyaki and house desserts.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
-            {[
-              { icon: "🍣", title: "Sushi and Sashimi", desc: "Nigiri, maki, specialty rolls, sashimi platters." },
-              { icon: "🔥", title: "Teppanyaki and Mains", desc: "Live griddle, teriyaki, katsu, Thai curries." },
-              { icon: "🥢", title: "Dim Sum and Starters", desc: "Gyoza, spring rolls, prawn toast, salads." },
-              { icon: "🍸", title: "Drinks and Desserts", desc: "Cocktails, sake, house-baked desserts." },
-            ].map((cat) => (
-              <div
-                key={cat.title}
-                className="bg-[var(--bg-card)] border border-[var(--border)] p-6 hover:border-[rgba(201,168,76,0.4)] transition-colors"
-              >
-                <div className="text-2xl mb-3">{cat.icon}</div>
-                <h3 className="text-xl font-medium mb-2">{cat.title}</h3>
-                <p className="text-sm text-[var(--text-muted)]">{cat.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center gap-4 flex-wrap">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+            <div>
+              <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-3">The Menu</p>
+              <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-medium">Signature dishes</h2>
+            </div>
             <Link
               href="/menu"
-              className="inline-flex px-7 py-3.5 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors"
+              className="text-xs tracking-[0.12em] uppercase text-[var(--gold)] hover:underline"
             >
-              View Full Menu
+              Full menu →
             </Link>
-            <a
-              href="https://contactless-9b492.web.app/restaurants/izumi/foodmenu.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex px-7 py-3.5 text-xs font-medium tracking-[0.1em] uppercase border border-white/30 hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors"
-            >
-              Digital Food Menu
-            </a>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                href: "/menu/dish/chicken-katsu-roll",
+                img: IMG.sushi,
+                name: "Chicken Katsu Roll",
+                price: "UGX 49,000",
+                tag: "Popular",
+              },
+              {
+                href: "/menu/dish/burnt-salmon-spicy",
+                img: IMG.salmon,
+                name: "Burnt Salmon Spicy",
+                price: "UGX 56,000",
+                tag: "Spicy",
+              },
+              {
+                href: "/menu/dish/fresh-salmon-sashimi",
+                img: IMG.sashimi,
+                name: "Fresh Salmon Sashimi",
+                price: "UGX 96,000",
+                tag: "Popular",
+              },
+              {
+                href: "/menu/dish/katsu",
+                img: IMG.katsu,
+                name: "Chicken / Pork Katsu",
+                price: "UGX 51,000",
+                tag: null,
+              },
+              {
+                href: "/menu/dish/thai-green-curry",
+                img: IMG.curry,
+                name: "Thai Green Curry",
+                price: "UGX 43,000",
+                tag: null,
+              },
+              {
+                href: "/menu/dish/seafood-platter",
+                img: IMG.seafood,
+                name: "Seafood Platter",
+                price: "UGX 146,000",
+                tag: "Share",
+              },
+            ].map((d) => (
+              <Link
+                key={d.href}
+                href={d.href}
+                className="group relative rounded-2xl overflow-hidden border border-[var(--border)] aspect-[4/5] bg-[var(--bg-card)]"
+              >
+                <Image
+                  src={d.img}
+                  alt={d.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                {d.tag && (
+                  <span className="absolute top-4 left-4 bg-[var(--gold)] text-black text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded">
+                    {d.tag}
+                  </span>
+                )}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h3 className="text-lg text-white font-medium mb-1">{d.name}</h3>
+                  <p className="text-[var(--gold)] text-sm">{d.price}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="mx-auto max-w-[1200px] w-[92%] text-center">
-          <p className="text-xs tracking-[0.2em] uppercase text-[var(--gold)] mb-3">Visit Us</p>
-          <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-medium mb-4">
-            Ready for an evening at Izumi?
+      {/* ── FULL-BLEED CTA with image bg ── */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={IMG.cover}
+            alt="Izumi"
+            fill
+            className="object-cover object-top opacity-30"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[var(--bg)]/70" />
+        </div>
+        <div className="relative z-10 mx-auto max-w-[700px] w-[92%] text-center">
+          <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-4">Visit Us</p>
+          <h2 className="text-[clamp(2rem,4vw,3rem)] font-medium mb-5">
+            An evening at Izumi
           </h2>
-          <p className="text-[var(--text-muted)] max-w-md mx-auto mb-8">
+          <p className="text-[var(--text-muted)] mb-10 max-w-md mx-auto">
             Reservations recommended for weekends and Friday live music. Walk-ins always welcome.
           </p>
           <Link
             href="/reservations"
-            className="inline-flex px-8 py-4 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors"
+            className="inline-flex px-10 py-4 text-xs font-medium tracking-[0.12em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors rounded-full"
           >
             Book a Table
           </Link>
