@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Cormorant_Garamond, Outfit } from "next/font/google";
+import { Staatliches, Josefin_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-/* Display — classic fine-dining serif */
-const playfair = Playfair_Display({
+/* Bauhaus-inspired geometric display (Herbert Bayer / Staatliches) */
+const staatliches = Staatliches({
+  weight: "400",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-playfair",
+  variable: "--font-bauhaus",
   display: "swap",
 });
 
-/* Secondary display — elegant for logo & small headings */
-const cormorant = Cormorant_Garamond({
+/* Geometric sans companion */
+const josefin = Josefin_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-josefin",
   display: "swap",
 });
 
-/* Body — refined geometric sans */
+/* Clean body */
 const outfit = Outfit({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -62,8 +62,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${cormorant.variable} ${outfit.variable}`}
+      className={`${staatliches.variable} ${josefin.variable} ${outfit.variable}`}
     >
+      <head>
+        {/* Bonny — decorative display serif from Fontshare / ITF */}
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=bonny@400,700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-screen flex flex-col antialiased font-[family-name:var(--font-outfit)]">
         <Header />
         <main className="flex-1">{children}</main>
