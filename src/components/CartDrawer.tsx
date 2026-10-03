@@ -12,18 +12,18 @@ export default function CartDrawer() {
   return (
     <>
       <div
-        className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
+        className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm"
         onClick={() => setOpen(false)}
         aria-hidden
       />
-      <aside className="fixed top-0 right-0 z-[70] h-full w-full max-w-md bg-[var(--bg)] border-l border-[var(--border)] shadow-2xl flex flex-col">
+      <aside className="fixed top-0 right-0 z-[70] h-full w-full max-w-md bg-white border-l border-[var(--border)] shadow-2xl flex flex-col">
         <div className="flex items-center justify-between px-5 h-[72px] border-b border-[var(--border)]">
           <h2 className="text-sm tracking-[0.15em] uppercase text-[var(--gold)]">
-            Your Order
+            Your Order ({items.reduce((n, i) => n + i.qty, 0)})
           </h2>
           <button
             onClick={() => setOpen(false)}
-            className="text-[var(--text-muted)] hover:text-white text-2xl leading-none px-2"
+            className="text-[var(--text-muted)] hover:text-[var(--text)] text-2xl leading-none px-2"
             aria-label="Close cart"
           >
             ×
@@ -42,7 +42,7 @@ export default function CartDrawer() {
                   key={item.id}
                   className="flex gap-3 border-b border-[var(--border)] pb-4"
                 >
-                  <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-[var(--bg-card)]">
+                  <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-[var(--bg-elevated)]">
                     <Image
                       src={item.image}
                       alt={item.name}
@@ -53,12 +53,12 @@ export default function CartDrawer() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex justify-between gap-2">
-                      <h3 className="text-sm text-[var(--gold-light)] truncate">
+                      <h3 className="text-sm text-[var(--text)] font-medium truncate">
                         {item.name}
                       </h3>
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="text-[var(--text-muted)] hover:text-red-400 text-xs"
+                        className="text-[var(--text-muted)] hover:text-red-600 text-xs"
                       >
                         Remove
                       </button>
@@ -101,14 +101,14 @@ export default function CartDrawer() {
             </div>
             <button
               onClick={() => openWhatsAppOrder(items, subtotal)}
-              className="w-full py-3.5 text-xs font-medium tracking-[0.12em] uppercase bg-[#25D366] text-black hover:bg-[#2ee472] transition-colors rounded-full flex items-center justify-center gap-2"
+              className="w-full py-3.5 text-xs font-medium tracking-[0.12em] uppercase bg-[#25D366] text-white hover:bg-[#20bd5a] transition-colors rounded-full flex items-center justify-center gap-2"
             >
               <WhatsAppIcon />
-              Order on WhatsApp
+              Order on WhatsApp ({items.length} dishes)
             </button>
             <button
               onClick={clear}
-              className="w-full py-2 text-xs tracking-[0.1em] uppercase text-[var(--text-muted)] hover:text-white"
+              className="w-full py-2 text-xs tracking-[0.1em] uppercase text-[var(--text-muted)] hover:text-[var(--text)]"
             >
               Clear cart
             </button>
