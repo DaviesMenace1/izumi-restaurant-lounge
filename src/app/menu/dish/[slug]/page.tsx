@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { dishes, getDishBySlug, formatPrice, getCategory } from "@/data/menu";
+import AddToCartButton from "@/components/AddToCartButton";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -53,6 +54,7 @@ export default async function DishPage({ params }: Props) {
                 fill
                 className="object-cover"
                 priority
+                quality={90}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -94,19 +96,23 @@ export default async function DishPage({ params }: Props) {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/reservations"
-                  className="inline-flex justify-center px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors rounded-full"
-                >
-                  Reserve a Table
-                </Link>
+                <AddToCartButton
+                  id={dish.id}
+                  slug={dish.slug}
+                  name={dish.name}
+                  price={dish.price}
+                  image={dish.image}
+                  label="Add to order"
+                />
                 <a
-                  href="https://glovoapp.com/ug/en/kampala/izumi-restaurant-and-lounge/"
+                  href={`https://wa.me/256756244911?text=${encodeURIComponent(
+                    `Hi Izumi, I'd like to order: ${dish.name} (${formatPrice(dish.price)})`
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex justify-center px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase border border-white/25 hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors rounded-full"
+                  className="inline-flex justify-center items-center gap-2 px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase bg-[#25D366] text-black hover:bg-[#2ee472] transition-colors rounded-full"
                 >
-                  Order on Glovo
+                  WhatsApp
                 </a>
               </div>
             </div>
