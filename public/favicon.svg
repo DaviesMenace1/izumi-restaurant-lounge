@@ -1,6 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="12" fill="#0c0c0c"/>
-  <circle cx="32" cy="32" r="20" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-  <path d="M32 16 C32 16 24 28 24 36 C24 42 27.5 46 32 46 C36.5 46 40 42 40 36 C40 28 32 16 32 16Z" fill="#c9a84c"/>
-  <path d="M32 26 v12 M26 32 h12" stroke="#0c0c0c" stroke-width="1.5" stroke-linecap="round"/>
+  <rect width="64" height="64" rx="12" fill="#0a0a0a"/>
+  <g stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round">
+    <line x1="16" y1="32" x2="16" y2="24"/>
+    <line x1="22" y1="32" x2="22" y2="18"/>
+    <line x1="28" y1="32" x2="28" y2="14"/>
+    <line x1="32" y1="32" x2="32" y2="10"/>
+    <line x1="36" y1="32" x2="36" y2="14"/>
+    <line x1="42" y1="32" x2="42" y2="18"/>
+    <line x1="48" y1="32" x2="48" y2="24"/>
+  </g>
+  <line x1="10" y1="33" x2="54" y2="33" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="32" y="48" text-anchor="middle" font-family="Georgia, serif" font-size="9" font-weight="600" letter-spacing="0.2em" fill="#c9a84c">IZUMI</text>
 </svg>
