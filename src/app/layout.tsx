@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-/* Bauhaus-inspired geometric display (Herbert Bayer / Staatliches) */
 const staatliches = Staatliches({
   weight: "400",
   subsets: ["latin"],
@@ -12,7 +11,6 @@ const staatliches = Staatliches({
   display: "swap",
 });
 
-/* Geometric sans companion */
 const josefin = Josefin_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -20,7 +18,6 @@ const josefin = Josefin_Sans({
   display: "swap",
 });
 
-/* Clean body */
 const outfit = Outfit({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -49,9 +46,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_UG",
   },
-  icons: {
-    icon: "/images/menu-cover.jpg",
-  },
 };
 
 export default function RootLayout({
@@ -65,13 +59,12 @@ export default function RootLayout({
       className={`${staatliches.variable} ${josefin.variable} ${outfit.variable}`}
     >
       <head>
-        {/* Bonny — decorative display serif from Fontshare / ITF */}
         <link
           href="https://api.fontshare.com/v2/css?f[]=bonny@400,700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen flex flex-col antialiased font-[family-name:var(--font-outfit)]">
+      <body className={`${outfit.className} min-h-screen flex flex-col antialiased`}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
