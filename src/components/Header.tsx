@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useCart } from "@/context/CartContext";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -29,25 +30,13 @@ function Logo() {
           <stop offset="100%" stopColor="#a88b3a" />
         </linearGradient>
       </defs>
-      <circle
-        cx="36"
-        cy="40"
-        r="22"
-        stroke="url(#izumiGold)"
-        strokeWidth="1.5"
-        fill="none"
-      />
+      <circle cx="36" cy="40" r="22" stroke="url(#izumiGold)" strokeWidth="1.5" fill="none" />
       <path
         d="M36 22 C36 22 28 34 28 42 C28 48 31.5 52 36 52 C40.5 52 44 48 44 42 C44 34 36 22 36 22Z"
         fill="url(#izumiGold)"
         opacity="0.95"
       />
-      <path
-        d="M36 30 v14 M30 37 h12"
-        stroke="#0c0c0c"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
+      <path d="M36 30 v14 M30 37 h12" stroke="#0c0c0c" strokeWidth="1.2" strokeLinecap="round" />
       <text
         x="70"
         y="38"
@@ -76,7 +65,8 @@ function Logo() {
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { count, setOpen: setCartOpen } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -113,36 +103,55 @@ export default function Header() {
           ))}
         </nav>
 
-        <Link
-          href="/reservations"
-          className="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors rounded-full"
-        >
-          Book a Table
-        </Link>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setCartOpen(true)}
+            className="relative p-2 text-[var(--text)] hover:text-[var(--gold)] transition-colors"
+            aria-label="Open cart"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M6 6h15l-1.5 9h-12z" />
+              <circle cx="9" cy="20" r="1" fill="currentColor" />
+              <circle cx="18" cy="20" r="1" fill="currentColor" />
+              <path d="M6 6L5 3H2" />
+            </svg>
+            {count > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[var(--gold)] text-black text-[0.65rem] font-semibold flex items-center justify-center">
+                {count}
+              </span>
+            )}
+          </button>
 
-        <button
-          className="lg:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          <span className="w-5 h-[1.5px] bg-[var(--text)] block" />
-          <span className="w-5 h-[1.5px] bg-[var(--text)] block" />
-          <span className="w-5 h-[1.5px] bg-[var(--text)] block" />
-        </button>
+          <Link
+            href="/reservations"
+            className="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors rounded-full"
+          >
+            Book a Table
+          </Link>
+
+          <button
+            className="lg:hidden flex flex-col gap-1.5 p-2"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className="w-5 h-[1.5px] bg-[var(--text)] block" />
+            <span className="w-5 h-[1.5px] bg-[var(--text)] block" />
+            <span className="w-5 h-[1.5px] bg-[var(--text)] block" />
+          </button>
+        </div>
       </div>
 
-      {open && (
+      {menuOpen && (
         <div className="lg:hidden absolute top-[72px] left-0 right-0 bg-[var(--bg)] border-b border-[var(--border)] py-6 px-[4%]">
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={() => setMenuOpen(false)}
                 className={`text-sm tracking-[0.08em] uppercase ${
-                  pathname === item.href
-                    ? "text-[var(--gold)]"
-                    : "text-[var(--text-muted)]"
+                  pathname === item.href ? "text-[var(--gold)]" : "text-[var(--text-muted)]"
                 }`}
               >
                 {item.label}
@@ -150,7 +159,7 @@ export default function Header() {
             ))}
             <Link
               href="/reservations"
-              onClick={() => setOpen(false)}
+              onClick={() => setMenuOpen(false)}
               className="mt-2 inline-flex justify-center px-5 py-3 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-black rounded-full"
             >
               Book a Table
