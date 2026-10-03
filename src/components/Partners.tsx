@@ -85,7 +85,7 @@ export default function Partners({
       </div>
       {showRating && (
         <p className="text-center text-xs text-[var(--text-muted)] mt-5">
-          4.3 ★ on TripAdvisor · 1,400+ reviews
+          4.3 on TripAdvisor · 1,400+ reviews
         </p>
       )}
     </div>
