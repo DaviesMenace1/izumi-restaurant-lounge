@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description: "The story of Izumi Restaurant & Lounge — Kampala's first Pan-Asian dining destination.",
 };
 
+const MENU_COVER =
+  "https://contactless-9b492.web.app/restaurants/izumi/images/IZUMI%20-%20FOOD%20MENU%20ONLINE/IZUMI%20-%20FOOD%20MENU%20ONLINE-page-001.jpg";
+
 export default function AboutPage() {
   return (
     <div className="pt-[72px]">
@@ -43,7 +46,7 @@ export default function AboutPage() {
             <div>
               <div className="border border-[var(--border)] p-3 bg-[var(--bg-card)]">
                 <Image
-                  src="/images/menu-cover.jpg"
+                  src={MENU_COVER}
                   alt="Izumi Restaurant atmosphere"
                   width={600}
                   height={750}
