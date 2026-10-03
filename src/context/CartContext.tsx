@@ -62,7 +62,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   }, [items, hydrated]);
 
-  // Auto-dismiss toast
   useEffect(() => {
     if (!toast) return;
     const t = setTimeout(() => setToast(null), 2800);
@@ -81,7 +80,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { ...item, qty }];
     });
-    // Toast instead of opening cart
     setToast({
       id: Date.now(),
       text: `${item.name} added to order`,
@@ -142,17 +140,38 @@ export function formatUGX(n: number) {
   return `UGX ${n.toLocaleString()}`;
 }
 
-/** Build WhatsApp order message and open chat */
+/** Full cart → WhatsApp with every dish listed */
 export function openWhatsAppOrder(
   items: CartItem[],
   subtotal: number,
   phone = "256756244911"
 ) {
-  let msg = `*Izumi Restaurant & Lounge — Order*%0A%0A`;
-  items.forEach((i) => {
-    msg += `• ${i.name} x${i.qty} — ${formatUGX(i.price * i.qty)}%0A`;
+  if (!items.length) return;
+
+  const lines: string[] = [
+    "*Izumi Restaurant & Lounge — Order*",
+    "",
+    "Please prepare the following:",
+    "",
+  ];
+
+  items.forEach((i, idx) => {
+    lines.push(
+      `${idx + 1}. ${i.name} × ${i.qty} — ${formatUGX(i.price * i.qty)}`
+    );
   });
-  msg += `%0A*Total: ${formatUGX(subtotal)}*%0A%0A`;
-  msg += `I'd like to place this order. Please confirm availability and delivery/pickup.`;
-  window.open(`https://wa.me/${phone}?text=${msg}`, "_blank");
+
+  lines.push("");
+  lines.push(`*Total: ${formatUGX(subtotal)}*`);
+  lines.push("");
+  lines.push("Name: ");
+  lines.push("Phone: ");
+  lines.push("Delivery / Pickup: ");
+  lines.push("Address (if delivery): ");
+  lines.push("");
+  lines.push("Please confirm availability. Thank you!");
+
+  const msg = lines.join("\n");
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank", "noopener,noreferrer");
 }
