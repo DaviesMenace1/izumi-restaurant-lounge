@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-/* HD Unsplash sources — high width + quality */
 const IMG = {
   sushi:
     "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1600&q=90&auto=format",
@@ -29,7 +28,7 @@ export default function HomePage() {
   return (
     <>
       <section className="pt-[72px] min-h-[90vh] grid lg:grid-cols-12 gap-0">
-        <div className="lg:col-span-5 flex flex-col justify-center px-[6%] py-16 lg:py-24 bg-[var(--bg)] relative z-10">
+        <div className="lg:col-span-5 flex flex-col justify-center px-[6%] py-16 lg:py-24 relative z-10">
           <p className="text-xs tracking-[0.3em] uppercase text-[var(--gold)] mb-6">
             Kololo · Kampala
           </p>
@@ -47,13 +46,13 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-3 mb-12">
             <Link
               href="/reservations"
-              className="inline-flex px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors rounded-full"
+              className="inline-flex px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase bg-[var(--gold)] text-white hover:bg-[var(--gold-light)] transition-colors rounded-full shadow-sm"
             >
               Reserve a Table
             </Link>
             <Link
               href="/menu"
-              className="inline-flex px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase border border-white/25 hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors rounded-full"
+              className="inline-flex px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase border border-[var(--border)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors rounded-full bg-white/80"
             >
               View Menu
             </Link>
@@ -85,27 +84,12 @@ export default function HomePage() {
               quality={90}
               sizes="(max-width: 1024px) 100vw, 58vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg)] via-transparent to-transparent opacity-40 lg:opacity-50" />
           </div>
           <div className="relative overflow-hidden">
-            <Image
-              src={IMG.salmon}
-              alt="Salmon roll"
-              fill
-              className="object-cover"
-              quality={90}
-              sizes="30vw"
-            />
+            <Image src={IMG.salmon} alt="Salmon roll" fill className="object-cover" quality={90} sizes="30vw" />
           </div>
           <div className="relative overflow-hidden">
-            <Image
-              src={IMG.sashimi}
-              alt="Fresh sashimi"
-              fill
-              className="object-cover"
-              quality={90}
-              sizes="30vw"
-            />
+            <Image src={IMG.sashimi} alt="Fresh sashimi" fill className="object-cover" quality={90} sizes="30vw" />
           </div>
         </div>
       </section>
@@ -134,26 +118,65 @@ export default function HomePage() {
         ))}
       </section>
 
-      <section className="py-8 border-b border-[var(--border)] bg-[var(--bg-elevated)]">
-        <div className="mx-auto max-w-[1200px] w-[92%] flex flex-wrap justify-center items-center gap-8 md:gap-14">
-          <a
-            href="https://www.tripadvisor.com/Restaurant_Review-g293841-d14032948-Reviews-Izumi_Restaurant_Lounge-Kampala_Central_Region.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 opacity-85 hover:opacity-100 transition-opacity"
-          >
-            <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Tripadvisor_2025_Logo.svg/320px-Tripadvisor_2025_Logo.svg.png"
-              alt="TripAdvisor"
-              width={110}
-              height={20}
-              className="h-5 w-auto"
-            />
-            <span className="text-[0.75rem] text-[var(--text-muted)]">4.3 ★ · 1,400+ reviews</span>
-          </a>
-          <span className="text-sm text-[var(--text-muted)] opacity-70">Booking.com</span>
-          <span className="text-sm text-[var(--text-muted)] opacity-70">Uber Eats</span>
-          <span className="text-sm text-[var(--text-muted)] opacity-70">Glovo</span>
+      {/* Trustees with real logos */}
+      <section className="py-10 border-y border-[var(--border)] bg-white/70">
+        <div className="mx-auto max-w-[1200px] w-[92%]">
+          <p className="text-center text-[0.7rem] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-6">
+            Trusted partners
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
+            <a
+              href="https://www.tripadvisor.com/Restaurant_Review-g293841-d14032948-Reviews-Izumi_Restaurant_Lounge-Kampala_Central_Region.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-1 opacity-90 hover:opacity-100"
+            >
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Tripadvisor_2025_Logo.svg/320px-Tripadvisor_2025_Logo.svg.png"
+                alt="TripAdvisor"
+                width={120}
+                height={22}
+                className="h-[22px] w-auto"
+                unoptimized
+              />
+              <span className="text-[0.7rem] text-[var(--text-muted)]">4.3 ★ · 1,400+ reviews</span>
+            </a>
+            <a href="https://www.booking.com" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100">
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Booking.com_logo.svg/200px-Booking.com_logo.svg.png"
+                alt="Booking.com"
+                width={110}
+                height={20}
+                className="h-5 w-auto"
+                unoptimized
+              />
+            </a>
+            <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100">
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Uber_Eats_2020_logo.svg/200px-Uber_Eats_2020_logo.svg.png"
+                alt="Uber Eats"
+                width={90}
+                height={24}
+                className="h-6 w-auto"
+                unoptimized
+              />
+            </a>
+            <a
+              href="https://glovoapp.com/ug/en/kampala/izumi-restaurant-and-lounge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-90 hover:opacity-100"
+            >
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Glovo_logo.svg/200px-Glovo_logo.svg.png"
+                alt="Glovo"
+                width={70}
+                height={28}
+                className="h-7 w-auto"
+                unoptimized
+              />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -164,10 +187,10 @@ export default function HomePage() {
             alt="Restaurant atmosphere"
             fill
             quality={90}
-            className="object-cover opacity-30"
+            className="object-cover opacity-20"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-[var(--bg)]/85 to-[var(--bg)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-[var(--bg)]/90 to-[var(--bg)]" />
         </div>
         <div className="relative z-10 mx-auto max-w-[900px] w-[92%] text-center">
           <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-4">Our Story</p>
@@ -191,10 +214,7 @@ export default function HomePage() {
               <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Award</span>
             </div>
           </div>
-          <Link
-            href="/about"
-            className="inline-flex text-xs tracking-[0.12em] uppercase text-[var(--gold)] hover:underline"
-          >
+          <Link href="/about" className="inline-flex text-xs tracking-[0.12em] uppercase text-[var(--gold)] hover:underline">
             Read the full story →
           </Link>
         </div>
@@ -207,63 +227,24 @@ export default function HomePage() {
               <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-3">The Menu</p>
               <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-medium">Signature dishes</h2>
             </div>
-            <Link
-              href="/menu"
-              className="text-xs tracking-[0.12em] uppercase text-[var(--gold)] hover:underline"
-            >
+            <Link href="/menu" className="text-xs tracking-[0.12em] uppercase text-[var(--gold)] hover:underline">
               Full menu →
             </Link>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              {
-                href: "/menu/dish/chicken-katsu-roll",
-                img: IMG.sushi,
-                name: "Chicken Katsu Roll",
-                price: "UGX 49,000",
-                tag: "Popular",
-              },
-              {
-                href: "/menu/dish/burnt-salmon-spicy",
-                img: IMG.salmon,
-                name: "Burnt Salmon Spicy",
-                price: "UGX 56,000",
-                tag: "Spicy",
-              },
-              {
-                href: "/menu/dish/fresh-salmon-sashimi",
-                img: IMG.sashimi,
-                name: "Fresh Salmon Sashimi",
-                price: "UGX 96,000",
-                tag: "Popular",
-              },
-              {
-                href: "/menu/dish/katsu",
-                img: IMG.katsu,
-                name: "Chicken / Pork Katsu",
-                price: "UGX 51,000",
-                tag: null,
-              },
-              {
-                href: "/menu/dish/thai-green-curry",
-                img: IMG.curry,
-                name: "Thai Green Curry",
-                price: "UGX 43,000",
-                tag: null,
-              },
-              {
-                href: "/menu/dish/seafood-platter",
-                img: IMG.seafood,
-                name: "Seafood Platter",
-                price: "UGX 146,000",
-                tag: "Share",
-              },
+              { href: "/menu/dish/chicken-katsu-roll", img: IMG.sushi, name: "Chicken Katsu Roll", price: "UGX 49,000", tag: "Popular" },
+              { href: "/menu/dish/burnt-salmon-spicy", img: IMG.salmon, name: "Burnt Salmon Spicy", price: "UGX 56,000", tag: "Spicy" },
+              { href: "/menu/dish/fresh-salmon-sashimi", img: IMG.sashimi, name: "Fresh Salmon Sashimi", price: "UGX 96,000", tag: "Popular" },
+              { href: "/menu/dish/katsu", img: IMG.katsu, name: "Chicken / Pork Katsu", price: "UGX 51,000", tag: null },
+              { href: "/menu/dish/thai-green-curry", img: IMG.curry, name: "Thai Green Curry", price: "UGX 43,000", tag: null },
+              { href: "/menu/dish/seafood-platter", img: IMG.seafood, name: "Seafood Platter", price: "UGX 146,000", tag: "Share" },
             ].map((d) => (
               <Link
                 key={d.href}
                 href={d.href}
-                className="group relative rounded-2xl overflow-hidden border border-[var(--border)] aspect-[4/5] bg-[var(--bg-card)]"
+                className="group relative rounded-2xl overflow-hidden border border-[var(--border)] aspect-[4/5] bg-white shadow-md"
               >
                 <Image
                   src={d.img}
@@ -273,15 +254,15 @@ export default function HomePage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
                 {d.tag && (
-                  <span className="absolute top-4 left-4 bg-[var(--gold)] text-black text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded">
+                  <span className="absolute top-4 left-4 bg-[var(--gold)] text-white text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded">
                     {d.tag}
                   </span>
                 )}
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <h3 className="text-lg text-white font-medium mb-1">{d.name}</h3>
-                  <p className="text-[var(--gold)] text-sm">{d.price}</p>
+                  <p className="text-[#e0c878] text-sm">{d.price}</p>
                 </div>
               </Link>
             ))}
@@ -291,15 +272,8 @@ export default function HomePage() {
 
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={IMG.cover}
-            alt="Izumi"
-            fill
-            quality={85}
-            className="object-cover object-top opacity-30"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-[var(--bg)]/70" />
+          <Image src={IMG.cover} alt="Izumi" fill quality={85} className="object-cover object-top opacity-25" sizes="100vw" />
+          <div className="absolute inset-0 bg-[var(--bg)]/80" />
         </div>
         <div className="relative z-10 mx-auto max-w-[700px] w-[92%] text-center">
           <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-4">Visit Us</p>
@@ -309,7 +283,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/reservations"
-            className="inline-flex px-10 py-4 text-xs font-medium tracking-[0.12em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors rounded-full"
+            className="inline-flex px-10 py-4 text-xs font-medium tracking-[0.12em] uppercase bg-[var(--gold)] text-white hover:bg-[var(--gold-light)] transition-colors rounded-full shadow"
           >
             Book a Table
           </Link>
