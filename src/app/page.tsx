@@ -7,7 +7,6 @@ const MENU_COVER =
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
       <section className="relative min-h-screen flex items-center pt-[72px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c0c] to-[#111]" />
         <div
@@ -24,8 +23,8 @@ export default function HomePage() {
             Pan-Asian Dining
           </h1>
           <p className="text-[1.05rem] text-[var(--text-muted)] max-w-md font-light mb-10">
-            Contemporary Japanese sushi, Thai classics & live teppanyaki in an elegant lounge setting.
-            Kampala's original Pan-Asian destination since 2018.
+            Contemporary Japanese sushi, Thai classics and live teppanyaki in an elegant lounge setting.
+            The original Pan-Asian destination in Kampala since 2018.
           </p>
           <div className="flex flex-wrap gap-4 mb-14">
             <Link
@@ -58,11 +57,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Partners / Trust */}
       <section className="py-10 border-b border-[var(--border)] bg-[var(--bg-elevated)]">
         <div className="mx-auto max-w-[1200px] w-[92%]">
           <p className="text-center text-[0.7rem] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-6">
-            Trusted by diners & partners
+            Trusted by diners and partners
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
             <a
@@ -87,7 +85,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About teaser */}
       <section className="py-24">
         <div className="mx-auto max-w-[1200px] w-[92%] grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
@@ -96,11 +93,11 @@ export default function HomePage() {
               Izumi — Natural Spring
             </h2>
             <p className="text-[var(--text-muted)] mb-4 text-[1.02rem]">
-              Named after the Japanese word for “natural spring,” Izumi symbolizes freshness and purity.
+              Named after the Japanese word for natural spring, Izumi symbolizes freshness and purity.
               Opened in 2018, we brought authentic Pan-Asian cuisine to Uganda — the first of its kind.
             </p>
             <p className="text-[var(--text-muted)] mb-8 text-[1.02rem]">
-              Japanese precision meets Thai warmth: sushi & sashimi prepared daily, live teppanyaki,
+              Japanese precision meets Thai warmth: sushi and sashimi prepared daily, live teppanyaki,
               fragrant curries and inventive fusion rolls.
             </p>
             <div className="flex gap-8 pt-6 border-t border-[var(--border)]">
@@ -144,7 +141,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Menu categories teaser */}
       <section className="py-24 bg-[var(--bg-elevated)]">
         <div className="mx-auto max-w-[1200px] w-[92%]">
           <div className="text-center mb-14">
@@ -158,10 +154,10 @@ export default function HomePage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
             {[
-              { icon: "🍣", title: "Sushi & Sashimi", desc: "Nigiri, maki, specialty rolls, sashimi platters." },
-              { icon: "🔥", title: "Teppanyaki & Mains", desc: "Live griddle, teriyaki, katsu, Thai curries." },
-              { icon: "🥢", title: "Dim Sum & Starters", desc: "Gyoza, spring rolls, prawn toast, salads." },
-              { icon: "🍸", title: "Drinks & Desserts", desc: "Cocktails, sake, house-baked desserts." },
+              { icon: "🍣", title: "Sushi and Sashimi", desc: "Nigiri, maki, specialty rolls, sashimi platters." },
+              { icon: "🔥", title: "Teppanyaki and Mains", desc: "Live griddle, teriyaki, katsu, Thai curries." },
+              { icon: "🥢", title: "Dim Sum and Starters", desc: "Gyoza, spring rolls, prawn toast, salads." },
+              { icon: "🍸", title: "Drinks and Desserts", desc: "Cocktails, sake, house-baked desserts." },
             ].map((cat) => (
               <div
                 key={cat.title}
@@ -192,7 +188,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-24">
         <div className="mx-auto max-w-[1200px] w-[92%] text-center">
           <p className="text-xs tracking-[0.2em] uppercase text-[var(--gold)] mb-3">Visit Us</p>
