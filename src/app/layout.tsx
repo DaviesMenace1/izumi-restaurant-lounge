@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Staatliches, Josefin_Sans, Outfit } from "next/font/google";
+import { Staatliches, Josefin_Sans, Outfit, Quicksand } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -25,6 +25,13 @@ const outfit = Outfit({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   variable: "--font-outfit",
+  display: "swap",
+});
+
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-quicksand",
   display: "swap",
 });
 
@@ -61,13 +68,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${staatliches.variable} ${josefin.variable} ${outfit.variable}`}
+      className={`${staatliches.variable} ${josefin.variable} ${outfit.variable} ${quicksand.variable}`}
     >
       <head>
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=bonny@400,700&display=swap"
-          rel="stylesheet"
-        />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body className={`${outfit.className} min-h-screen flex flex-col antialiased`}>
