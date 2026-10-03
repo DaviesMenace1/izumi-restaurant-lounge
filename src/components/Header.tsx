@@ -34,7 +34,10 @@ export default function Header() {
     >
       <div className="mx-auto max-w-[1200px] w-[92%] h-full flex items-center justify-between">
         <Link href="/" className="flex flex-col leading-tight">
-          <span className="font-[family-name:var(--font-cormorant)] text-xl tracking-[0.12em] text-[var(--gold)] font-semibold">
+          <span
+            className="text-xl tracking-[0.12em] text-[var(--gold)] font-semibold"
+            style={{ fontFamily: "var(--font-bauhaus), var(--font-josefin), system-ui, sans-serif" }}
+          >
             IZUMI
           </span>
           <span className="text-[0.65rem] tracking-[0.18em] uppercase text-[var(--text-muted)]">
