@@ -22,7 +22,6 @@
   --color-gold-light: var(--gold-light);
   --color-border: var(--border);
   --font-display: var(--font-bonny);
-  --font-bauhaus: var(--font-bauhaus);
   --font-body: var(--font-outfit);
 }
 
@@ -38,24 +37,14 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Bonny — elegant decorative serif for main titles */
 h1 {
   font-family: var(--font-bonny), Georgia, "Times New Roman", serif;
   letter-spacing: -0.02em;
   font-weight: 400;
 }
 
-/* Bauhaus / Staatliches — geometric for section labels & logo accents */
 h2,
-h3,
-.font-bauhaus {
-  font-family: var(--font-bauhaus), "Josefin Sans", system-ui, sans-serif;
+h3 {
+  font-family: var(--font-bauhaus), var(--font-josefin), system-ui, sans-serif;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-/* Keep cormorant-style utility working as Bonny fallback for existing components */
-.font-\[family-name\:var\(--font-cormorant\)\],
-.font-\[family-name\:var\(--font-playfair\)\] {
-  font-family: var(--font-bonny), Georgia, serif !important;
 }
