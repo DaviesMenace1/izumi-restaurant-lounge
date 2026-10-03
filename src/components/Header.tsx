@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useCart } from "@/context/CartContext";
@@ -15,7 +14,6 @@ const navItems = [
   { href: "/contact", label: "Contact" },
 ];
 
-/** Official Izumi mark — gold spires + wordmark (matches brand circle logo) */
 function Logo() {
   return (
     <span className="flex items-center gap-2.5">
@@ -35,15 +33,7 @@ function Logo() {
           <line x1="42" y1="30" x2="42" y2="18" />
           <line x1="48" y1="30" x2="48" y2="24" />
         </g>
-        <line
-          x1="10"
-          y1="31"
-          x2="54"
-          y2="31"
-          stroke="#c9a84c"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-        />
+        <line x1="10" y1="31" x2="54" y2="31" stroke="#c9a84c" strokeWidth="1.2" strokeLinecap="round" />
         <text
           x="32"
           y="46"
@@ -88,8 +78,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300 ${
         scrolled
-          ? "bg-black/95 border-b border-[var(--border)] backdrop-blur-md"
-          : "bg-black/80 backdrop-blur-sm"
+          ? "bg-[#f7f3eb]/95 border-b border-[var(--border)] backdrop-blur-md shadow-sm"
+          : "bg-[#f7f3eb]/90 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto max-w-[1200px] w-[92%] h-full flex items-center justify-between">
@@ -127,7 +117,7 @@ export default function Header() {
               <path d="M6 6L5 3H2" />
             </svg>
             {count > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[var(--gold)] text-black text-[0.65rem] font-semibold flex items-center justify-center">
+              <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[var(--gold)] text-white text-[0.65rem] font-semibold flex items-center justify-center">
                 {count}
               </span>
             )}
@@ -135,7 +125,7 @@ export default function Header() {
 
           <Link
             href="/reservations"
-            className="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors rounded-full"
+            className="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-white hover:bg-[var(--gold-light)] transition-colors rounded-full"
           >
             Book a Table
           </Link>
@@ -153,7 +143,7 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="lg:hidden absolute top-[72px] left-0 right-0 bg-[var(--bg)] border-b border-[var(--border)] py-6 px-[4%]">
+        <div className="lg:hidden absolute top-[72px] left-0 right-0 bg-white border-b border-[var(--border)] py-6 px-[4%] shadow-lg">
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
               <Link
@@ -170,7 +160,7 @@ export default function Header() {
             <Link
               href="/reservations"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 inline-flex justify-center px-5 py-3 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-black rounded-full"
+              className="mt-2 inline-flex justify-center px-5 py-3 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-white rounded-full"
             >
               Book a Table
             </Link>
