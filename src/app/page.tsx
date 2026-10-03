@@ -1,17 +1,26 @@
 import Link from "next/link";
 import Image from "next/image";
 
+/* HD Unsplash sources — high width + quality */
 const IMG = {
-  sushi: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=900&q=80",
-  salmon: "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=900&q=80",
-  sashimi: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=900&q=80",
-  tempura: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=900&q=80",
-  curry: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=900&q=80",
-  noodles: "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=900&q=80",
-  katsu: "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=900&q=80",
-  seafood: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=900&q=80",
-  salad: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=80",
-  interior: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80",
+  sushi:
+    "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1600&q=90&auto=format",
+  salmon:
+    "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=1200&q=90&auto=format",
+  sashimi:
+    "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=1200&q=90&auto=format",
+  tempura:
+    "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=1200&q=90&auto=format",
+  curry:
+    "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=1200&q=90&auto=format",
+  noodles:
+    "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=1200&q=90&auto=format",
+  katsu:
+    "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=1200&q=90&auto=format",
+  seafood:
+    "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=1200&q=90&auto=format",
+  interior:
+    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=90&auto=format",
   cover:
     "https://contactless-9b492.web.app/restaurants/izumi/images/IZUMI%20-%20FOOD%20MENU%20ONLINE/IZUMI%20-%20FOOD%20MENU%20ONLINE-page-001.jpg",
 };
@@ -19,9 +28,7 @@ const IMG = {
 export default function HomePage() {
   return (
     <>
-      {/* ── ASYMMETRIC HERO (not centered full-bleed) ── */}
       <section className="pt-[72px] min-h-[90vh] grid lg:grid-cols-12 gap-0">
-        {/* Left — copy panel */}
         <div className="lg:col-span-5 flex flex-col justify-center px-[6%] py-16 lg:py-24 bg-[var(--bg)] relative z-10">
           <p className="text-xs tracking-[0.3em] uppercase text-[var(--gold)] mb-6">
             Kololo · Kampala
@@ -34,8 +41,8 @@ export default function HomePage() {
             Dining
           </h1>
           <p className="text-[var(--text-muted)] text-[1.05rem] max-w-sm mb-10 leading-relaxed">
-            Japanese precision, Thai warmth, live teppanyaki — Kampala's original
-            Pan-Asian restaurant and lounge since 2018.
+            Japanese precision, Thai warmth, live teppanyaki — the original
+            Pan-Asian restaurant and lounge in Kampala since 2018.
           </p>
           <div className="flex flex-wrap gap-3 mb-12">
             <Link
@@ -67,7 +74,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Right — image mosaic */}
         <div className="lg:col-span-7 grid grid-cols-2 grid-rows-2 min-h-[50vh] lg:min-h-0">
           <div className="relative col-span-2 row-span-1 overflow-hidden">
             <Image
@@ -76,9 +82,10 @@ export default function HomePage() {
               fill
               className="object-cover"
               priority
+              quality={90}
               sizes="(max-width: 1024px) 100vw, 58vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg)] via-transparent to-transparent opacity-40 lg:opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg)] via-transparent to-transparent opacity-40 lg:opacity-50" />
           </div>
           <div className="relative overflow-hidden">
             <Image
@@ -86,6 +93,7 @@ export default function HomePage() {
               alt="Salmon roll"
               fill
               className="object-cover"
+              quality={90}
               sizes="30vw"
             />
           </div>
@@ -95,14 +103,14 @@ export default function HomePage() {
               alt="Fresh sashimi"
               fill
               className="object-cover"
+              quality={90}
               sizes="30vw"
             />
           </div>
         </div>
       </section>
 
-      {/* ── IMAGE STRIP ── */}
-      <section className="grid grid-cols-2 md:grid-cols-4 h-[28vh] md:h-[36vh]">
+      <section className="grid grid-cols-2 md:grid-cols-4 h-[28vh] md:h-[40vh]">
         {[
           { src: IMG.tempura, label: "Tempura" },
           { src: IMG.katsu, label: "Katsu" },
@@ -114,10 +122,11 @@ export default function HomePage() {
               src={item.src}
               alt={item.label}
               fill
+              quality={90}
               className="object-cover group-hover:scale-105 transition-transform duration-700"
               sizes="25vw"
             />
-            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
+            <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors" />
             <span className="absolute bottom-4 left-4 text-xs tracking-[0.15em] uppercase text-white/90">
               {item.label}
             </span>
@@ -125,7 +134,6 @@ export default function HomePage() {
         ))}
       </section>
 
-      {/* ── TRUST ── */}
       <section className="py-8 border-b border-[var(--border)] bg-[var(--bg-elevated)]">
         <div className="mx-auto max-w-[1200px] w-[92%] flex flex-wrap justify-center items-center gap-8 md:gap-14">
           <a
@@ -149,17 +157,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── STORY with image background ── */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={IMG.interior}
             alt="Restaurant atmosphere"
             fill
-            className="object-cover opacity-25"
+            quality={90}
+            className="object-cover opacity-30"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-[var(--bg)]/90 to-[var(--bg)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-[var(--bg)]/85 to-[var(--bg)]" />
         </div>
         <div className="relative z-10 mx-auto max-w-[900px] w-[92%] text-center">
           <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-4">Our Story</p>
@@ -192,7 +200,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── MENU PREVIEWS with real photos ── */}
       <section className="py-20 bg-[var(--bg-elevated)]">
         <div className="mx-auto max-w-[1200px] w-[92%]">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
@@ -262,6 +269,7 @@ export default function HomePage() {
                   src={d.img}
                   alt={d.name}
                   fill
+                  quality={90}
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
@@ -281,13 +289,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FULL-BLEED CTA with image bg ── */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={IMG.cover}
             alt="Izumi"
             fill
+            quality={85}
             className="object-cover object-top opacity-30"
             sizes="100vw"
           />
@@ -295,9 +303,7 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 mx-auto max-w-[700px] w-[92%] text-center">
           <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-4">Visit Us</p>
-          <h2 className="text-[clamp(2rem,4vw,3rem)] font-medium mb-5">
-            An evening at Izumi
-          </h2>
+          <h2 className="text-[clamp(2rem,4vw,3rem)] font-medium mb-5">An evening at Izumi</h2>
           <p className="text-[var(--text-muted)] mb-10 max-w-md mx-auto">
             Reservations recommended for weekends and Friday live music. Walk-ins always welcome.
           </p>
