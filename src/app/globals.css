@@ -20,17 +20,25 @@
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-border: var(--border);
-  --font-display: var(--font-cormorant);
-  --font-body: var(--font-inter);
+  --font-display: var(--font-playfair);
+  --font-elegant: var(--font-cormorant);
+  --font-body: var(--font-outfit);
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-outfit), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01em;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Headings use Playfair by default via utility classes already in components */
+h1, h2, h3 {
+  font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+  letter-spacing: -0.02em;
 }
