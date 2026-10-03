@@ -6,6 +6,7 @@ import {
   useEffect,
   useMemo,
   useState,
+  useCallback,
   type ReactNode,
 } from "react";
 
@@ -18,6 +19,11 @@ export type CartItem = {
   qty: number;
 };
 
+export type ToastMessage = {
+  id: number;
+  text: string;
+};
+
 type CartContextValue = {
   items: CartItem[];
   addItem: (item: Omit<CartItem, "qty">, qty?: number) => void;
@@ -28,6 +34,8 @@ type CartContextValue = {
   subtotal: number;
   open: boolean;
   setOpen: (v: boolean) => void;
+  toast: ToastMessage | null;
+  dismissToast: () => void;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -37,6 +45,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [open, setOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [toast, setToast] = useState<ToastMessage | null>(null);
 
   useEffect(() => {
     try {
@@ -53,6 +62,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   }, [items, hydrated]);
 
+  // Auto-dismiss toast
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 2800);
+    return () => clearTimeout(t);
+  }, [toast]);
+
+  const dismissToast = useCallback(() => setToast(null), []);
+
   const addItem = (item: Omit<CartItem, "qty">, qty = 1) => {
     setItems((prev) => {
       const existing = prev.find((p) => p.id === item.id);
@@ -63,7 +81,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { ...item, qty }];
     });
-    setOpen(true);
+    // Toast instead of opening cart
+    setToast({
+      id: Date.now(),
+      text: `${item.name} added to order`,
+    });
   };
 
   const removeItem = (id: string) => {
@@ -101,6 +123,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         subtotal,
         open,
         setOpen,
+        toast,
+        dismissToast,
       }}
     >
       {children}
