@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -33,16 +34,15 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto max-w-[1200px] w-[92%] h-full flex items-center justify-between">
-        <Link href="/" className="flex flex-col leading-tight">
-          <span
-            className="text-xl tracking-[0.12em] text-[var(--gold)] font-semibold"
-            style={{ fontFamily: "var(--font-bauhaus), var(--font-josefin), system-ui, sans-serif" }}
-          >
-            IZUMI
-          </span>
-          <span className="text-[0.65rem] tracking-[0.18em] uppercase text-[var(--text-muted)]">
-            Restaurant & Lounge
-          </span>
+        <Link href="/" className="flex items-center gap-2 shrink-0">
+          <Image
+            src="/logo.svg"
+            alt="Izumi Restaurant and Lounge"
+            width={160}
+            height={46}
+            className="h-10 w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
