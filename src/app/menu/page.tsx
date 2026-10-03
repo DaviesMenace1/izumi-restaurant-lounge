@@ -71,7 +71,7 @@ export default function MenuPage() {
               placeholder="Search dishes…"
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              className="w-full max-w-md bg-[var(--bg-card)] border border-[var(--border)] rounded-full text-[var(--text)] px-6 py-3.5 text-sm focus:outline-none focus:border-[var(--gold)] shadow-sm"
+              className="w-full max-w-md bg-white border border-[var(--border)] rounded-full text-[var(--text)] px-6 py-3.5 text-sm focus:outline-none focus:border-[var(--gold)] shadow-sm"
             />
           </div>
 
@@ -97,8 +97,8 @@ export default function MenuPage() {
                 onClick={() => setFilter(key)}
                 className={`px-4 py-2 text-[0.7rem] tracking-[0.1em] uppercase rounded-full border transition-all ${
                   filter === key
-                    ? "bg-[var(--gold)] text-black border-[var(--gold)] shadow"
-                    : "border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--gold)] hover:text-[var(--gold)]"
+                    ? "bg-[var(--gold)] text-white border-[var(--gold)] shadow"
+                    : "border-[var(--border)] bg-white text-[var(--text-muted)] hover:border-[var(--gold)] hover:text-[var(--gold)]"
                 }`}
               >
                 {label}
@@ -114,7 +114,7 @@ export default function MenuPage() {
                   <Link
                     key={cat.slug}
                     href={`/menu/${cat.slug}`}
-                    className="group relative overflow-hidden rounded-2xl bg-[var(--bg-card)] border border-[var(--border)] hover:border-[rgba(201,168,76,0.5)] transition-all shadow-lg"
+                    className="group relative overflow-hidden rounded-2xl bg-white border border-[var(--border)] hover:border-[rgba(166,124,45,0.5)] transition-all shadow-lg"
                   >
                     <div className="relative aspect-[5/4] overflow-hidden">
                       <Image
@@ -125,12 +125,23 @@ export default function MenuPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                         sizes="(max-width: 768px) 50vw, 40vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      {/* Strong gradient so labels always readable */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
                       <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-                        <h2 className="text-base md:text-xl font-medium text-white tracking-wide">
+                        <h2
+                          className="text-base md:text-xl font-bold text-white tracking-wide"
+                          style={{
+                            textShadow: "0 2px 8px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.9)",
+                          }}
+                        >
                           {cat.name}
                         </h2>
-                        <p className="text-[0.7rem] text-white/70 mt-0.5">{count} dishes</p>
+                        <p
+                          className="text-[0.75rem] text-white/90 mt-0.5 font-medium"
+                          style={{ textShadow: "0 1px 4px rgba(0,0,0,0.8)" }}
+                        >
+                          {count} dishes
+                        </p>
                       </div>
                     </div>
                   </Link>
@@ -145,7 +156,7 @@ export default function MenuPage() {
                 {filtered.map((dish) => (
                   <div
                     key={dish.id}
-                    className="group flex flex-col sm:flex-row gap-0 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl overflow-hidden hover:border-[rgba(201,168,76,0.45)] transition-all shadow-md"
+                    className="group flex flex-col sm:flex-row gap-0 bg-white border border-[var(--border)] rounded-2xl overflow-hidden hover:border-[rgba(166,124,45,0.45)] transition-all shadow-md"
                   >
                     <Link
                       href={`/menu/dish/${dish.slug}`}
@@ -160,7 +171,7 @@ export default function MenuPage() {
                         sizes="(max-width: 640px) 100vw, 40vw"
                       />
                       {dish.popular && (
-                        <span className="absolute top-3 left-3 bg-[var(--gold)] text-black text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded">
+                        <span className="absolute top-3 left-3 bg-[var(--gold)] text-white text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded font-semibold">
                           Popular
                         </span>
                       )}
@@ -169,7 +180,7 @@ export default function MenuPage() {
                       <div>
                         <div className="flex items-start justify-between gap-2 mb-1">
                           <Link href={`/menu/dish/${dish.slug}`}>
-                            <h2 className="text-lg font-medium text-[var(--gold-light)] leading-snug hover:underline">
+                            <h2 className="text-lg font-bold text-[var(--text)] leading-snug hover:text-[var(--gold)] transition-colors">
                               {dish.name}
                             </h2>
                           </Link>
@@ -184,7 +195,7 @@ export default function MenuPage() {
                                 image: dish.image,
                               })
                             }
-                            className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-[var(--border)] text-[var(--gold)] text-lg shrink-0 hover:bg-[var(--gold)] hover:text-black transition-colors"
+                            className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-[var(--border)] text-[var(--gold)] text-lg shrink-0 hover:bg-[var(--gold)] hover:text-white transition-colors"
                             aria-label={`Add ${dish.name} to cart`}
                           >
                             +
@@ -194,7 +205,7 @@ export default function MenuPage() {
                           {dish.description}
                         </p>
                       </div>
-                      <p className="text-[var(--gold)] font-semibold text-sm">
+                      <p className="text-[var(--gold)] font-bold text-sm">
                         {formatPrice(dish.price)}
                       </p>
                     </div>
