@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Partners from "@/components/Partners";
 
 const IMG = {
   sushi:
@@ -118,65 +119,9 @@ export default function HomePage() {
         ))}
       </section>
 
-      {/* Trustees with real logos */}
       <section className="py-10 border-y border-[var(--border)] bg-white/70">
         <div className="mx-auto max-w-[1200px] w-[92%]">
-          <p className="text-center text-[0.7rem] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-6">
-            Trusted partners
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
-            <a
-              href="https://www.tripadvisor.com/Restaurant_Review-g293841-d14032948-Reviews-Izumi_Restaurant_Lounge-Kampala_Central_Region.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-1 opacity-90 hover:opacity-100"
-            >
-              <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Tripadvisor_2025_Logo.svg/320px-Tripadvisor_2025_Logo.svg.png"
-                alt="TripAdvisor"
-                width={120}
-                height={22}
-                className="h-[22px] w-auto"
-                unoptimized
-              />
-              <span className="text-[0.7rem] text-[var(--text-muted)]">4.3 ★ · 1,400+ reviews</span>
-            </a>
-            <a href="https://www.booking.com" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100">
-              <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Booking.com_logo.svg/200px-Booking.com_logo.svg.png"
-                alt="Booking.com"
-                width={110}
-                height={20}
-                className="h-5 w-auto"
-                unoptimized
-              />
-            </a>
-            <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100">
-              <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Uber_Eats_2020_logo.svg/200px-Uber_Eats_2020_logo.svg.png"
-                alt="Uber Eats"
-                width={90}
-                height={24}
-                className="h-6 w-auto"
-                unoptimized
-              />
-            </a>
-            <a
-              href="https://glovoapp.com/ug/en/kampala/izumi-restaurant-and-lounge/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-90 hover:opacity-100"
-            >
-              <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Glovo_logo.svg/200px-Glovo_logo.svg.png"
-                alt="Glovo"
-                width={70}
-                height={28}
-                className="h-7 w-auto"
-                unoptimized
-              />
-            </a>
-          </div>
+          <Partners showRating />
         </div>
       </section>
 
