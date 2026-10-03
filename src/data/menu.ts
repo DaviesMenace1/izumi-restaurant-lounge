@@ -24,16 +24,16 @@ export interface Dish {
   pairings?: string[];
 }
 
-export const categories: { slug: CategorySlug; name: string; description: string; icon: string }[] = [
-  { slug: "sushi", name: "Sushi Rolls", description: "Signature maki & specialty rolls", icon: "\uD83C\uDF63" },
-  { slug: "sashimi-nigiri", name: "Sashimi & Nigiri", description: "Fresh sliced fish & classic nigiri", icon: "\uD83D\uDC1F" },
-  { slug: "appetizers", name: "Appetizers & Dim Sum", description: "Starters, tempura, gyoza & more", icon: "\uD83E\uDD62" },
-  { slug: "mains", name: "Mains", description: "Katsu, teriyaki, stir-fries & seafood", icon: "\uD83D\uDD25" },
-  { slug: "curries", name: "Curries", description: "Thai & Japanese curries", icon: "\uD83C\uDF5B" },
-  { slug: "rice-noodles", name: "Rice & Noodles", description: "Donburi, fried rice, pad thai", icon: "\uD83C\uDF5C" },
-  { slug: "grills", name: "Grills & Teppanyaki", description: "Yakitori, satay, seafood platters", icon: "\uD83E\uDD69" },
-  { slug: "salads-soups", name: "Salads & Soups", description: "Miso, tom yum, wakame & more", icon: "\uD83E\uDD57" },
-  { slug: "desserts", name: "Desserts", description: "House sweets & fruit", icon: "\uD83C\uDF70" },
+export const categories: { slug: CategorySlug; name: string; description: string }[] = [
+  { slug: "sushi", name: "Sushi Rolls", description: "Signature maki & specialty rolls" },
+  { slug: "sashimi-nigiri", name: "Sashimi & Nigiri", description: "Fresh sliced fish & classic nigiri" },
+  { slug: "appetizers", name: "Appetizers & Dim Sum", description: "Starters, tempura, gyoza & more" },
+  { slug: "mains", name: "Mains", description: "Katsu, teriyaki, stir-fries & seafood" },
+  { slug: "curries", name: "Curries", description: "Thai & Japanese curries" },
+  { slug: "rice-noodles", name: "Rice & Noodles", description: "Donburi, fried rice, pad thai" },
+  { slug: "grills", name: "Grills & Teppanyaki", description: "Yakitori, satay, seafood platters" },
+  { slug: "salads-soups", name: "Salads & Soups", description: "Miso, tom yum, wakame & more" },
+  { slug: "desserts", name: "Desserts", description: "House sweets & fruit" },
 ];
 
 const U = (id: string) => `https://images.unsplash.com/photo-${id}?w=800&q=80`;
