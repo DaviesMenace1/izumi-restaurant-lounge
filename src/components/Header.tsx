@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useCart } from "@/context/CartContext";
@@ -14,51 +15,60 @@ const navItems = [
   { href: "/contact", label: "Contact" },
 ];
 
+/** Official Izumi mark — gold spires + wordmark (matches brand circle logo) */
 function Logo() {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 280 80"
-      className="h-10 w-auto"
-      aria-label="Izumi Restaurant and Lounge"
-      role="img"
-    >
-      <defs>
-        <linearGradient id="izumiGold" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#e0c878" />
-          <stop offset="50%" stopColor="#c9a84c" />
-          <stop offset="100%" stopColor="#a88b3a" />
-        </linearGradient>
-      </defs>
-      <circle cx="36" cy="40" r="22" stroke="url(#izumiGold)" strokeWidth="1.5" fill="none" />
-      <path
-        d="M36 22 C36 22 28 34 28 42 C28 48 31.5 52 36 52 C40.5 52 44 48 44 42 C44 34 36 22 36 22Z"
-        fill="url(#izumiGold)"
-        opacity="0.95"
-      />
-      <path d="M36 30 v14 M30 37 h12" stroke="#0c0c0c" strokeWidth="1.2" strokeLinecap="round" />
-      <text
-        x="70"
-        y="38"
-        fontFamily="Georgia, Times New Roman, serif"
-        fontSize="28"
-        fontWeight="600"
-        letterSpacing="0.18em"
-        fill="url(#izumiGold)"
+    <span className="flex items-center gap-2.5">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 64 64"
+        className="h-11 w-11 shrink-0"
+        aria-hidden
       >
-        IZUMI
-      </text>
-      <text
-        x="72"
-        y="56"
-        fontFamily="system-ui, sans-serif"
-        fontSize="9"
-        letterSpacing="0.28em"
-        fill="#a8a29a"
-      >
-        RESTAURANT & LOUNGE
-      </text>
-    </svg>
+        <circle cx="32" cy="32" r="32" fill="#0a0a0a" />
+        <g stroke="#c9a84c" strokeWidth="1.6" strokeLinecap="round">
+          <line x1="16" y1="30" x2="16" y2="24" />
+          <line x1="22" y1="30" x2="22" y2="18" />
+          <line x1="28" y1="30" x2="28" y2="12" />
+          <line x1="32" y1="30" x2="32" y2="8" />
+          <line x1="36" y1="30" x2="36" y2="12" />
+          <line x1="42" y1="30" x2="42" y2="18" />
+          <line x1="48" y1="30" x2="48" y2="24" />
+        </g>
+        <line
+          x1="10"
+          y1="31"
+          x2="54"
+          y2="31"
+          stroke="#c9a84c"
+          strokeWidth="1.2"
+          strokeLinecap="round"
+        />
+        <text
+          x="32"
+          y="46"
+          textAnchor="middle"
+          fontFamily="Georgia, serif"
+          fontSize="8"
+          fontWeight="600"
+          letterSpacing="0.22em"
+          fill="#c9a84c"
+        >
+          IZUMI
+        </text>
+      </svg>
+      <span className="hidden sm:flex flex-col leading-tight">
+        <span
+          className="text-[1.05rem] tracking-[0.28em] text-[var(--gold)] font-semibold"
+          style={{ fontFamily: "Georgia, Times New Roman, serif" }}
+        >
+          IZUMI
+        </span>
+        <span className="text-[0.55rem] tracking-[0.22em] uppercase text-[var(--text-muted)]">
+          Restaurant & Lounge
+        </span>
+      </span>
+    </span>
   );
 }
 
