@@ -10,24 +10,26 @@ import {
   getDishesByCategory,
   type CategorySlug,
 } from "@/data/menu";
+import { useCart } from "@/context/CartContext";
 
 type Filter = "all" | CategorySlug | "popular" | "vegetarian" | "spicy";
 
 const categoryImages: Record<CategorySlug, string> = {
-  sushi: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80",
-  "sashimi-nigiri": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800&q=80",
-  appetizers: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800&q=80",
-  mains: "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=800&q=80",
-  curries: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=800&q=80",
-  "rice-noodles": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800&q=80",
-  grills: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=800&q=80",
-  "salads-soups": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
-  desserts: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=800&q=80",
+  sushi: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1200&q=90",
+  "sashimi-nigiri": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=1200&q=90",
+  appetizers: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=1200&q=90",
+  mains: "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=1200&q=90",
+  curries: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=1200&q=90",
+  "rice-noodles": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=1200&q=90",
+  grills: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=1200&q=90",
+  "salads-soups": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=90",
+  desserts: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=1200&q=90",
 };
 
 export default function MenuPage() {
   const [filter, setFilter] = useState<Filter>("all");
   const [q, setQ] = useState("");
+  const { addItem } = useCart();
   const showCategories = filter === "all" && !q.trim();
 
   const filtered = useMemo(() => {
@@ -63,7 +65,6 @@ export default function MenuPage() {
             </p>
           </div>
 
-          {/* Search */}
           <div className="mb-6 flex justify-center">
             <input
               type="search"
@@ -74,7 +75,6 @@ export default function MenuPage() {
             />
           </div>
 
-          {/* Chip filters — Little Cafe style */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {(
               [
@@ -106,7 +106,6 @@ export default function MenuPage() {
             ))}
           </div>
 
-          {/* Category photo grid — Cafe Javas style */}
           {showCategories && (
             <div className="grid grid-cols-2 gap-4 md:gap-6 mb-16">
               {categories.map((cat) => {
@@ -122,6 +121,7 @@ export default function MenuPage() {
                         src={categoryImages[cat.slug]}
                         alt={cat.name}
                         fill
+                        quality={85}
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                         sizes="(max-width: 768px) 50vw, 40vw"
                       />
@@ -130,9 +130,7 @@ export default function MenuPage() {
                         <h2 className="text-base md:text-xl font-medium text-white tracking-wide">
                           {cat.name}
                         </h2>
-                        <p className="text-[0.7rem] text-white/70 mt-0.5">
-                          {count} dishes
-                        </p>
+                        <p className="text-[0.7rem] text-white/70 mt-0.5">{count} dishes</p>
                       </div>
                     </div>
                   </Link>
@@ -141,21 +139,23 @@ export default function MenuPage() {
             </div>
           )}
 
-          {/* Dish cards — Little Cafe style */}
           {!showCategories && (
             <>
               <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
                 {filtered.map((dish) => (
-                  <Link
+                  <div
                     key={dish.id}
-                    href={`/menu/dish/${dish.slug}`}
                     className="group flex flex-col sm:flex-row gap-0 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl overflow-hidden hover:border-[rgba(201,168,76,0.45)] transition-all shadow-md"
                   >
-                    <div className="relative w-full sm:w-[42%] aspect-[4/3] sm:aspect-auto sm:min-h-[160px] overflow-hidden shrink-0">
+                    <Link
+                      href={`/menu/dish/${dish.slug}`}
+                      className="relative w-full sm:w-[42%] aspect-[4/3] sm:aspect-auto sm:min-h-[160px] overflow-hidden shrink-0"
+                    >
                       <Image
                         src={dish.image}
                         alt={dish.name}
                         fill
+                        quality={85}
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-width: 640px) 100vw, 40vw"
                       />
@@ -164,16 +164,31 @@ export default function MenuPage() {
                           Popular
                         </span>
                       )}
-                    </div>
+                    </Link>
                     <div className="flex flex-col justify-between p-4 md:p-5 flex-1">
                       <div>
                         <div className="flex items-start justify-between gap-2 mb-1">
-                          <h2 className="text-lg font-medium text-[var(--gold-light)] leading-snug">
-                            {dish.name}
-                          </h2>
-                          <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-[var(--border)] text-[var(--gold)] text-lg shrink-0 group-hover:bg-[var(--gold)] group-hover:text-black transition-colors">
+                          <Link href={`/menu/dish/${dish.slug}`}>
+                            <h2 className="text-lg font-medium text-[var(--gold-light)] leading-snug hover:underline">
+                              {dish.name}
+                            </h2>
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              addItem({
+                                id: dish.id,
+                                slug: dish.slug,
+                                name: dish.name,
+                                price: dish.price,
+                                image: dish.image,
+                              })
+                            }
+                            className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-[var(--border)] text-[var(--gold)] text-lg shrink-0 hover:bg-[var(--gold)] hover:text-black transition-colors"
+                            aria-label={`Add ${dish.name} to cart`}
+                          >
                             +
-                          </span>
+                          </button>
                         </div>
                         <p className="text-sm text-[var(--text-muted)] line-clamp-2 mb-3">
                           {dish.description}
@@ -183,7 +198,7 @@ export default function MenuPage() {
                         {formatPrice(dish.price)}
                       </p>
                     </div>
-                  </Link>
+                  </div>
                 ))}
               </div>
 
