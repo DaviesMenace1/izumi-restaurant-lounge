@@ -4,13 +4,14 @@
   --bg: #f6f1e8;
   --bg-elevated: #efe8dc;
   --bg-card: #ffffff;
-  --text: #5c5348;
-  --text-muted: #948b7f;
+  /* Stronger contrast for readability */
+  --text: #2c2620;
+  --text-muted: #5e554c;
   --accent: #b71c1c;
   --accent-soft: #c62828;
   --gold: #b71c1c;
   --gold-light: #e57373;
-  --border: rgba(92, 83, 72, 0.12);
+  --border: rgba(44, 38, 32, 0.14);
 }
 
 @theme inline {
@@ -34,6 +35,7 @@ body {
     radial-gradient(ellipse at 90% 100%, rgba(183, 28, 28, 0.03) 0%, transparent 40%);
   color: var(--text);
   font-family: var(--font-outfit), system-ui, sans-serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -47,9 +49,9 @@ h1, h2, h3 {
 }
 
 h1 { font-weight: 700; letter-spacing: -0.01em; }
-h2, h3 { font-weight: 600; }
+h2, h3 { font-weight: 700; }
 
-/* Japanese text */
+/* Japanese text - full opacity for readability */
 .jp {
   font-family: var(--font-jp), "Noto Sans JP", "Hiragino Sans", sans-serif;
   font-weight: 500;
@@ -58,9 +60,8 @@ h2, h3 { font-weight: 600; }
 
 .jp-soft {
   font-family: var(--font-jp), "Noto Sans JP", sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  opacity: 0.85;
+  font-weight: 500;
+  letter-spacing: 0.1em;
 }
 
 /* Soft organic / amoeba shapes */
@@ -78,6 +79,11 @@ h2, h3 { font-weight: 600; }
 }
 .soft-pill {
   border-radius: 9999px;
+}
+
+/* Uniform menu card radius */
+.menu-card {
+  border-radius: 1.25rem;
 }
 
 /* Subtle noren-inspired rule */
