@@ -6,12 +6,12 @@ import { useState, useEffect } from "react";
 import { useCart } from "@/context/CartContext";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/menu", label: "Menu" },
-  { href: "/experience", label: "Experience" },
-  { href: "/reservations", label: "Reservations" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", jp: "ホーム" },
+  { href: "/about", label: "About", jp: "私たち" },
+  { href: "/menu", label: "Menu", jp: "メニュー" },
+  { href: "/experience", label: "Experience", jp: "体験" },
+  { href: "/reservations", label: "Reservations", jp: "予約" },
+  { href: "/contact", label: "Contact", jp: "連絡" },
 ];
 
 function Logo() {
@@ -44,8 +44,8 @@ function Logo() {
         <span className="text-[1rem] tracking-[0.22em] font-bold text-[#b71c1c]">
           YAMASEN
         </span>
-        <span className="text-[0.55rem] tracking-[0.18em] uppercase text-[var(--text-muted)]">
-          Japanese Restaurant
+        <span className="jp-soft text-[0.65rem] text-[var(--text-muted)]">
+          山泉 · Japanese Restaurant
         </span>
       </span>
     </span>
@@ -77,7 +77,7 @@ export default function Header() {
           <Logo />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-7">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -87,6 +87,7 @@ export default function Header() {
                   ? "text-[#b71c1c]"
                   : "text-[var(--text-muted)] hover:text-[#b71c1c]"
               }`}
+              title={item.jp}
             >
               {item.label}
             </Link>
@@ -117,7 +118,7 @@ export default function Header() {
             href="/reservations"
             className="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-xs font-medium tracking-[0.1em] uppercase bg-[#b71c1c] text-white hover:bg-[#c62828] transition-colors soft-pill"
           >
-            Book a Table
+            予約 · Book
           </Link>
 
           <button
@@ -140,11 +141,12 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className={`text-sm tracking-[0.08em] uppercase ${
+                className={`text-sm tracking-[0.08em] uppercase flex items-center gap-2 ${
                   pathname === item.href ? "text-[#b71c1c]" : "text-[var(--text-muted)]"
                 }`}
               >
-                {item.label}
+                <span>{item.label}</span>
+                <span className="jp-soft text-[0.7rem]">{item.jp}</span>
               </Link>
             ))}
             <Link
@@ -152,7 +154,7 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
               className="mt-2 inline-flex justify-center px-5 py-3 text-xs font-medium tracking-[0.1em] uppercase bg-[#b71c1c] text-white soft-pill"
             >
-              Book a Table
+              予約 · Book a Table
             </Link>
           </nav>
         </div>
