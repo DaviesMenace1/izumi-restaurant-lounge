@@ -1,19 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
-  <circle cx="200" cy="200" r="200" fill="#0a0a0a"/>
-  <!-- Golden spires / skyline mark -->
-  <g stroke="#c9a84c" stroke-width="3" stroke-linecap="round">
-    <line x1="120" y1="175" x2="120" y2="130"/>
-    <line x1="145" y1="175" x2="145" y2="95"/>
-    <line x1="170" y1="175" x2="170" y2="70"/>
-    <line x1="200" y1="175" x2="200" y2="45"/>
-    <line x1="230" y1="175" x2="230" y2="70"/>
-    <line x1="255" y1="175" x2="255" y2="95"/>
-    <line x1="280" y1="175" x2="280" y2="130"/>
-  </g>
-  <!-- Base horizon line -->
-  <line x1="70" y1="178" x2="330" y2="178" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- IZUMI wordmark -->
-  <text x="200" y="245" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="600" letter-spacing="0.35em" fill="#c9a84c">IZUMI</text>
-  <!-- Subtitle -->
-  <text x="200" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" letter-spacing="0.35em" fill="#e8e4dc">RESTAURANT & LOUNGE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="36" fill="#B71C1C"/>
+  <path d="M52 92 L100 40 L148 92" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M70 92 V152 M86 92 V152 M100 92 V152 M114 92 V152 M130 92 V152" stroke="white" stroke-width="8" stroke-linecap="round"/>
+  <path d="M70 92 H130" stroke="white" stroke-width="5" stroke-linecap="round"/>
+  <text x="100" y="180" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" font-weight="700" letter-spacing="0.2em" fill="white">YAMASEN</text>
 </svg>
