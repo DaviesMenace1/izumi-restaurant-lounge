@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import {
   categories,
   dishes,
@@ -10,6 +11,7 @@ import {
   type CategorySlug,
 } from "@/data/menu";
 import MenuCard from "@/components/MenuCard";
+import { dishMatchesQuery } from "@/lib/fuzzySearch";
 
 type Filter = "all" | CategorySlug | "popular" | "vegetarian" | "spicy";
 
@@ -26,8 +28,15 @@ const categoryImages: Record<CategorySlug, string> = {
 };
 
 export default function MenuPage() {
+  const searchParams = useSearchParams();
   const [filter, setFilter] = useState<Filter>("all");
   const [q, setQ] = useState("");
+
+  useEffect(() => {
+    const fromUrl = searchParams.get("q");
+    if (fromUrl) setQ(fromUrl);
+  }, [searchParams]);
+
   const showCategories = filter === "all" && !q.trim();
 
   const filtered = useMemo(() => {
@@ -38,13 +47,7 @@ export default function MenuPage() {
     else if (filter !== "all") list = list.filter((d) => d.category === filter);
 
     if (q.trim()) {
-      const s = q.toLowerCase();
-      list = list.filter(
-        (d) =>
-          d.name.toLowerCase().includes(s) ||
-          d.description.toLowerCase().includes(s) ||
-          d.tags.some((t) => t.includes(s))
-      );
+      list = list.filter((d) => dishMatchesQuery(d, q));
     }
     return list;
   }, [filter, q]);
@@ -67,13 +70,28 @@ export default function MenuPage() {
           </div>
 
           <div className="mb-6 flex justify-center">
-            <input
-              type="search"
-              placeholder="Search dishes..."
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              className="w-full max-w-md bg-white border border-[var(--border)] soft-pill text-[var(--text)] placeholder:text-[var(--text-muted)] px-6 py-3.5 text-sm font-medium focus:outline-none focus:border-[#b71c1c] shadow-sm"
-            />
+            <div className="relative w-full max-w-md">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] pointer-events-none"
+                aria-hidden
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="M20 20l-3.5-3.5" strokeLinecap="round" />
+              </svg>
+              <input
+                type="search"
+                placeholder="Search dishes (typos ok)..."
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                className="w-full bg-white border border-[var(--border)] soft-pill text-[var(--text)] placeholder:text-[var(--text-muted)] pl-11 pr-6 py-3.5 text-sm font-medium focus:outline-none focus:border-[#b71c1c] shadow-sm"
+              />
+            </div>
           </div>
 
           <div className="flex flex-wrap justify-center gap-2 mb-10">
@@ -151,7 +169,7 @@ export default function MenuPage() {
 
               {filtered.length === 0 && (
                 <p className="text-center text-[var(--text-muted)] py-16 font-medium">
-                  No dishes match your filters.
+                  No dishes match your search. Try another spelling.
                 </p>
               )}
             </>
