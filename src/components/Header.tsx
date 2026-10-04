@@ -9,6 +9,7 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/menu", label: "Menu" },
+  { href: "/loyalty", label: "Loyalty" },
   { href: "/experience", label: "Experience" },
   { href: "/reservations", label: "Reservations" },
   { href: "/contact", label: "Contact" },
@@ -80,14 +81,14 @@ export default function Header() {
           <Logo />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`text-[0.7rem] tracking-[0.14em] uppercase font-bold transition-colors ${
-                pathname === item.href
-                  ? "text-[#b71c1c]"
+              className={`text-[0.68rem] tracking-[0.12em] uppercase font-bold transition-colors ${
+                pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
+                  ? "text-[#9a1515]"
                   : "text-[var(--text-muted)] hover:text-[var(--text)]"
               }`}
             >
@@ -100,7 +101,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setCartOpen(true)}
-            className="relative p-2 text-[var(--text)] hover:text-[#b71c1c] transition-colors"
+            className="relative p-2 text-[var(--text)] hover:text-[#9a1515] transition-colors"
             aria-label="Open cart"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -110,16 +111,13 @@ export default function Header() {
               <path d="M6 6L5 3H2" />
             </svg>
             {count > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 soft-pill bg-[#b71c1c] text-white text-[0.65rem] font-semibold flex items-center justify-center">
+              <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 soft-pill bg-[#9a1515] text-white text-[0.65rem] font-semibold flex items-center justify-center">
                 {count}
               </span>
             )}
           </button>
 
-          <Link
-            href="/reservations"
-            className="hidden lg:inline-flex btn-cream"
-          >
+          <Link href="/reservations" className="hidden lg:inline-flex btn-cream">
             Book a Table
           </Link>
 
@@ -144,7 +142,7 @@ export default function Header() {
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
                 className={`text-sm tracking-[0.12em] uppercase font-bold ${
-                  pathname === item.href ? "text-[#b71c1c]" : "text-[var(--text-muted)]"
+                  pathname === item.href ? "text-[#9a1515]" : "text-[var(--text-muted)]"
                 }`}
               >
                 {item.label}
