@@ -3,52 +3,49 @@ import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const IMG = {
-  building:
-    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=90",
-  sushi:
-    "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1200&q=90",
-  bento:
-    "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=1200&q=90",
-  farm:
-    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=90",
-  ramen:
-    "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1200&q=90",
-  salad:
-    "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=90",
-  interior:
-    "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=90",
+  hero: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1920&q=90",
+  sushi: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1400&q=90",
+  bento: "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=1400&q=90",
+  farm: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=90",
+  ramen: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1400&q=90",
+  salad: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1400&q=90",
+  interior: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=90",
+  grill: "https://images.unsplash.com/photo-1553621042-f6e147245754?w=1200&q=90",
+  night: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=90",
+  tea: "https://images.unsplash.com/photo-1488477186911-f3e5b0c3e0c5?w=1200&q=90",
+  veg: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=1200&q=90",
+  wood: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1600&q=90",
 };
 
 export default function HomePage() {
   return (
     <>
-      {/* Mobile-first hero */}
-      <section className="pt-[72px] relative min-h-[88vh] flex flex-col justify-end overflow-hidden">
+      <section className="pt-[72px] relative min-h-[92vh] flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={IMG.building}
-            alt="Yamasen dining room"
+            src={IMG.hero}
+            alt="Yamasen dining atmosphere"
             fill
             priority
-            quality={90}
+            quality={95}
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/25" />
         </div>
 
-        <div className="relative z-10 px-5 pb-12 pt-24 max-w-lg mx-auto w-full text-center sm:text-left sm:mx-0 sm:max-w-none sm:px-[6%] sm:pb-16">
-          <p className="text-[0.7rem] tracking-[0.28em] uppercase text-white/80 mb-3">
+        <div className="relative z-10 px-5 pb-14 pt-28 max-w-lg mx-auto w-full text-center sm:text-left sm:mx-0 sm:max-w-none sm:px-[6%] sm:pb-20">
+          <p className="text-[0.7rem] tracking-[0.28em] uppercase text-white/85 mb-3">
             Tank Hill · Muyenga · Kampala
           </p>
-          <h1 className="text-[clamp(2.4rem,8vw,3.6rem)] font-bold leading-[1.08] text-white mb-4">
+          <h1 className="text-[clamp(2.5rem,9vw,3.8rem)] font-bold leading-[1.06] text-white mb-4">
             Farm to Table
             <br />
             <span className="text-[#ffcdd2]">Japanese</span>
           </h1>
-          <p className="text-white/85 text-[0.95rem] leading-relaxed mb-8 max-w-md mx-auto sm:mx-0">
+          <p className="text-white/90 text-[1rem] leading-relaxed mb-8 max-w-md mx-auto sm:mx-0">
             Organic vegetables from our own farm. Seafood from Dar es Salaam.
-            Kyoto-trained kitchen. Unique dishes inspired by Ugandan food culture.
+            Kyoto trained kitchen. Dishes inspired by Ugandan food culture.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 items-center sm:items-start">
             <Link
@@ -59,19 +56,18 @@ export default function HomePage() {
             </Link>
             <Link
               href="/reservations"
-              className="w-full sm:w-auto inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase bg-white/15 text-white border border-white/40 hover:bg-white/25 transition-colors soft-pill backdrop-blur-sm"
+              className="w-full sm:w-auto inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase bg-white/15 text-white border border-white/45 hover:bg-white/25 transition-colors soft-pill backdrop-blur-sm"
             >
               Reservation
             </Link>
           </div>
-          <p className="mt-6 text-[0.75rem] text-white/70">
+          <p className="mt-6 text-[0.75rem] text-white/75">
             Open daily 9:00 to 23:00 · +256 707 808010
           </p>
         </div>
       </section>
 
-      {/* Quick links row */}
-      <section className="py-6 px-4 bg-white/60 border-y border-[var(--border)]">
+      <section className="py-5 px-4 bg-white/70 border-y border-[var(--border)]">
         <div className="max-w-[1100px] mx-auto flex flex-wrap justify-center gap-3">
           {[
             { href: "/menu", label: "Food Menu" },
@@ -90,22 +86,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Story */}
+      {/* Image mosaic strip */}
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-1.5 px-1.5 py-1.5">
+        {[IMG.sushi, IMG.farm, IMG.ramen, IMG.interior].map((src, i) => (
+          <div key={i} className="relative aspect-[4/3] overflow-hidden blob-sm">
+            <Image src={src} alt="" fill quality={90} className="object-cover" sizes="25vw" />
+          </div>
+        ))}
+      </section>
+
       <section className="py-16 md:py-24 px-5">
         <div className="max-w-[1100px] mx-auto grid md:grid-cols-2 gap-10 items-center">
           <ScrollReveal direction="left">
-            <div className="relative aspect-[4/5] overflow-hidden blob">
+            <div className="relative aspect-[4/5] overflow-hidden blob shadow-lg">
               <Image
                 src={IMG.farm}
-                alt="Farm produce"
+                alt="Farm produce for Yamasen"
                 fill
-                quality={90}
+                quality={92}
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </ScrollReveal>
-          <ScrollReveal direction="right" delay={120}>
+          <ScrollReveal direction="right" delay={100}>
             <div>
               <p className="text-[0.7rem] tracking-[0.25em] uppercase text-[#b71c1c] mb-3">
                 Our Story
@@ -134,7 +138,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Signature dishes */}
+      {/* Full-bleed media band */}
+      <section className="relative min-h-[42vh] md:min-h-[50vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={IMG.wood} alt="" fill quality={90} className="object-cover" sizes="100vw" />
+          <div className="absolute inset-0 bg-black/55" />
+        </div>
+        <ScrollReveal>
+          <div className="relative z-10 px-5 text-center max-w-xl">
+            <p className="text-[0.7rem] tracking-[0.25em] uppercase text-white/80 mb-3">
+              The Experience
+            </p>
+            <h2 className="text-white text-[clamp(1.6rem,4vw,2.3rem)] font-bold mb-4">
+              Open air timber hall, quiet service, true Japanese craft
+            </h2>
+            <Link
+              href="/experience"
+              className="inline-flex px-7 py-3 text-xs font-semibold tracking-[0.12em] uppercase text-white border border-white/50 soft-pill hover:bg-white/15 transition-colors"
+            >
+              Explore
+            </Link>
+          </div>
+        </ScrollReveal>
+      </section>
+
       <section className="py-16 bg-[var(--bg-elevated)] px-5">
         <div className="max-w-[1100px] mx-auto">
           <ScrollReveal>
@@ -153,21 +180,18 @@ export default function HomePage() {
               { href: "/menu/dish/gogo-fish-curry", img: IMG.ramen, name: "Gogo Fish Curry", price: "UGX 40,000" },
               { href: "/menu/dish/tonkatsu-bento", img: IMG.bento, name: "Tonkatsu Bento", price: "UGX 45,000" },
               { href: "/menu/dish/sushi-platter", img: IMG.sushi, name: "Sushi Platter", price: "UGX 85,000" },
-              { href: "/menu/dish/yakiniku-pizza", img: IMG.bento, name: "Yakiniku BBQ Pizza", price: "UGX 40,000" },
+              { href: "/menu/dish/yakiniku-pizza", img: IMG.grill, name: "Yakiniku BBQ Pizza", price: "UGX 40,000" },
               { href: "/menu/dish/farm-to-table-salad", img: IMG.salad, name: "Farm to Table Salad", price: "UGX 28,000" },
-              { href: "/menu/dish/pork-ramen", img: IMG.ramen, name: "Pork Ramen", price: "UGX 48,000" },
+              { href: "/menu/dish/pork-ramen", img: IMG.tea, name: "Pork Ramen", price: "UGX 48,000" },
             ].map((d, i) => (
-              <ScrollReveal key={d.href} delay={i * 60}>
-                <Link
-                  href={d.href}
-                  className="group block bg-white overflow-hidden shadow-md blob-card"
-                >
+              <ScrollReveal key={d.href} delay={i * 50}>
+                <Link href={d.href} className="group block bg-white overflow-hidden shadow-md blob-card">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={d.img}
                       alt={d.name}
                       fill
-                      quality={85}
+                      quality={90}
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 768px) 50vw, 33vw"
                     />
@@ -194,7 +218,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust */}
       <section className="py-12 px-5">
         <ScrollReveal>
           <div className="max-w-[700px] mx-auto text-center">
@@ -217,25 +240,24 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* Visit CTA */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={IMG.interior}
-            alt="Yamasen interior"
+            src={IMG.night}
+            alt="Evening at Yamasen"
             fill
-            quality={85}
-            className="object-cover opacity-30"
+            quality={92}
+            className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[var(--bg)]/80" />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
         <ScrollReveal>
           <div className="relative z-10 max-w-[560px] mx-auto px-5 text-center">
-            <h2 className="text-[clamp(1.75rem,4vw,2.4rem)] font-bold mb-4">
+            <h2 className="text-[clamp(1.75rem,4vw,2.4rem)] font-bold mb-4 text-white">
               An evening at Yamasen
             </h2>
-            <p className="text-[var(--text-muted)] mb-8">
+            <p className="text-white/85 mb-8">
               Tank Hill Park, Tank Hill Road, Muyenga. Reservations recommended.
               Delivery and takeout available.
             </p>
@@ -250,7 +272,7 @@ export default function HomePage() {
                 href="https://wa.me/256707808010"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase border border-[var(--border)] text-[var(--text)] soft-pill bg-white/80"
+                className="inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase border border-white/50 text-white soft-pill hover:bg-white/10 transition-colors"
               >
                 WhatsApp Order
               </a>
