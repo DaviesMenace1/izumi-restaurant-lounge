@@ -151,14 +151,7 @@ export default function Footer() {
             </p>
             <nav className="flex flex-col gap-2.5 text-sm text-[#c4b8a8]">
               <Link href="/menu" className="hover:text-white transition-colors">Food Menu</Link>
-              <a
-                href="https://wa.me/256707808010?text=Hello%20Yamasen%2C%20I%20would%20like%20to%20place%20a%20delivery%20order."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                WhatsApp Delivery
-              </a>
+              <Link href="/order" className="hover:text-white transition-colors">Checkout</Link>
               <Link href="/reservations" className="hover:text-white transition-colors">Book a Table</Link>
             </nav>
           </div>
