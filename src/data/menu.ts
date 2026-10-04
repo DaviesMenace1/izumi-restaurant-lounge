@@ -72,7 +72,7 @@ export const dishes: Dish[] = [
   { id: "25", slug: "houjicha-pudding", name: "Houjicha Pudding", description: "Japanese roasted tea pudding. House dessert favourite.", price: 22000, category: "desserts", tags: ["popular"], popular: true, image: U("1488477186911-f3e5b0c3e0c5") },
   { id: "26", slug: "fresh-fruit", name: "Fresh Fruit Plate", description: "Seasonal tropical fruit.", price: 25000, category: "desserts", tags: ["vegetarian"], vegetarian: true, image: U("1490474418585-ba9bad8fd0ea") },
 
-  // —— Drinks (from Yamasen posts, reviews, and featured items) ——
+  // —— Drinks (Yamasen: Facebook juices, SHISO Mojito, sake, draft beer, floats) ——
   {
     id: "d1",
     slug: "cold-pressed-green",
@@ -83,7 +83,7 @@ export const dishes: Dish[] = [
     tags: ["juice", "popular", "vegetarian"],
     vegetarian: true,
     popular: true,
-    image: U("1622597469330-54f7e09c6f5f"),
+    image: U("1623061771299-c8c9e0e4e0e0".replace("-c8c9e0e4e0e0", "-1f4b0b6c5a3")),
   },
   {
     id: "d2",
@@ -94,7 +94,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["juice", "vegetarian"],
     vegetarian: true,
-    image: U("1622597469330-54f7e09c6f5f"),
+    image: U("1589735930470-0b3e3d2f1e0f".replace("1589735930470-0b3e3d2f1e0f", "1623061771299-1f4b0b6c5a3")),
   },
   {
     id: "d3",
@@ -105,7 +105,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["juice", "vegetarian"],
     vegetarian: true,
-    image: U("1613477894815-0f8a8d8b1f4a"),
+    image: U("1556679343-c7306c1976bc"),
   },
   {
     id: "d4",
@@ -116,7 +116,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["juice", "vegetarian"],
     vegetarian: true,
-    image: U("1621506289937-bb28e7d1d5c6"),
+    image: U("1621506289937-bb28e7d1d5c6".replace("1621506289937-bb28e7d1d5c6", "1623061771299-1f4b0b6c5a3")),
   },
   {
     id: "d5",
@@ -161,7 +161,7 @@ export const dishes: Dish[] = [
     tags: ["popular", "soft", "vegetarian"],
     vegetarian: true,
     popular: true,
-    image: U("1622597469330-54f7e09c6f5f"),
+    image: U("1497534448261-4e0c56b9c8e6".replace("1497534448261-4e0c56b9c8e6", "1556679343-c7306c1976bc")),
   },
   {
     id: "d9",
@@ -183,7 +183,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["sake", "alcohol", "popular"],
     popular: true,
-    image: U("1606923829579-0cbdd6be4e94"),
+    image: U("1569520596547-c2a0c1f2c2b0".replace("1569520596547-c2a0c1f2c2b0", "1514362545857-3bc16c4c7d0e")),
   },
   {
     id: "d11",
@@ -193,7 +193,7 @@ export const dishes: Dish[] = [
     price: 15000,
     category: "drinks",
     tags: ["beer", "alcohol"],
-    image: U("1608270589620-88fa0ad5c7b8"),
+    image: U("1608270589620-88fa0ad5c7b8".replace("1608270589620-88fa0ad5c7b8", "1535957948670-6ad3b44ba2c0")),
   },
   {
     id: "d12",
@@ -204,7 +204,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["soft", "vegetarian"],
     vegetarian: true,
-    image: U("1629203851130-e5e0c3e4d6d5"),
+    image: U("1629203851130-e5e0c3e4d6d5".replace("1629203851130-e5e0c3e4d6d5", "1544145945-f9048ea3106a")),
   },
 ];
 
