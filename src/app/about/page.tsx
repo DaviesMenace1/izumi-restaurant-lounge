@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { venue } from "@/data/media";
 
 export const metadata: Metadata = {
   title: "About",
@@ -8,18 +9,20 @@ export const metadata: Metadata = {
     "Yamasen Japanese Restaurant is a farm to table Japanese restaurant in Kampala. Organic farm produce, Kyoto trained kitchen, Ugandan inspired dishes.",
 };
 
-const IMG = {
-  farm: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=90",
-  kitchen: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=90",
-  produce: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=1200&q=90",
-};
-
 export default function AboutPage() {
   return (
     <div className="pt-[72px]">
       <section className="relative min-h-[42vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={IMG.kitchen} alt="Yamasen" fill priority quality={90} className="object-cover" sizes="100vw" />
+          <Image
+            src={venue.nightExterior}
+            alt="Yamasen"
+            fill
+            priority
+            quality={90}
+            className="object-cover"
+            sizes="100vw"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/20" />
         </div>
         <div className="relative z-10 px-5 pb-12 max-w-[1100px] mx-auto w-full">
@@ -53,14 +56,22 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-[4/5] overflow-hidden blob shadow-lg">
               <Image
-                src={IMG.farm}
-                alt="Yamasen farm"
+                src={venue.hallDay}
+                alt="Yamasen interior hall"
                 fill
                 quality={90}
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3">
+            {[venue.seating, venue.garden, venue.outdoor].map((src, i) => (
+              <div key={i} className="relative aspect-[4/3] overflow-hidden blob-sm">
+                <Image src={src} alt="Yamasen space" fill quality={88} className="object-cover" sizes="33vw" />
+              </div>
+            ))}
           </div>
 
           <div className="mt-16 grid sm:grid-cols-3 gap-8 pt-12 border-t border-[var(--border)]">
