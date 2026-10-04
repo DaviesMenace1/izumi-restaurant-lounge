@@ -25,6 +25,7 @@ const categoryImages: Record<CategorySlug, string> = {
   grills: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=1200&q=90",
   "salads-soups": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=90",
   desserts: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=1200&q=90",
+  drinks: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d0e?w=1200&q=90",
 };
 
 function MenuContent() {
@@ -64,7 +65,7 @@ function MenuContent() {
             Farm to table Japanese
           </h1>
           <p className="text-[var(--text-muted)] max-w-lg mx-auto text-[0.95rem] leading-relaxed">
-            Bento, sushi, ramen, and Kyoto style plates. Prices in UGX.
+            Bento, sushi, ramen, drinks and Kyoto style plates. Prices in UGX.
           </p>
         </div>
 
@@ -85,7 +86,7 @@ function MenuContent() {
             </svg>
             <input
               type="search"
-              placeholder="Search dishes (typos ok)..."
+              placeholder="Search dishes or drinks (typos ok)..."
               value={q}
               onChange={(e) => setQ(e.target.value)}
               className="w-full bg-white border border-[var(--border)] soft-pill text-[var(--text)] placeholder:text-[var(--text-muted)] pl-11 pr-6 py-3.5 text-sm font-medium focus:outline-none focus:border-[#b71c1c] shadow-sm"
@@ -106,6 +107,7 @@ function MenuContent() {
               ["donburi", "Donburi"],
               ["grills", "Grills"],
               ["salads-soups", "Salads"],
+              ["drinks", "Drinks"],
               ["vegetarian", "Veg"],
             ] as [Filter, string][]
           ).map(([key, label]) => (
@@ -148,7 +150,7 @@ function MenuContent() {
                         {cat.name}
                       </h2>
                       <p className="text-[0.8rem] text-white/95 mt-0.5 font-medium">
-                        {count} dishes
+                        {count} {cat.slug === "drinks" ? "drinks" : "dishes"}
                       </p>
                     </div>
                   </div>
@@ -168,7 +170,7 @@ function MenuContent() {
 
             {filtered.length === 0 && (
               <p className="text-center text-[var(--text-muted)] py-16 font-medium">
-                No dishes match your search. Try another spelling.
+                No items match your search. Try another spelling.
               </p>
             )}
           </>
