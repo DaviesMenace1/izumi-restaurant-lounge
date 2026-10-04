@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Quicksand, Noto_Sans_JP } from "next/font/google";
+import { Cormorant_Garamond, Lato, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,17 +7,17 @@ import CartDrawer from "@/components/CartDrawer";
 import Toast from "@/components/Toast";
 import { CartProvider } from "@/context/CartContext";
 
-const outfit = Outfit({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-outfit",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
   display: "swap",
 });
 
-const quicksand = Quicksand({
+const lato = Lato({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-quicksand",
+  weight: ["300", "400", "700"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -60,11 +60,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${quicksand.variable} ${notoJp.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${lato.variable} ${notoJp.variable}`}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
-      <body className={`${outfit.className} min-h-screen flex flex-col antialiased`}>
+      <body className={`${lato.className} min-h-screen flex flex-col antialiased`}>
         <CartProvider>
           <Header />
           <main className="flex-1">{children}</main>
