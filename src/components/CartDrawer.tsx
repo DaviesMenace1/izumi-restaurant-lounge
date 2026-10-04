@@ -1,13 +1,52 @@
 "use client";
 
+import { useState, FormEvent } from "react";
 import Image from "next/image";
-import { useCart, formatUGX, openWhatsAppOrder } from "@/context/CartContext";
+import {
+  useCart,
+  formatUGX,
+  openWhatsAppOrder,
+  type OrderDetails,
+} from "@/context/CartContext";
 
 export default function CartDrawer() {
   const { items, open, setOpen, setQty, removeItem, subtotal, clear } =
     useCart();
 
+  const [customerName, setCustomerName] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
+  const [method, setMethod] = useState<"delivery" | "pickup">("pickup");
+  const [address, setAddress] = useState("");
+  const [error, setError] = useState("");
+
   if (!open) return null;
+
+  function handleOrder(e: FormEvent) {
+    e.preventDefault();
+    setError("");
+
+    if (!customerName.trim()) {
+      setError("Please enter your name.");
+      return;
+    }
+    if (!customerPhone.trim()) {
+      setError("Please enter your phone number.");
+      return;
+    }
+    if (method === "delivery" && !address.trim()) {
+      setError("Please enter a delivery address.");
+      return;
+    }
+
+    const details: OrderDetails = {
+      customerName: customerName.trim(),
+      customerPhone: customerPhone.trim(),
+      method,
+      address: method === "delivery" ? address.trim() : "",
+    };
+
+    openWhatsAppOrder(items, subtotal, details);
+  }
 
   return (
     <>
@@ -17,8 +56,11 @@ export default function CartDrawer() {
         aria-hidden
       />
       <aside className="fixed top-0 right-0 z-[70] h-full w-full max-w-md bg-white border-l border-[var(--border)] shadow-2xl flex flex-col">
-        <div className="flex items-center justify-between px-5 h-[72px] border-b border-[var(--border)]">
-          <h2 className="text-sm tracking-[0.15em] uppercase text-[var(--gold)]">
+        <div className="flex items-center justify-between px-5 h-[72px] border-b border-[var(--border)] shrink-0">
+          <h2
+            className="text-sm tracking-[0.15em] uppercase font-bold"
+            style={{ color: "#9a1515" }}
+          >
             Your Order ({items.reduce((n, i) => n + i.qty, 0)})
           </h2>
           <button
@@ -36,77 +78,189 @@ export default function CartDrawer() {
               Your cart is empty. Add dishes from the menu.
             </p>
           ) : (
-            <ul className="space-y-4">
-              {items.map((item) => (
-                <li
-                  key={item.id}
-                  className="flex gap-3 border-b border-[var(--border)] pb-4"
+            <>
+              <ul className="space-y-4 mb-6">
+                {items.map((item) => (
+                  <li
+                    key={item.id}
+                    className="flex gap-3 border-b border-[var(--border)] pb-4"
+                  >
+                    <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-[var(--bg-elevated)]">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover"
+                        sizes="64px"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between gap-2">
+                        <h3 className="text-sm font-medium truncate" style={{ color: "#1a1410" }}>
+                          {item.name}
+                        </h3>
+                        <button
+                          onClick={() => removeItem(item.id)}
+                          className="text-[var(--text-muted)] hover:text-red-600 text-xs"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                      <p className="text-xs font-semibold mt-0.5" style={{ color: "#9a1515" }}>
+                        {formatUGX(item.price)}
+                      </p>
+                      <div className="flex items-center gap-3 mt-2">
+                        <button
+                          onClick={() => setQty(item.id, item.qty - 1)}
+                          className="w-7 h-7 rounded-full border border-[var(--border)] text-sm hover:border-[#9a1515]"
+                        >
+                          −
+                        </button>
+                        <span className="text-sm w-6 text-center">{item.qty}</span>
+                        <button
+                          onClick={() => setQty(item.id, item.qty + 1)}
+                          className="w-7 h-7 rounded-full border border-[var(--border)] text-sm hover:border-[#9a1515]"
+                        >
+                          +
+                        </button>
+                        <span className="ml-auto text-sm text-[var(--text-muted)]">
+                          {formatUGX(item.price * item.qty)}
+                        </span>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              <form id="order-form" onSubmit={handleOrder} className="space-y-4 border-t border-[var(--border)] pt-5">
+                <p
+                  className="text-[0.7rem] tracking-[0.14em] uppercase font-bold"
+                  style={{ color: "#1a1410" }}
                 >
-                  <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-[var(--bg-elevated)]">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                      sizes="64px"
+                  Order details
+                </p>
+
+                <div>
+                  <label
+                    htmlFor="order-name"
+                    className="block text-[0.7rem] tracking-[0.1em] uppercase font-bold mb-1.5"
+                    style={{ color: "#1a1410" }}
+                  >
+                    Name
+                  </label>
+                  <input
+                    id="order-name"
+                    type="text"
+                    required
+                    value={customerName}
+                    onChange={(e) => setCustomerName(e.target.value)}
+                    placeholder="Your full name"
+                    className="w-full border border-[var(--border)] bg-[var(--bg)] px-3 py-2.5 text-sm focus:outline-none focus:border-[#9a1515]"
+                    style={{ color: "#1a1410" }}
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="order-phone"
+                    className="block text-[0.7rem] tracking-[0.1em] uppercase font-bold mb-1.5"
+                    style={{ color: "#1a1410" }}
+                  >
+                    Phone
+                  </label>
+                  <input
+                    id="order-phone"
+                    type="tel"
+                    required
+                    value={customerPhone}
+                    onChange={(e) => setCustomerPhone(e.target.value)}
+                    placeholder="+256..."
+                    className="w-full border border-[var(--border)] bg-[var(--bg)] px-3 py-2.5 text-sm focus:outline-none focus:border-[#9a1515]"
+                    style={{ color: "#1a1410" }}
+                  />
+                </div>
+
+                <div>
+                  <p
+                    className="block text-[0.7rem] tracking-[0.1em] uppercase font-bold mb-2"
+                    style={{ color: "#1a1410" }}
+                  >
+                    Delivery / Pickup
+                  </p>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setMethod("pickup")}
+                      className={`flex-1 py-2.5 text-xs font-bold tracking-[0.1em] uppercase border transition-colors ${
+                        method === "pickup"
+                          ? "bg-[#9a1515] text-white border-[#9a1515]"
+                          : "bg-white text-[var(--text)] border-[var(--border)]"
+                      }`}
+                    >
+                      Pickup
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setMethod("delivery")}
+                      className={`flex-1 py-2.5 text-xs font-bold tracking-[0.1em] uppercase border transition-colors ${
+                        method === "delivery"
+                          ? "bg-[#9a1515] text-white border-[#9a1515]"
+                          : "bg-white text-[var(--text)] border-[var(--border)]"
+                      }`}
+                    >
+                      Delivery
+                    </button>
+                  </div>
+                </div>
+
+                {method === "delivery" && (
+                  <div>
+                    <label
+                      htmlFor="order-address"
+                      className="block text-[0.7rem] tracking-[0.1em] uppercase font-bold mb-1.5"
+                      style={{ color: "#1a1410" }}
+                    >
+                      Address (if delivery)
+                    </label>
+                    <textarea
+                      id="order-address"
+                      required={method === "delivery"}
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                      placeholder="Street, area, landmarks"
+                      rows={3}
+                      className="w-full border border-[var(--border)] bg-[var(--bg)] px-3 py-2.5 text-sm focus:outline-none focus:border-[#9a1515] resize-none"
+                      style={{ color: "#1a1410" }}
                     />
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex justify-between gap-2">
-                      <h3 className="text-sm text-[var(--text)] font-medium truncate">
-                        {item.name}
-                      </h3>
-                      <button
-                        onClick={() => removeItem(item.id)}
-                        className="text-[var(--text-muted)] hover:text-red-600 text-xs"
-                      >
-                        Remove
-                      </button>
-                    </div>
-                    <p className="text-xs text-[var(--gold)] mt-0.5">
-                      {formatUGX(item.price)}
-                    </p>
-                    <div className="flex items-center gap-3 mt-2">
-                      <button
-                        onClick={() => setQty(item.id, item.qty - 1)}
-                        className="w-7 h-7 rounded-full border border-[var(--border)] text-sm hover:border-[var(--gold)]"
-                      >
-                        −
-                      </button>
-                      <span className="text-sm w-6 text-center">{item.qty}</span>
-                      <button
-                        onClick={() => setQty(item.id, item.qty + 1)}
-                        className="w-7 h-7 rounded-full border border-[var(--border)] text-sm hover:border-[var(--gold)]"
-                      >
-                        +
-                      </button>
-                      <span className="ml-auto text-sm text-[var(--text-muted)]">
-                        {formatUGX(item.price * item.qty)}
-                      </span>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                )}
+
+                {error && (
+                  <p className="text-sm text-red-700 font-medium">{error}</p>
+                )}
+              </form>
+            </>
           )}
         </div>
 
         {items.length > 0 && (
-          <div className="border-t border-[var(--border)] p-5 space-y-3">
+          <div className="border-t border-[var(--border)] p-5 space-y-3 shrink-0 bg-white">
             <div className="flex justify-between text-sm">
-              <span className="text-[var(--text-muted)]">Subtotal</span>
-              <span className="text-[var(--gold)] font-semibold">
+              <span className="text-[var(--text-muted)] font-medium">Subtotal</span>
+              <span className="font-bold" style={{ color: "#9a1515" }}>
                 {formatUGX(subtotal)}
               </span>
             </div>
             <button
-              onClick={() => openWhatsAppOrder(items, subtotal)}
-              className="w-full py-3.5 text-xs font-medium tracking-[0.12em] uppercase bg-[#25D366] text-white hover:bg-[#20bd5a] transition-colors rounded-full flex items-center justify-center gap-2"
+              type="submit"
+              form="order-form"
+              className="w-full py-3.5 text-xs font-bold tracking-[0.12em] uppercase bg-[#25D366] text-white hover:bg-[#20bd5a] transition-colors soft-pill flex items-center justify-center gap-2"
             >
               <WhatsAppIcon />
-              Order on WhatsApp ({items.length} dishes)
+              Order on WhatsApp
             </button>
             <button
+              type="button"
               onClick={clear}
               className="w-full py-2 text-xs tracking-[0.1em] uppercase text-[var(--text-muted)] hover:text-[var(--text)]"
             >
