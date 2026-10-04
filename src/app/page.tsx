@@ -226,34 +226,29 @@ export default function HomePage() {
               className="text-[clamp(1.7rem,4vw,2.4rem)] font-semibold mb-4 tracking-[0.03em]"
               style={{ color: "#1a1410" }}
             >
-              Join Our Loyalty Card
+              Loyalty programme
             </h2>
-            <p className="text-[0.95rem] leading-relaxed mb-4" style={{ color: "#4a4038" }}>
-              Earn 1 stamp for every UGX 30,000 spent. Enter the lottery every 10
-              stamps. Valid at Yamasen, Farm to Table, and Klafts.
-            </p>
-            <p className="text-sm mb-8" style={{ color: "#4a4038" }}>
-              Order on WhatsApp with Loyalty member checked. View your stamps on
-              the Loyalty page with the same phone number.
+            <p className="text-[0.95rem] leading-relaxed mb-8" style={{ color: "#4a4038" }}>
+              Our loyalty programme is still in the kitchen. We are preparing the
+              details and will share them here when ready.
             </p>
             <Link href="/loyalty" className="btn-cream inline-flex justify-center">
-              Join Loyalty Membership
+              Learn more
             </Link>
           </div>
         </ScrollReveal>
       </section>
 
       <section className="py-14 md:py-16 px-5 bg-[var(--bg-elevated)] border-y border-[var(--border)]">
-        <div className="max-w-[900px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="max-w-[700px] mx-auto grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
           {[
-            { n: "4.6", l: "TripAdvisor Rating" },
-            { n: "106+", l: "Guest Reviews" },
             { n: "9–23", l: "Hours Daily" },
             { n: "26+", l: "Menu Favourites" },
+            { n: "Tank Hill", l: "Muyenga Kampala" },
           ].map((s) => (
             <div key={s.l}>
               <p
-                className="text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-wide mb-1"
+                className="text-[clamp(1.5rem,3.5vw,2.2rem)] font-semibold tracking-wide mb-1"
                 style={{ color: "#1a1410" }}
               >
                 {s.n}
@@ -293,7 +288,7 @@ export default function HomePage() {
               className="text-sm tracking-[0.15em] uppercase font-semibold"
               style={{ color: "#ffffff" }}
             >
-              Yamasen Guests · TripAdvisor 4.6
+              Yamasen Guests
             </p>
           </div>
         </ScrollReveal>
@@ -392,7 +387,7 @@ export default function HomePage() {
 
       <section className="py-14 px-5 bg-[var(--bg)]">
         <div className="max-w-[900px] mx-auto">
-          <Partners showRating />
+          <Partners />
         </div>
       </section>
     </>
