@@ -17,6 +17,7 @@ export default function CartDrawer() {
   const [customerPhone, setCustomerPhone] = useState("");
   const [method, setMethod] = useState<"delivery" | "pickup">("pickup");
   const [address, setAddress] = useState("");
+  const [allergies, setAllergies] = useState("");
   const [error, setError] = useState("");
 
   if (!open) return null;
@@ -43,6 +44,7 @@ export default function CartDrawer() {
       customerPhone: customerPhone.trim(),
       method,
       address: method === "delivery" ? address.trim() : "",
+      allergies: allergies.trim() || undefined,
     };
 
     openWhatsAppOrder(items, subtotal, details);
@@ -234,6 +236,25 @@ export default function CartDrawer() {
                     />
                   </div>
                 )}
+
+                <div>
+                  <label
+                    htmlFor="order-allergies"
+                    className="block text-[0.7rem] tracking-[0.1em] uppercase font-bold mb-1.5"
+                    style={{ color: "#1a1410" }}
+                  >
+                    Allergies <span className="normal-case tracking-normal font-medium text-[var(--text-muted)]">(optional)</span>
+                  </label>
+                  <textarea
+                    id="order-allergies"
+                    value={allergies}
+                    onChange={(e) => setAllergies(e.target.value)}
+                    placeholder="e.g. shellfish, peanuts, gluten"
+                    rows={2}
+                    className="w-full border border-[var(--border)] bg-[var(--bg)] px-3 py-2.5 text-sm focus:outline-none focus:border-[#9a1515] resize-none"
+                    style={{ color: "#1a1410" }}
+                  />
+                </div>
 
                 {error && (
                   <p className="text-sm text-red-700 font-medium">{error}</p>
