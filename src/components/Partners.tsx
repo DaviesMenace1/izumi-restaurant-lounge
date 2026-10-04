@@ -29,14 +29,10 @@ const partners = [
   },
 ];
 
-export default function Partners({
-  showRating = false,
-}: {
-  showRating?: boolean;
-}) {
+export default function Partners() {
   return (
     <div>
-      <p className="text-center text-[0.7rem] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-6">
+      <p className="text-center text-[0.7rem] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-6 font-bold">
         Trusted partners
       </p>
       <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
@@ -46,7 +42,7 @@ export default function Partners({
             href={p.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative h-10 w-[100px] sm:h-12 sm:w-[120px] opacity-90 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+            className="relative h-11 w-[110px] sm:h-12 sm:w-[130px] opacity-100 transition-opacity hover:opacity-90"
             title={p.name}
           >
             <Image
@@ -54,16 +50,11 @@ export default function Partners({
               alt={p.name}
               fill
               className="object-contain"
-              sizes="120px"
+              sizes="130px"
             />
           </a>
         ))}
       </div>
-      {showRating && (
-        <p className="text-center text-xs text-[var(--text-muted)] mt-5">
-          4.6 on TripAdvisor · 106 reviews
-        </p>
-      )}
     </div>
   );
 }
