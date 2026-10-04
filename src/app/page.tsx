@@ -1,21 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const IMG = {
-  hero: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1920&q=90",
-  sushi: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1400&q=90",
-  bento: "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=1400&q=90",
-  farm: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=90",
-  ramen: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1400&q=90",
-  salad: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1400&q=90",
-  interior: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=90",
-  grill: "https://images.unsplash.com/photo-1553621042-f6e147245754?w=1200&q=90",
-  night: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=90",
-  tea: "https://images.unsplash.com/photo-1488477186911-f3e5b0c3e0c5?w=1200&q=90",
-  veg: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=1200&q=90",
-  wood: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1600&q=90",
-};
+import Partners from "@/components/Partners";
+import { venue, gallery } from "@/data/media";
 
 export default function HomePage() {
   return (
@@ -23,8 +10,8 @@ export default function HomePage() {
       <section className="pt-[72px] relative min-h-[92vh] flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={IMG.hero}
-            alt="Yamasen dining atmosphere"
+            src={venue.nightExterior}
+            alt="Yamasen timber hall at night"
             fill
             priority
             quality={95}
@@ -86,11 +73,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Image mosaic strip */}
       <section className="grid grid-cols-2 md:grid-cols-4 gap-1.5 px-1.5 py-1.5">
-        {[IMG.sushi, IMG.farm, IMG.ramen, IMG.interior].map((src, i) => (
+        {gallery.slice(0, 4).map((src, i) => (
           <div key={i} className="relative aspect-[4/3] overflow-hidden blob-sm">
-            <Image src={src} alt="" fill quality={90} className="object-cover" sizes="25vw" />
+            <Image src={src} alt="Yamasen" fill quality={90} className="object-cover" sizes="25vw" />
           </div>
         ))}
       </section>
@@ -100,8 +86,8 @@ export default function HomePage() {
           <ScrollReveal direction="left">
             <div className="relative aspect-[4/5] overflow-hidden blob shadow-lg">
               <Image
-                src={IMG.farm}
-                alt="Farm produce for Yamasen"
+                src={venue.hallDay}
+                alt="Yamasen timber hall interior"
                 fill
                 quality={92}
                 className="object-cover"
@@ -138,10 +124,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Full-bleed media band */}
       <section className="relative min-h-[42vh] md:min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={IMG.wood} alt="" fill quality={90} className="object-cover" sizes="100vw" />
+          <Image src={venue.upperDeck} alt="" fill quality={90} className="object-cover" sizes="100vw" />
           <div className="absolute inset-0 bg-black/55" />
         </div>
         <ScrollReveal>
@@ -167,24 +152,24 @@ export default function HomePage() {
           <ScrollReveal>
             <div className="text-center mb-10">
               <p className="text-[0.7rem] tracking-[0.25em] uppercase text-[#b71c1c] mb-2">
-                The Menu
+                The Space
               </p>
               <h2 className="text-[clamp(1.75rem,4vw,2.4rem)] font-bold">
-                Signatures and bento
+                Inside Yamasen
               </h2>
             </div>
           </ScrollReveal>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {[
-              { href: "/menu/dish/gogo-fish-curry", img: IMG.ramen, name: "Gogo Fish Curry", price: "UGX 40,000" },
-              { href: "/menu/dish/tonkatsu-bento", img: IMG.bento, name: "Tonkatsu Bento", price: "UGX 45,000" },
-              { href: "/menu/dish/sushi-platter", img: IMG.sushi, name: "Sushi Platter", price: "UGX 85,000" },
-              { href: "/menu/dish/yakiniku-pizza", img: IMG.grill, name: "Yakiniku BBQ Pizza", price: "UGX 40,000" },
-              { href: "/menu/dish/farm-to-table-salad", img: IMG.salad, name: "Farm to Table Salad", price: "UGX 28,000" },
-              { href: "/menu/dish/pork-ramen", img: IMG.tea, name: "Pork Ramen", price: "UGX 48,000" },
+              { img: venue.seating, name: "Dining hall", href: "/experience" },
+              { img: venue.garden, name: "Garden views", href: "/experience" },
+              { img: venue.tables, name: "Table settings", href: "/reservations" },
+              { img: venue.outdoor, name: "Outdoor seating", href: "/experience" },
+              { img: venue.detail, name: "Craft details", href: "/about" },
+              { img: venue.ambiance, name: "Evening light", href: "/reservations" },
             ].map((d, i) => (
-              <ScrollReveal key={d.href} delay={i * 50}>
+              <ScrollReveal key={d.name} delay={i * 50}>
                 <Link href={d.href} className="group block bg-white overflow-hidden shadow-md blob-card">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
@@ -200,7 +185,6 @@ export default function HomePage() {
                     <h3 className="text-sm md:text-base font-semibold text-[var(--text)] leading-snug">
                       {d.name}
                     </h3>
-                    <p className="text-xs text-[#b71c1c] font-semibold mt-1">{d.price}</p>
                   </div>
                 </Link>
               </ScrollReveal>
@@ -218,24 +202,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 px-5">
+      <section className="py-14 px-5">
         <ScrollReveal>
-          <div className="max-w-[700px] mx-auto text-center">
-            <p className="text-[0.7rem] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
-              TripAdvisor
-            </p>
-            <p className="text-3xl font-bold text-[#b71c1c] mb-1">4.6</p>
-            <p className="text-sm text-[var(--text-muted)] mb-4">
-              106 reviews · Ranked among top restaurants in Kampala
-            </p>
-            <a
-              href="https://www.tripadvisor.com/Restaurant_Review-g293841-d15006919-Reviews-YAMASEN_Japanese_Restaurant-Kampala_Central_Region.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs tracking-[0.1em] uppercase text-[#b71c1c] font-semibold hover:underline"
-            >
-              Read reviews
-            </a>
+          <div className="max-w-[900px] mx-auto">
+            <Partners showRating />
           </div>
         </ScrollReveal>
       </section>
@@ -243,7 +213,7 @@ export default function HomePage() {
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={IMG.night}
+            src={venue.closing}
             alt="Evening at Yamasen"
             fill
             quality={92}
