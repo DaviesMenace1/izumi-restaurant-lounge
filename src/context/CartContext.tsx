@@ -24,6 +24,13 @@ export type ToastMessage = {
   text: string;
 };
 
+export type OrderDetails = {
+  customerName: string;
+  customerPhone: string;
+  method: "delivery" | "pickup";
+  address: string;
+};
+
 type CartContextValue = {
   items: CartItem[];
   addItem: (item: Omit<CartItem, "qty">, qty?: number) => void;
@@ -143,6 +150,7 @@ export function formatUGX(n: number) {
 export function openWhatsAppOrder(
   items: CartItem[],
   subtotal: number,
+  details: OrderDetails,
   phone = "256707808010"
 ) {
   if (!items.length) return;
@@ -150,9 +158,18 @@ export function openWhatsAppOrder(
   const lines: string[] = [
     "*Yamasen Japanese Restaurant - Order*",
     "",
-    "Please prepare the following:",
-    "",
+    "*Customer*",
+    `Name: ${details.customerName}`,
+    `Phone: ${details.customerPhone}`,
+    `Method: ${details.method === "delivery" ? "Delivery" : "Pickup"}`,
   ];
+
+  if (details.method === "delivery") {
+    lines.push(`Address: ${details.address}`);
+  }
+
+  lines.push("");
+  lines.push("*Items*");
 
   items.forEach((i, idx) => {
     lines.push(
@@ -162,11 +179,6 @@ export function openWhatsAppOrder(
 
   lines.push("");
   lines.push(`*Total: ${formatUGX(subtotal)}*`);
-  lines.push("");
-  lines.push("Name: ");
-  lines.push("Phone: ");
-  lines.push("Delivery / Pickup: ");
-  lines.push("Address (if delivery): ");
   lines.push("");
   lines.push("Please confirm availability. Thank you!");
 
