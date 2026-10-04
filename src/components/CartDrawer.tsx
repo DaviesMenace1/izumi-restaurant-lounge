@@ -8,6 +8,7 @@ import {
   openWhatsAppOrder,
   type OrderDetails,
 } from "@/context/CartContext";
+import { loyaltyRules } from "@/data/loyalty";
 
 export default function CartDrawer() {
   const { items, open, setOpen, setQty, removeItem, subtotal, clear } =
@@ -17,9 +18,12 @@ export default function CartDrawer() {
   const [customerPhone, setCustomerPhone] = useState("");
   const [method, setMethod] = useState<"delivery" | "pickup">("pickup");
   const [address, setAddress] = useState("");
+  const [loyaltyMember, setLoyaltyMember] = useState(true);
   const [error, setError] = useState("");
 
   if (!open) return null;
+
+  const stampsIfLoyalty = Math.floor(subtotal / loyaltyRules.stampSpendUgx);
 
   function handleOrder(e: FormEvent) {
     e.preventDefault();
@@ -43,6 +47,7 @@ export default function CartDrawer() {
       customerPhone: customerPhone.trim(),
       method,
       address: method === "delivery" ? address.trim() : "",
+      loyaltyMember,
     };
 
     openWhatsAppOrder(items, subtotal, details);
@@ -234,6 +239,24 @@ export default function CartDrawer() {
                     />
                   </div>
                 )}
+
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={loyaltyMember}
+                    onChange={(e) => setLoyaltyMember(e.target.checked)}
+                    className="mt-1 h-4 w-4 accent-[#9a1515]"
+                  />
+                  <span className="text-sm" style={{ color: "#1a1410" }}>
+                    <span className="font-bold">Loyalty member</span>
+                    {" — "}
+                    {stampsIfLoyalty > 0
+                      ? `this order earns about ${stampsIfLoyalty} stamp${stampsIfLoyalty > 1 ? "s" : ""}. Staff will confirm on WhatsApp.`
+                      : `spend UGX ${loyaltyRules.stampSpendUgx.toLocaleString()}+ to earn a stamp.`}
+                    {" "}
+                    View stamps anytime on the Loyalty page with this phone number.
+                  </span>
+                </label>
 
                 {error && (
                   <p className="text-sm text-red-700 font-medium">{error}</p>
