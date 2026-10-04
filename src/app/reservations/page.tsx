@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ReservationForm from "@/components/ReservationForm";
+import { venue } from "@/data/media";
 
 export const metadata: Metadata = {
   title: "Reservations",
@@ -12,11 +13,10 @@ export const metadata: Metadata = {
 export default function ReservationsPage() {
   return (
     <div className="pt-[72px]">
-      {/* Hiro-style media hero */}
       <section className="relative min-h-[48vh] md:min-h-[56vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=92"
+            src={venue.nightExterior}
             alt="Yamasen dining room"
             fill
             priority
@@ -40,7 +40,6 @@ export default function ReservationsPage() {
         </div>
       </section>
 
-      {/* Step indicators like Hiro */}
       <section className="bg-white border-b border-[var(--border)] py-6 px-5">
         <div className="max-w-[900px] mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10">
           {[
@@ -63,10 +62,8 @@ export default function ReservationsPage() {
         </div>
       </section>
 
-      {/* Main content */}
       <section className="py-14 md:py-20 px-5 bg-[var(--bg)]">
         <div className="max-w-[1100px] mx-auto grid lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-14 items-start">
-          {/* Info column */}
           <div className="space-y-8">
             <div>
               <h2 className="text-[clamp(1.4rem,3vw,1.85rem)] font-bold mb-3">
@@ -111,7 +108,7 @@ export default function ReservationsPage() {
 
             <div className="relative aspect-[16/10] overflow-hidden blob-card shadow-md">
               <Image
-                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=90"
+                src={venue.seating}
                 alt="Yamasen atmosphere"
                 fill
                 quality={90}
@@ -129,7 +126,6 @@ export default function ReservationsPage() {
             </p>
           </div>
 
-          {/* Form column */}
           <div className="bg-white border border-[var(--border)] p-7 md:p-9 blob-card shadow-lg">
             <p className="text-[0.65rem] tracking-[0.2em] uppercase text-[#b71c1c] mb-2">
               Reservation details
@@ -142,11 +138,10 @@ export default function ReservationsPage() {
         </div>
       </section>
 
-      {/* Bottom CTA band */}
       <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=90"
+            src={venue.closing}
             alt=""
             fill
             quality={88}
