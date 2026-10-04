@@ -7,7 +7,7 @@ import StatsCounters from "@/components/StatsCounters";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Yamasen Japanese Restaurant is a farm to table Japanese restaurant in Kampala. Organic farm produce, Kyoto trained kitchen, Ugandan inspired dishes.",
+    "Yamasen Japanese Restaurant is a farm to table Japanese restaurant in Kampala, open since 2018 at Tank Hill Park, Muyenga.",
 };
 
 export default function AboutPage() {
@@ -40,20 +40,22 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             <div className="space-y-5 text-[1.05rem] leading-relaxed" style={{ color: "#4a4038" }}>
               <p>
-                YAMASEN Japanese Restaurant is a farm to table Japanese restaurant in
-                Kampala, Uganda. Organic vegetables from our own farm, fresh ingredients
-                from local suppliers, and seafood from Dar es Salaam are cooked in
-                traditional authentic Japanese cuisine.
+                YAMASEN Japanese Restaurant opened in October 2018 at Tank Hill Park in
+                Muyenga. It is a farm to table Japanese restaurant: organic vegetables from
+                our own farm, ingredients from local suppliers, and seafood from Dar es
+                Salaam, cooked with traditional Japanese technique.
               </p>
               <p>
-                The owner trained in Kyoto. Guests from Uganda and neighbouring countries
-                come for sushi, ramen, bento, omakase and dishes that blend Japanese
-                technique with Ugandan food culture.
+                The project began around 2015 under Cots Cots Ltd. Founder Fumiko Miyashita,
+                from Kyoto, worked with a Kyoto-trained chef to bring authentic Japanese
+                cooking to Kampala. The timber hall was designed to keep existing trees and
+                open to the climate of the hill.
               </p>
               <p>
-                Our timber open air hall at Tank Hill Park offers a calm setting for lunch
-                and dinner. We deliver bento boxes across Kampala and welcome you for a
-                quiet meal or a celebration.
+                Guests from Uganda and neighbouring countries come for sushi, ramen, bento,
+                omakase, and dishes that blend Japanese method with Ugandan food culture.
+                We deliver bento across Kampala and welcome you for a quiet meal or a
+                celebration.
               </p>
             </div>
             <div className="relative aspect-[4/5] overflow-hidden blob shadow-lg">
@@ -74,8 +76,8 @@ export default function AboutPage() {
             </p>
             <StatsCounters />
             <p className="text-center text-sm mt-8 max-w-lg mx-auto" style={{ color: "#4a4038" }}>
-              Over six years of serving Japanese farm to table cuisine in Kampala,
-              with a growing menu and thousands of guests welcomed at Tank Hill.
+              Serving Japanese farm to table cuisine in Kampala since October 2018, with an
+              extensive menu and thousands of guests welcomed at Tank Hill.
             </p>
           </div>
 
