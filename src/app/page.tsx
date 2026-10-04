@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import Partners from "@/components/Partners";
+import StatsCounters from "@/components/StatsCounters";
 import { venue } from "@/data/media";
 
 export default function HomePage() {
@@ -261,27 +262,8 @@ export default function HomePage() {
       </section>
 
       <section className="py-14 md:py-16 px-5 bg-[var(--bg-elevated)] border-y border-[var(--border)]">
-        <div className="max-w-[700px] mx-auto grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
-          {[
-            { n: "9–23", l: "Hours Daily" },
-            { n: "26+", l: "Menu Favourites" },
-            { n: "Tank Hill", l: "Muyenga Kampala" },
-          ].map((s) => (
-            <div key={s.l}>
-              <p
-                className="text-[clamp(1.5rem,3.5vw,2.2rem)] font-semibold tracking-wide mb-1"
-                style={{ color: "#1a1410" }}
-              >
-                {s.n}
-              </p>
-              <p
-                className="text-[0.7rem] tracking-[0.18em] uppercase font-bold"
-                style={{ color: "#4a4038" }}
-              >
-                {s.l}
-              </p>
-            </div>
-          ))}
+        <div className="max-w-[900px] mx-auto">
+          <StatsCounters />
         </div>
       </section>
 
