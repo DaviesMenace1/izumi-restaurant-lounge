@@ -7,7 +7,8 @@ export type CategorySlug =
   | "donburi"
   | "grills"
   | "salads-soups"
-  | "desserts";
+  | "desserts"
+  | "drinks";
 
 export interface Dish {
   id: string;
@@ -34,6 +35,11 @@ export const categories: { slug: CategorySlug; name: string; description: string
   { slug: "grills", name: "Grills and Yakitori", description: "Skewers and BBQ style" },
   { slug: "salads-soups", name: "Salads and Soups", description: "Farm greens and classic broths" },
   { slug: "desserts", name: "Desserts", description: "Houjicha, fruit, and sweets" },
+  {
+    slug: "drinks",
+    name: "Drinks",
+    description: "Cold pressed juices, sake, draft beer, cocktails and soft drinks",
+  },
 ];
 
 const U = (id: string) => `https://images.unsplash.com/photo-${id}?w=800&q=80`;
@@ -65,6 +71,141 @@ export const dishes: Dish[] = [
   { id: "24", slug: "miso-soup", name: "Miso Soup", description: "Classic miso with tofu and wakame.", price: 15000, category: "salads-soups", tags: ["vegetarian"], vegetarian: true, image: U("1547592166-23ac45744acd") },
   { id: "25", slug: "houjicha-pudding", name: "Houjicha Pudding", description: "Japanese roasted tea pudding. House dessert favourite.", price: 22000, category: "desserts", tags: ["popular"], popular: true, image: U("1488477186911-f3e5b0c3e0c5") },
   { id: "26", slug: "fresh-fruit", name: "Fresh Fruit Plate", description: "Seasonal tropical fruit.", price: 25000, category: "desserts", tags: ["vegetarian"], vegetarian: true, image: U("1490474418585-ba9bad8fd0ea") },
+
+  // —— Drinks (from Yamasen posts, reviews, and featured items) ——
+  {
+    id: "d1",
+    slug: "cold-pressed-green",
+    name: "Cold Pressed Juice Green",
+    description: "100% fruit and vegetables. No water, no sugar. Pineapple and Japanese greens.",
+    price: 18000,
+    category: "drinks",
+    tags: ["juice", "popular", "vegetarian"],
+    vegetarian: true,
+    popular: true,
+    image: U("1622597469330-54f7e09c6f5f"),
+  },
+  {
+    id: "d2",
+    slug: "cold-pressed-yellow",
+    name: "Cold Pressed Juice Yellow",
+    description: "Mango, orange, banana, passion fruit and pumpkin. Cold pressed, no sugar.",
+    price: 18000,
+    category: "drinks",
+    tags: ["juice", "vegetarian"],
+    vegetarian: true,
+    image: U("1622597469330-54f7e09c6f5f"),
+  },
+  {
+    id: "d3",
+    slug: "cold-pressed-red",
+    name: "Cold Pressed Juice Red",
+    description: "Watermelon, beetroot, carrot and pineapple. 100% produce, no water.",
+    price: 18000,
+    category: "drinks",
+    tags: ["juice", "vegetarian"],
+    vegetarian: true,
+    image: U("1613477894815-0f8a8d8b1f4a"),
+  },
+  {
+    id: "d4",
+    slug: "cold-pressed-orange",
+    name: "Cold Pressed Juice Orange",
+    description: "Sweet melon, carrot, orange and pineapple. Fresh cold pressed.",
+    price: 18000,
+    category: "drinks",
+    tags: ["juice", "vegetarian"],
+    vegetarian: true,
+    image: U("1621506289937-bb28e7d1d5c6"),
+  },
+  {
+    id: "d5",
+    slug: "shiso-mojito",
+    name: "SHISO Mojito",
+    description: "House original cocktail with Japanese shiso leaf. Signature drink.",
+    price: 28000,
+    category: "drinks",
+    tags: ["cocktail", "popular", "signature"],
+    popular: true,
+    image: U("1514362545857-3bc16c4c7d0e"),
+  },
+  {
+    id: "d6",
+    slug: "shiso-mojito-mocktail",
+    name: "SHISO Mojito Mocktail",
+    description: "Alcohol free version of the house SHISO Mojito with fresh shiso.",
+    price: 20000,
+    category: "drinks",
+    tags: ["mocktail", "vegetarian"],
+    vegetarian: true,
+    image: U("1556679343-c7306c1976bc"),
+  },
+  {
+    id: "d7",
+    slug: "cucumber-spritz-mocktail",
+    name: "Cucumber Spritz Mocktail",
+    description: "Refreshing cucumber spritz. Alcohol free.",
+    price: 20000,
+    category: "drinks",
+    tags: ["mocktail", "vegetarian"],
+    vegetarian: true,
+    image: U("1544145945-f9048ea3106a"),
+  },
+  {
+    id: "d8",
+    slug: "pineapple-float",
+    name: "Pineapple Float",
+    description: "Guest favourite pineapple float. Cold and creamy.",
+    price: 15000,
+    category: "drinks",
+    tags: ["popular", "soft", "vegetarian"],
+    vegetarian: true,
+    popular: true,
+    image: U("1622597469330-54f7e09c6f5f"),
+  },
+  {
+    id: "d9",
+    slug: "matcha-frappuccino",
+    name: "Matcha Frappuccino",
+    description: "Iced Japanese green tea blended drink.",
+    price: 22000,
+    category: "drinks",
+    tags: ["matcha", "vegetarian"],
+    vegetarian: true,
+    image: U("1515823662972-da6a73881e03"),
+  },
+  {
+    id: "d10",
+    slug: "house-sake",
+    name: "House Sake (Masu)",
+    description: "Japanese sake served in a traditional wooden masu cup.",
+    price: 35000,
+    category: "drinks",
+    tags: ["sake", "alcohol", "popular"],
+    popular: true,
+    image: U("1606923829579-0cbdd6be4e94"),
+  },
+  {
+    id: "d11",
+    slug: "draft-beer",
+    name: "Draft Beer",
+    description: "Fresh draft beer. Several kinds available. Ask your server.",
+    price: 15000,
+    category: "drinks",
+    tags: ["beer", "alcohol"],
+    image: U("1608270589620-88fa0ad5c7b8"),
+  },
+  {
+    id: "d12",
+    slug: "ugandan-craft-coke",
+    name: "Ugandan Craft Soft Drink",
+    description: "Local craft cola and soft drinks.",
+    price: 8000,
+    category: "drinks",
+    tags: ["soft", "vegetarian"],
+    vegetarian: true,
+    image: U("1629203851130-e5e0c3e4d6d5"),
+  },
 ];
 
 export function formatPrice(ugx: number): string {
