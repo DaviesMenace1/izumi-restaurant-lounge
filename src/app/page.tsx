@@ -22,14 +22,16 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 px-5 pb-14 pt-28 max-w-lg mx-auto w-full text-center sm:text-left sm:mx-0 sm:max-w-none sm:px-[6%] sm:pb-20">
+          <p className="jp-soft text-[0.85rem] text-white/90 mb-2">ようこそ</p>
           <p className="text-[0.7rem] tracking-[0.28em] uppercase text-white/85 mb-3">
             Tank Hill · Muyenga · Kampala
           </p>
-          <h1 className="text-[clamp(2.5rem,9vw,3.8rem)] font-bold leading-[1.06] text-white mb-4">
+          <h1 className="text-[clamp(2.5rem,9vw,3.8rem)] font-bold leading-[1.06] text-white mb-2">
             Farm to Table
             <br />
             <span className="text-[#ffcdd2]">Japanese</span>
           </h1>
+          <p className="jp text-sm text-white/75 mb-5">農場から食卓へ · 日本料理</p>
           <p className="text-white/90 text-[1rem] leading-relaxed mb-8 max-w-md mx-auto sm:mx-0">
             Organic vegetables from our own farm. Seafood from Dar es Salaam.
             Kyoto trained kitchen. Dishes inspired by Ugandan food culture.
@@ -39,13 +41,13 @@ export default function HomePage() {
               href="/menu"
               className="w-full sm:w-auto inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase bg-[#b71c1c] text-white hover:bg-[#c62828] transition-colors soft-pill"
             >
-              Food Menu
+              メニュー · Menu
             </Link>
             <Link
               href="/reservations"
               className="w-full sm:w-auto inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase bg-white/15 text-white border border-white/45 hover:bg-white/25 transition-colors soft-pill backdrop-blur-sm"
             >
-              Reservation
+              予約 · Reserve
             </Link>
           </div>
           <p className="mt-6 text-[0.75rem] text-white/75">
@@ -57,15 +59,15 @@ export default function HomePage() {
       <section className="py-5 px-4 bg-white/70 border-y border-[var(--border)]">
         <div className="max-w-[1100px] mx-auto flex flex-wrap justify-center gap-3">
           {[
-            { href: "/menu", label: "Food Menu" },
-            { href: "/menu", label: "Bento Delivery" },
-            { href: "/reservations", label: "Book a Table" },
-            { href: "/about", label: "About Us" },
+            { href: "/menu", label: "メニュー Menu" },
+            { href: "/menu", label: "弁当 Bento" },
+            { href: "/reservations", label: "予約 Reserve" },
+            { href: "/about", label: "私たち About" },
           ].map((l) => (
             <Link
               key={l.label}
               href={l.href}
-              className="px-5 py-2.5 text-[0.7rem] tracking-[0.1em] uppercase text-[var(--text)] bg-[var(--bg-elevated)] hover:bg-[#b71c1c] hover:text-white transition-colors soft-pill"
+              className="px-5 py-2.5 text-[0.7rem] tracking-[0.06em] text-[var(--text)] bg-[var(--bg-elevated)] hover:bg-[#b71c1c] hover:text-white transition-colors soft-pill"
             >
               {l.label}
             </Link>
@@ -97,9 +99,11 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal direction="right" delay={100}>
             <div>
-              <p className="text-[0.7rem] tracking-[0.25em] uppercase text-[#b71c1c] mb-3">
-                Our Story
-              </p>
+              <div className="noren-rule mb-4 justify-start">
+                <p className="text-[0.7rem] tracking-[0.2em] uppercase text-[#b71c1c]">
+                  <span className="jp mr-2">物語</span> Our Story
+                </p>
+              </div>
               <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold mb-5">
                 From Kitchen to Farm and Back Again
               </h2>
@@ -117,7 +121,7 @@ export default function HomePage() {
                 href="/about"
                 className="text-xs tracking-[0.12em] uppercase text-[#b71c1c] font-semibold hover:underline"
               >
-                Read more
+                続きを読む · Read more
               </Link>
             </div>
           </ScrollReveal>
@@ -131,6 +135,7 @@ export default function HomePage() {
         </div>
         <ScrollReveal>
           <div className="relative z-10 px-5 text-center max-w-xl">
+            <p className="jp-soft text-white/90 mb-2">体験</p>
             <p className="text-[0.7rem] tracking-[0.25em] uppercase text-white/80 mb-3">
               The Experience
             </p>
@@ -151,6 +156,7 @@ export default function HomePage() {
         <div className="max-w-[1100px] mx-auto">
           <ScrollReveal>
             <div className="text-center mb-10">
+              <p className="jp-soft text-[#b71c1c] mb-1">空間</p>
               <p className="text-[0.7rem] tracking-[0.25em] uppercase text-[#b71c1c] mb-2">
                 The Space
               </p>
@@ -196,7 +202,7 @@ export default function HomePage() {
               href="/menu"
               className="inline-flex px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase bg-[#b71c1c] text-white soft-pill"
             >
-              Full Menu
+              メニュー · Full Menu
             </Link>
           </div>
         </div>
@@ -224,6 +230,7 @@ export default function HomePage() {
         </div>
         <ScrollReveal>
           <div className="relative z-10 max-w-[560px] mx-auto px-5 text-center">
+            <p className="jp-soft text-white/80 mb-2">いらっしゃいませ</p>
             <h2 className="text-[clamp(1.75rem,4vw,2.4rem)] font-bold mb-4 text-white">
               An evening at Yamasen
             </h2>
@@ -236,7 +243,7 @@ export default function HomePage() {
                 href="/reservations"
                 className="inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase bg-[#b71c1c] text-white soft-pill"
               >
-                Book a Table
+                予約 · Book a Table
               </Link>
               <a
                 href="https://wa.me/256707808010"
