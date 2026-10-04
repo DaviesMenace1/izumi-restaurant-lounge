@@ -39,8 +39,8 @@ function FooterLogo() {
         >
           YAMASEN
         </span>
-        <span className="text-[0.6rem] tracking-[0.2em] uppercase text-[#c4b8a8]">
-          Japanese Restaurant
+        <span className="jp text-[0.65rem] tracking-[0.15em] text-[#c4b8a8]">
+          山泉 · Japanese Restaurant
         </span>
       </span>
     </Link>
@@ -58,6 +58,7 @@ export default function Footer() {
               Farm to table Japanese restaurant at Tank Hill Park, Muyenga.
               Organic farm produce, Kyoto style cooking, Ugandan inspired dishes.
             </p>
+            <p className="jp text-xs text-[#e8c4a0] mb-6">心を込めて · From our farm to your table</p>
             <div className="flex flex-wrap gap-2 mb-6">
               {socials.map((s) => (
                 <a
@@ -91,7 +92,7 @@ export default function Footer() {
 
           <div>
             <p className="text-[0.65rem] tracking-[0.2em] uppercase text-[#e8c4a0] mb-3 font-bold">
-              Find us
+              Find us · 場所
             </p>
             <div className="relative w-full overflow-hidden border border-white/15 bg-[#1a110c]" style={{ borderRadius: "12px" }}>
               <div className="relative w-full aspect-[16/10] min-h-[220px]">
@@ -164,7 +165,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-[#9a8f82]">
-          <p>© {new Date().getFullYear()} Yamasen Japanese Restaurant</p>
+          <p>© {new Date().getFullYear()} Yamasen Japanese Restaurant · 山泉</p>
           <p>Instagram · Facebook · WhatsApp</p>
         </div>
       </div>
