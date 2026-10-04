@@ -23,6 +23,7 @@ const categoryJp: Record<string, string> = {
   grills: "焼物",
   "salads-soups": "サラダ・スープ",
   desserts: "デザート",
+  drinks: "ドリンク",
 };
 
 export async function generateStaticParams() {
@@ -44,7 +45,6 @@ export default async function DishByCategoryPage({ params }: Props) {
   const dish = getDishBySlug(slug);
   if (!dish) notFound();
 
-  // Enforce URL category matches dish (or redirect would be client; use notFound if mismatch)
   if (dish.category !== category) notFound();
 
   const cat = getCategory(dish.category as CategorySlug);
