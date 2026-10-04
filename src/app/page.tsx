@@ -1,238 +1,262 @@
 import Link from "next/link";
 import Image from "next/image";
-import Partners from "@/components/Partners";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const IMG = {
+  building:
+    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=90",
   sushi:
-    "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1600&q=90&auto=format",
-  salmon:
-    "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=1200&q=90&auto=format",
-  sashimi:
-    "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=1200&q=90&auto=format",
-  tempura:
-    "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=1200&q=90&auto=format",
-  curry:
-    "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=1200&q=90&auto=format",
-  noodles:
-    "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=1200&q=90&auto=format",
-  katsu:
-    "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=1200&q=90&auto=format",
-  seafood:
-    "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=1200&q=90&auto=format",
+    "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1200&q=90",
+  bento:
+    "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=1200&q=90",
+  farm:
+    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=90",
+  ramen:
+    "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1200&q=90",
+  salad:
+    "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=90",
   interior:
-    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=90&auto=format",
-  cover:
-    "https://contactless-9b492.web.app/restaurants/izumi/images/IZUMI%20-%20FOOD%20MENU%20ONLINE/IZUMI%20-%20FOOD%20MENU%20ONLINE-page-001.jpg",
+    "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=90",
 };
 
 export default function HomePage() {
   return (
     <>
-      <section className="pt-[72px] min-h-[90vh] grid lg:grid-cols-12 gap-0">
-        <div className="lg:col-span-5 flex flex-col justify-center px-[6%] py-16 lg:py-24 relative z-10">
-          <p className="text-xs tracking-[0.3em] uppercase text-[var(--gold)] mb-6">
-            Kololo · Kampala
+      {/* Mobile-first hero */}
+      <section className="pt-[72px] relative min-h-[88vh] flex flex-col justify-end overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={IMG.building}
+            alt="Yamasen dining room"
+            fill
+            priority
+            quality={90}
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/20" />
+        </div>
+
+        <div className="relative z-10 px-5 pb-12 pt-24 max-w-lg mx-auto w-full text-center sm:text-left sm:mx-0 sm:max-w-none sm:px-[6%] sm:pb-16">
+          <p className="text-[0.7rem] tracking-[0.28em] uppercase text-white/80 mb-3">
+            Tank Hill · Muyenga · Kampala
           </p>
-          <h1 className="text-[clamp(2.6rem,5.5vw,3.8rem)] font-medium leading-[1.08] tracking-tight mb-6">
-            The Art of
+          <h1 className="text-[clamp(2.4rem,8vw,3.6rem)] font-bold leading-[1.08] text-white mb-4">
+            Farm to Table
             <br />
-            <span className="text-[var(--gold)]">Pan-Asian</span>
-            <br />
-            Dining
+            <span className="text-[#ffcdd2]">Japanese</span>
           </h1>
-          <p className="text-[var(--text-muted)] text-[1.05rem] max-w-sm mb-10 leading-relaxed">
-            Japanese precision, Thai warmth, live teppanyaki — the original
-            Pan-Asian restaurant and lounge in Kampala since 2018.
+          <p className="text-white/85 text-[0.95rem] leading-relaxed mb-8 max-w-md mx-auto sm:mx-0">
+            Organic vegetables from our own farm. Seafood from Dar es Salaam.
+            Kyoto-trained kitchen. Unique dishes inspired by Ugandan food culture.
           </p>
-          <div className="flex flex-wrap gap-3 mb-12">
-            <Link
-              href="/reservations"
-              className="inline-flex px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase bg-[var(--gold)] text-white hover:bg-[var(--gold-light)] transition-colors rounded-full shadow-sm"
-            >
-              Reserve a Table
-            </Link>
+          <div className="flex flex-col sm:flex-row gap-3 items-center sm:items-start">
             <Link
               href="/menu"
-              className="inline-flex px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase border border-[var(--border)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-colors rounded-full bg-white/80"
+              className="w-full sm:w-auto inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase bg-[#b71c1c] text-white hover:bg-[#c62828] transition-colors soft-pill"
             >
-              View Menu
+              Food Menu
+            </Link>
+            <Link
+              href="/reservations"
+              className="w-full sm:w-auto inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase bg-white/15 text-white border border-white/40 hover:bg-white/25 transition-colors soft-pill backdrop-blur-sm"
+            >
+              Reservation
             </Link>
           </div>
-          <div className="flex gap-10 text-sm">
-            <div>
-              <span className="block text-[0.65rem] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
-                Open
-              </span>
-              Tue – Sun · 12–23:00
+          <p className="mt-6 text-[0.75rem] text-white/70">
+            Open daily 9:00 to 23:00 · +256 707 808010
+          </p>
+        </div>
+      </section>
+
+      {/* Quick links row */}
+      <section className="py-6 px-4 bg-white/60 border-y border-[var(--border)]">
+        <div className="max-w-[1100px] mx-auto flex flex-wrap justify-center gap-3">
+          {[
+            { href: "/menu", label: "Food Menu" },
+            { href: "/menu", label: "Bento Delivery" },
+            { href: "/reservations", label: "Book a Table" },
+            { href: "/about", label: "About Us" },
+          ].map((l) => (
+            <Link
+              key={l.label}
+              href={l.href}
+              className="px-5 py-2.5 text-[0.7rem] tracking-[0.1em] uppercase text-[var(--text)] bg-[var(--bg-elevated)] hover:bg-[#b71c1c] hover:text-white transition-colors soft-pill"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Story */}
+      <section className="py-16 md:py-24 px-5">
+        <div className="max-w-[1100px] mx-auto grid md:grid-cols-2 gap-10 items-center">
+          <ScrollReveal direction="left">
+            <div className="relative aspect-[4/5] overflow-hidden blob">
+              <Image
+                src={IMG.farm}
+                alt="Farm produce"
+                fill
+                quality={90}
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
+          </ScrollReveal>
+          <ScrollReveal direction="right" delay={120}>
             <div>
-              <span className="block text-[0.65rem] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
-                Address
-              </span>
-              38 Upper Kololo Terrace
+              <p className="text-[0.7rem] tracking-[0.25em] uppercase text-[#b71c1c] mb-3">
+                Our Story
+              </p>
+              <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold mb-5">
+                From Kitchen to Farm and Back Again
+              </h2>
+              <p className="text-[var(--text-muted)] leading-relaxed mb-4">
+                YAMASEN is a farm to table Japanese restaurant in Kampala.
+                Organic vegetables grow on our own farm. Fresh ingredients come
+                from local suppliers. Seafood arrives from Dar es Salaam.
+              </p>
+              <p className="text-[var(--text-muted)] leading-relaxed mb-6">
+                The kitchen follows traditional Japanese technique with a Kyoto
+                trained approach, plus dishes you will only find here, inspired
+                by Ugandan food culture.
+              </p>
+              <Link
+                href="/about"
+                className="text-xs tracking-[0.12em] uppercase text-[#b71c1c] font-semibold hover:underline"
+              >
+                Read more
+              </Link>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
+      </section>
 
-        <div className="lg:col-span-7 grid grid-cols-2 grid-rows-2 min-h-[50vh] lg:min-h-0">
-          <div className="relative col-span-2 row-span-1 overflow-hidden">
-            <Image
-              src={IMG.sushi}
-              alt="Izumi sushi platter"
-              fill
-              className="object-cover"
-              priority
-              quality={90}
-              sizes="(max-width: 1024px) 100vw, 58vw"
-            />
+      {/* Signature dishes */}
+      <section className="py-16 bg-[var(--bg-elevated)] px-5">
+        <div className="max-w-[1100px] mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-10">
+              <p className="text-[0.7rem] tracking-[0.25em] uppercase text-[#b71c1c] mb-2">
+                The Menu
+              </p>
+              <h2 className="text-[clamp(1.75rem,4vw,2.4rem)] font-bold">
+                Signatures and bento
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            {[
+              { href: "/menu/dish/gogo-fish-curry", img: IMG.ramen, name: "Gogo Fish Curry", price: "UGX 40,000" },
+              { href: "/menu/dish/tonkatsu-bento", img: IMG.bento, name: "Tonkatsu Bento", price: "UGX 45,000" },
+              { href: "/menu/dish/sushi-platter", img: IMG.sushi, name: "Sushi Platter", price: "UGX 85,000" },
+              { href: "/menu/dish/yakiniku-pizza", img: IMG.bento, name: "Yakiniku BBQ Pizza", price: "UGX 40,000" },
+              { href: "/menu/dish/farm-to-table-salad", img: IMG.salad, name: "Farm to Table Salad", price: "UGX 28,000" },
+              { href: "/menu/dish/pork-ramen", img: IMG.ramen, name: "Pork Ramen", price: "UGX 48,000" },
+            ].map((d, i) => (
+              <ScrollReveal key={d.href} delay={i * 60}>
+                <Link
+                  href={d.href}
+                  className="group block bg-white overflow-hidden shadow-md blob-card"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={d.img}
+                      alt={d.name}
+                      fill
+                      quality={85}
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="p-3 md:p-4">
+                    <h3 className="text-sm md:text-base font-semibold text-[var(--text)] leading-snug">
+                      {d.name}
+                    </h3>
+                    <p className="text-xs text-[#b71c1c] font-semibold mt-1">{d.price}</p>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            ))}
           </div>
-          <div className="relative overflow-hidden">
-            <Image src={IMG.salmon} alt="Salmon roll" fill className="object-cover" quality={90} sizes="30vw" />
-          </div>
-          <div className="relative overflow-hidden">
-            <Image src={IMG.sashimi} alt="Fresh sashimi" fill className="object-cover" quality={90} sizes="30vw" />
+
+          <div className="text-center mt-10">
+            <Link
+              href="/menu"
+              className="inline-flex px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase bg-[#b71c1c] text-white soft-pill"
+            >
+              Full Menu
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-4 h-[28vh] md:h-[40vh]">
-        {[
-          { src: IMG.tempura, label: "Tempura" },
-          { src: IMG.katsu, label: "Katsu" },
-          { src: IMG.curry, label: "Curries" },
-          { src: IMG.noodles, label: "Noodles" },
-        ].map((item) => (
-          <div key={item.label} className="relative overflow-hidden group">
-            <Image
-              src={item.src}
-              alt={item.label}
-              fill
-              quality={90}
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-              sizes="25vw"
-            />
-            <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors" />
-            <span className="absolute bottom-4 left-4 text-xs tracking-[0.15em] uppercase text-white/90">
-              {item.label}
-            </span>
+      {/* Trust */}
+      <section className="py-12 px-5">
+        <ScrollReveal>
+          <div className="max-w-[700px] mx-auto text-center">
+            <p className="text-[0.7rem] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
+              TripAdvisor
+            </p>
+            <p className="text-3xl font-bold text-[#b71c1c] mb-1">4.6</p>
+            <p className="text-sm text-[var(--text-muted)] mb-4">
+              106 reviews · Ranked among top restaurants in Kampala
+            </p>
+            <a
+              href="https://www.tripadvisor.com/Restaurant_Review-g293841-d15006919-Reviews-YAMASEN_Japanese_Restaurant-Kampala_Central_Region.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs tracking-[0.1em] uppercase text-[#b71c1c] font-semibold hover:underline"
+            >
+              Read reviews
+            </a>
           </div>
-        ))}
+        </ScrollReveal>
       </section>
 
-      <section className="py-10 border-y border-[var(--border)] bg-white/70">
-        <div className="mx-auto max-w-[1200px] w-[92%]">
-          <Partners showRating />
-        </div>
-      </section>
-
-      <section className="relative py-28 overflow-hidden">
+      {/* Visit CTA */}
+      <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={IMG.interior}
-            alt="Restaurant atmosphere"
+            alt="Yamasen interior"
             fill
-            quality={90}
-            className="object-cover opacity-20"
+            quality={85}
+            className="object-cover opacity-30"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-[var(--bg)]/90 to-[var(--bg)]" />
-        </div>
-        <div className="relative z-10 mx-auto max-w-[900px] w-[92%] text-center">
-          <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-4">Our Story</p>
-          <h2 className="text-[clamp(2rem,4vw,3rem)] font-medium mb-6">Izumi — Natural Spring</h2>
-          <p className="text-[var(--text-muted)] text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Named after the Japanese word for natural spring, Izumi brings authentic Pan-Asian
-            cuisine to Uganda. Fresh sushi daily, live teppanyaki, Thai curries and an elegant
-            lounge — since 2018.
-          </p>
-          <div className="flex justify-center gap-12 mb-10">
-            <div>
-              <span className="block text-3xl text-[var(--gold)] font-medium">8+</span>
-              <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Years</span>
-            </div>
-            <div>
-              <span className="block text-3xl text-[var(--gold)] font-medium">4.3</span>
-              <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">TripAdvisor</span>
-            </div>
-            <div>
-              <span className="block text-3xl text-[var(--gold)] font-medium">2019</span>
-              <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Award</span>
-            </div>
-          </div>
-          <Link href="/about" className="inline-flex text-xs tracking-[0.12em] uppercase text-[var(--gold)] hover:underline">
-            Read the full story →
-          </Link>
-        </div>
-      </section>
-
-      <section className="py-20 bg-[var(--bg-elevated)]">
-        <div className="mx-auto max-w-[1200px] w-[92%]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
-            <div>
-              <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-3">The Menu</p>
-              <h2 className="text-[clamp(2rem,4vw,2.75rem)] font-medium">Signature dishes</h2>
-            </div>
-            <Link href="/menu" className="text-xs tracking-[0.12em] uppercase text-[var(--gold)] hover:underline">
-              Full menu →
-            </Link>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { href: "/menu/dish/chicken-katsu-roll", img: IMG.sushi, name: "Chicken Katsu Roll", price: "UGX 49,000", tag: "Popular" },
-              { href: "/menu/dish/burnt-salmon-spicy", img: IMG.salmon, name: "Burnt Salmon Spicy", price: "UGX 56,000", tag: "Spicy" },
-              { href: "/menu/dish/fresh-salmon-sashimi", img: IMG.sashimi, name: "Fresh Salmon Sashimi", price: "UGX 96,000", tag: "Popular" },
-              { href: "/menu/dish/katsu", img: IMG.katsu, name: "Chicken / Pork Katsu", price: "UGX 51,000", tag: null },
-              { href: "/menu/dish/thai-green-curry", img: IMG.curry, name: "Thai Green Curry", price: "UGX 43,000", tag: null },
-              { href: "/menu/dish/seafood-platter", img: IMG.seafood, name: "Seafood Platter", price: "UGX 146,000", tag: "Share" },
-            ].map((d) => (
-              <Link
-                key={d.href}
-                href={d.href}
-                className="group relative rounded-2xl overflow-hidden border border-[var(--border)] aspect-[4/5] bg-white shadow-md"
-              >
-                <Image
-                  src={d.img}
-                  alt={d.name}
-                  fill
-                  quality={90}
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                {d.tag && (
-                  <span className="absolute top-4 left-4 bg-[var(--gold)] text-white text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded">
-                    {d.tag}
-                  </span>
-                )}
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="text-lg text-white font-medium mb-1">{d.name}</h3>
-                  <p className="text-[#e0c878] text-sm">{d.price}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={IMG.cover} alt="Izumi" fill quality={85} className="object-cover object-top opacity-25" sizes="100vw" />
           <div className="absolute inset-0 bg-[var(--bg)]/80" />
         </div>
-        <div className="relative z-10 mx-auto max-w-[700px] w-[92%] text-center">
-          <p className="text-xs tracking-[0.25em] uppercase text-[var(--gold)] mb-4">Visit Us</p>
-          <h2 className="text-[clamp(2rem,4vw,3rem)] font-medium mb-5">An evening at Izumi</h2>
-          <p className="text-[var(--text-muted)] mb-10 max-w-md mx-auto">
-            Reservations recommended for weekends and Friday live music. Walk-ins always welcome.
-          </p>
-          <Link
-            href="/reservations"
-            className="inline-flex px-10 py-4 text-xs font-medium tracking-[0.12em] uppercase bg-[var(--gold)] text-white hover:bg-[var(--gold-light)] transition-colors rounded-full shadow"
-          >
-            Book a Table
-          </Link>
-        </div>
+        <ScrollReveal>
+          <div className="relative z-10 max-w-[560px] mx-auto px-5 text-center">
+            <h2 className="text-[clamp(1.75rem,4vw,2.4rem)] font-bold mb-4">
+              An evening at Yamasen
+            </h2>
+            <p className="text-[var(--text-muted)] mb-8">
+              Tank Hill Park, Tank Hill Road, Muyenga. Reservations recommended.
+              Delivery and takeout available.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/reservations"
+                className="inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase bg-[#b71c1c] text-white soft-pill"
+              >
+                Book a Table
+              </Link>
+              <a
+                href="https://wa.me/256707808010"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex justify-center px-8 py-3.5 text-xs font-semibold tracking-[0.12em] uppercase border border-[var(--border)] text-[var(--text)] soft-pill bg-white/80"
+              >
+                WhatsApp Order
+              </a>
+            </div>
+          </div>
+        </ScrollReveal>
       </section>
     </>
   );
