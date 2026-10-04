@@ -3,10 +3,6 @@ import Link from "next/link";
 const socials = [
   { name: "Instagram", href: "https://www.instagram.com/yamasen_kampala" },
   { name: "Facebook", href: "https://www.facebook.com/yamasen.cotscots" },
-  {
-    name: "TripAdvisor",
-    href: "https://www.tripadvisor.com/Restaurant_Review-g293841-d15006919-Reviews-YAMASEN_Japanese_Restaurant-Kampala_Central_Region.html",
-  },
   { name: "WhatsApp", href: "https://wa.me/256707808010" },
 ];
 
@@ -55,7 +51,6 @@ export default function Footer() {
   return (
     <footer className="border-t border-[var(--border)] bg-[#2a1c14] text-[#e8e0d4]">
       <div className="mx-auto max-w-[1200px] w-[92%] pt-14 pb-10">
-        {/* Top: logo + map */}
         <div className="grid lg:grid-cols-[1fr_1.15fr] gap-10 mb-12">
           <div>
             <FooterLogo />
@@ -94,7 +89,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Google Maps panel */}
           <div>
             <p className="text-[0.65rem] tracking-[0.2em] uppercase text-[#e8c4a0] mb-3 font-bold">
               Find us
@@ -129,7 +123,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Link columns */}
         <div className="grid sm:grid-cols-3 gap-8 mb-12 pt-10 border-t border-white/10">
           <div>
             <p className="text-[0.65rem] tracking-[0.2em] uppercase text-[#e8c4a0] mb-4 font-bold">
@@ -137,7 +130,7 @@ export default function Footer() {
             </p>
             <nav className="flex flex-col gap-2.5 text-sm text-[#c4b8a8]">
               <Link href="/menu" className="hover:text-white transition-colors">Menu</Link>
-              <Link href="/loyalty" className="hover:text-white transition-colors">Loyalty Card</Link>
+              <Link href="/loyalty" className="hover:text-white transition-colors">Loyalty</Link>
               <Link href="/experience" className="hover:text-white transition-colors">Experience</Link>
               <Link href="/reservations" className="hover:text-white transition-colors">Reservations</Link>
             </nav>
@@ -149,7 +142,6 @@ export default function Footer() {
             <nav className="flex flex-col gap-2.5 text-sm text-[#c4b8a8]">
               <Link href="/about" className="hover:text-white transition-colors">Our Story</Link>
               <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-              <Link href="/loyalty" className="hover:text-white transition-colors">Join Loyalty</Link>
             </nav>
           </div>
           <div>
@@ -173,7 +165,7 @@ export default function Footer() {
 
         <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-[#9a8f82]">
           <p>© {new Date().getFullYear()} Yamasen Japanese Restaurant</p>
-          <p>Instagram · Facebook · TripAdvisor · WhatsApp</p>
+          <p>Instagram · Facebook · WhatsApp</p>
         </div>
       </div>
     </footer>
