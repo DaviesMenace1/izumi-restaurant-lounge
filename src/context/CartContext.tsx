@@ -39,7 +39,7 @@ type CartContextValue = {
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
-const STORAGE_KEY = "izumi-cart-v1";
+const STORAGE_KEY = "yamasen-cart-v1";
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
@@ -140,16 +140,15 @@ export function formatUGX(n: number) {
   return `UGX ${n.toLocaleString()}`;
 }
 
-/** Full cart → WhatsApp with every dish listed */
 export function openWhatsAppOrder(
   items: CartItem[],
   subtotal: number,
-  phone = "256756244911"
+  phone = "256707808010"
 ) {
   if (!items.length) return;
 
   const lines: string[] = [
-    "*Izumi Restaurant & Lounge — Order*",
+    "*Yamasen Japanese Restaurant - Order*",
     "",
     "Please prepare the following:",
     "",
@@ -157,7 +156,7 @@ export function openWhatsAppOrder(
 
   items.forEach((i, idx) => {
     lines.push(
-      `${idx + 1}. ${i.name} × ${i.qty} — ${formatUGX(i.price * i.qty)}`
+      `${idx + 1}. ${i.name} x ${i.qty} - ${formatUGX(i.price * i.qty)}`
     );
   });
 
