@@ -20,42 +20,32 @@ function Logo() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 64 64"
-        className="h-11 w-11 shrink-0"
+        className="h-10 w-10 shrink-0"
         aria-hidden
       >
-        <circle cx="32" cy="32" r="32" fill="#0a0a0a" />
-        <g stroke="#c9a84c" strokeWidth="1.6" strokeLinecap="round">
-          <line x1="16" y1="30" x2="16" y2="24" />
-          <line x1="22" y1="30" x2="22" y2="18" />
-          <line x1="28" y1="30" x2="28" y2="12" />
-          <line x1="32" y1="30" x2="32" y2="8" />
-          <line x1="36" y1="30" x2="36" y2="12" />
-          <line x1="42" y1="30" x2="42" y2="18" />
-          <line x1="48" y1="30" x2="48" y2="24" />
-        </g>
-        <line x1="10" y1="31" x2="54" y2="31" stroke="#c9a84c" strokeWidth="1.2" strokeLinecap="round" />
-        <text
-          x="32"
-          y="46"
-          textAnchor="middle"
-          fontFamily="Georgia, serif"
-          fontSize="8"
-          fontWeight="600"
-          letterSpacing="0.22em"
-          fill="#c9a84c"
-        >
-          IZUMI
-        </text>
+        <rect width="64" height="64" rx="14" fill="#B71C1C" />
+        <path
+          d="M16 30 L32 14 L48 30"
+          stroke="white"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+        <path
+          d="M22 30 V48 M28 30 V48 M32 30 V48 M36 30 V48 M42 30 V48"
+          stroke="white"
+          strokeWidth="3.2"
+          strokeLinecap="round"
+        />
+        <path d="M22 30 H42" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
       </svg>
       <span className="hidden sm:flex flex-col leading-tight">
-        <span
-          className="text-[1.05rem] tracking-[0.28em] text-[var(--gold)] font-semibold"
-          style={{ fontFamily: "Georgia, Times New Roman, serif" }}
-        >
-          IZUMI
+        <span className="text-[1rem] tracking-[0.22em] font-bold text-[#b71c1c]">
+          YAMASEN
         </span>
-        <span className="text-[0.55rem] tracking-[0.22em] uppercase text-[var(--text-muted)]">
-          Restaurant & Lounge
+        <span className="text-[0.55rem] tracking-[0.18em] uppercase text-[var(--text-muted)]">
+          Japanese Restaurant
         </span>
       </span>
     </span>
@@ -78,12 +68,12 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300 ${
         scrolled
-          ? "bg-[#f7f3eb]/95 border-b border-[var(--border)] backdrop-blur-md shadow-sm"
-          : "bg-[#f7f3eb]/90 backdrop-blur-sm"
+          ? "bg-[#f6f1e8]/95 border-b border-[var(--border)] backdrop-blur-md shadow-sm"
+          : "bg-[#f6f1e8]/90 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto max-w-[1200px] w-[92%] h-full flex items-center justify-between">
-        <Link href="/" className="flex items-center shrink-0" aria-label="Izumi home">
+        <Link href="/" className="flex items-center shrink-0" aria-label="Yamasen home">
           <Logo />
         </Link>
 
@@ -94,8 +84,8 @@ export default function Header() {
               href={item.href}
               className={`text-xs tracking-[0.08em] uppercase transition-colors ${
                 pathname === item.href
-                  ? "text-[var(--gold)]"
-                  : "text-[var(--text-muted)] hover:text-[var(--gold)]"
+                  ? "text-[#b71c1c]"
+                  : "text-[var(--text-muted)] hover:text-[#b71c1c]"
               }`}
             >
               {item.label}
@@ -107,7 +97,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setCartOpen(true)}
-            className="relative p-2 text-[var(--text)] hover:text-[var(--gold)] transition-colors"
+            className="relative p-2 text-[var(--text)] hover:text-[#b71c1c] transition-colors"
             aria-label="Open cart"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -117,7 +107,7 @@ export default function Header() {
               <path d="M6 6L5 3H2" />
             </svg>
             {count > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[var(--gold)] text-white text-[0.65rem] font-semibold flex items-center justify-center">
+              <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 soft-pill bg-[#b71c1c] text-white text-[0.65rem] font-semibold flex items-center justify-center">
                 {count}
               </span>
             )}
@@ -125,7 +115,7 @@ export default function Header() {
 
           <Link
             href="/reservations"
-            className="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-white hover:bg-[var(--gold-light)] transition-colors rounded-full"
+            className="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-xs font-medium tracking-[0.1em] uppercase bg-[#b71c1c] text-white hover:bg-[#c62828] transition-colors soft-pill"
           >
             Book a Table
           </Link>
@@ -151,7 +141,7 @@ export default function Header() {
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
                 className={`text-sm tracking-[0.08em] uppercase ${
-                  pathname === item.href ? "text-[var(--gold)]" : "text-[var(--text-muted)]"
+                  pathname === item.href ? "text-[#b71c1c]" : "text-[var(--text-muted)]"
                 }`}
               >
                 {item.label}
@@ -160,7 +150,7 @@ export default function Header() {
             <Link
               href="/reservations"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 inline-flex justify-center px-5 py-3 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-white rounded-full"
+              className="mt-2 inline-flex justify-center px-5 py-3 text-xs font-medium tracking-[0.1em] uppercase bg-[#b71c1c] text-white soft-pill"
             >
               Book a Table
             </Link>
