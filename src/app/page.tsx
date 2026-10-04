@@ -22,6 +22,12 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 px-5 py-20 max-w-3xl mx-auto text-center">
+          <p
+            className="jp text-sm md:text-base mb-3 tracking-[0.2em]"
+            style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}
+          >
+            ようこそ · 山泉
+          </p>
           <h1
             className="text-[clamp(2.4rem,7vw,4rem)] font-semibold tracking-[0.04em] leading-[1.15] mb-5"
             style={{ color: "#ffffff", textShadow: "0 2px 16px rgba(0,0,0,0.45)" }}
@@ -52,6 +58,9 @@ export default function HomePage() {
       <section className="py-20 md:py-28 px-5 bg-[var(--bg)]">
         <ScrollReveal>
           <div className="max-w-2xl mx-auto text-center">
+            <p className="jp text-sm mb-2" style={{ color: "#9a1515" }}>
+              いらっしゃいませ
+            </p>
             <p className="eyebrow mb-4">Welcome to Yamasen</p>
             <h2
               className="text-[clamp(1.9rem,4.5vw,2.85rem)] font-semibold mb-6 tracking-[0.02em]"
@@ -102,23 +111,26 @@ export default function HomePage() {
         <div className="max-w-[1000px] mx-auto grid sm:grid-cols-3 gap-10 md:gap-12 text-center">
           {[
             {
+              jp: "本物の味",
               title: "Authentic Taste",
               body: "From sushi and sashimi to ramen and curry, every plate is traditional Japanese technique made with care and local produce.",
             },
             {
+              jp: "あらゆる場面に",
               title: "Perfect for Every Occasion",
               body: "Whether it is a family dinner, business lunch, or private gathering, Yamasen offers a warm, flexible space for any moment.",
             },
             {
+              jp: "おもてなし",
               title: "Warm Hospitality",
               body: "From the moment you arrive, you are treated with quiet care. Our team works to make every visit personal and memorable.",
             },
           ].map((item) => (
             <ScrollReveal key={item.title}>
               <div>
-                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-white/40">
-                  <span className="text-xl text-white">·</span>
-                </div>
+                <p className="jp text-sm mb-3" style={{ color: "#e8c4a0" }}>
+                  {item.jp}
+                </p>
                 <h3
                   className="text-lg font-semibold tracking-[0.06em] uppercase mb-3"
                   style={{ color: "#ffffff" }}
@@ -137,6 +149,9 @@ export default function HomePage() {
       <section className="py-16 md:py-20 px-5 bg-[var(--bg-elevated)]">
         <ScrollReveal>
           <div className="max-w-xl mx-auto text-center">
+            <p className="jp text-sm mb-2" style={{ color: "#9a1515" }}>
+              弁当配達
+            </p>
             <h2
               className="text-[clamp(1.6rem,3.5vw,2.2rem)] font-semibold mb-4 tracking-[0.03em]"
               style={{ color: "#1a1410" }}
@@ -172,6 +187,9 @@ export default function HomePage() {
         <div className="max-w-[900px] mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
+              <p className="jp text-sm mb-2" style={{ color: "#9a1515" }}>
+                体験
+              </p>
               <h2
                 className="text-[clamp(1.75rem,4vw,2.6rem)] font-semibold mb-5 tracking-[0.02em]"
                 style={{ color: "#1a1410" }}
@@ -221,6 +239,9 @@ export default function HomePage() {
       <section className="py-16 md:py-20 px-5 bg-[#faf6ef] border-y border-[var(--border)]">
         <ScrollReveal>
           <div className="max-w-2xl mx-auto text-center">
+            <p className="jp text-sm mb-2" style={{ color: "#9a1515" }}>
+              会員制度
+            </p>
             <p className="eyebrow mb-3">Membership</p>
             <h2
               className="text-[clamp(1.7rem,4vw,2.4rem)] font-semibold mb-4 tracking-[0.03em]"
@@ -267,8 +288,8 @@ export default function HomePage() {
       <section className="bg-[var(--bg-dark)] py-16 md:py-20 px-5">
         <ScrollReveal>
           <div className="max-w-2xl mx-auto text-center">
-            <p className="text-4xl mb-6 font-serif leading-none" style={{ color: "#d4cbbf" }}>
-              &ldquo;
+            <p className="jp text-sm mb-4" style={{ color: "#e8c4a0" }}>
+              心を込めて
             </p>
             <p
               className="text-[0.7rem] tracking-[0.25em] uppercase mb-4"
@@ -308,6 +329,9 @@ export default function HomePage() {
         </div>
         <ScrollReveal>
           <div className="relative z-10 px-5 py-16 max-w-xl mx-auto text-center">
+            <p className="jp text-sm mb-2" style={{ color: "rgba(255,255,255,0.9)" }}>
+              ご予約
+            </p>
             <p
               className="text-[0.7rem] tracking-[0.28em] uppercase mb-3"
               style={{ color: "#ffffff" }}
@@ -355,6 +379,9 @@ export default function HomePage() {
         </div>
         <ScrollReveal>
           <div className="relative z-10 px-5 py-16 max-w-xl mx-auto text-center">
+            <p className="jp text-sm mb-2" style={{ color: "rgba(255,255,255,0.9)" }}>
+              メニュー
+            </p>
             <p
               className="text-[0.7rem] tracking-[0.28em] uppercase mb-3"
               style={{ color: "#ffffff" }}
