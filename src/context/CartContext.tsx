@@ -9,6 +9,8 @@ import {
   useCallback,
   type ReactNode,
 } from "react";
+import { loyaltyRules } from "@/data/loyalty";
+import { addStampsForSpend, getMemberByPhone, upsertMember } from "@/lib/loyaltyStore";
 
 export type CartItem = {
   id: string;
@@ -29,6 +31,7 @@ export type OrderDetails = {
   customerPhone: string;
   method: "delivery" | "pickup";
   address: string;
+  loyaltyMember?: boolean;
 };
 
 type CartContextValue = {
@@ -155,6 +158,24 @@ export function openWhatsAppOrder(
 ) {
   if (!items.length) return;
 
+  // Ensure loyalty profile exists when customer opts in or already has a card
+  const existing = getMemberByPhone(details.customerPhone);
+  if (details.loyaltyMember || existing) {
+    upsertMember({
+      name: details.customerName,
+      phone: details.customerPhone,
+      birthday: existing?.birthday,
+    });
+  }
+
+  const stampsEarned = Math.floor(subtotal / loyaltyRules.stampSpendUgx);
+  const isLoyalty =
+    details.loyaltyMember || !!getMemberByPhone(details.customerPhone);
+
+  if (isLoyalty && stampsEarned > 0) {
+    addStampsForSpend(details.customerPhone, subtotal);
+  }
+
   const lines: string[] = [
     "*Yamasen Japanese Restaurant - Order*",
     "",
@@ -166,6 +187,21 @@ export function openWhatsAppOrder(
 
   if (details.method === "delivery") {
     lines.push(`Address: ${details.address}`);
+  }
+
+  if (isLoyalty) {
+    lines.push("");
+    lines.push("*Loyalty Card*");
+    lines.push("Member: Yes");
+    if (stampsEarned > 0) {
+      lines.push(
+        `Please add ${stampsEarned} stamp(s) (order total qualifies at UGX ${loyaltyRules.stampSpendUgx.toLocaleString()} per stamp).`
+      );
+    } else {
+      lines.push(
+        `Order under UGX ${loyaltyRules.stampSpendUgx.toLocaleString()} — no stamp this time.`
+      );
+    }
   }
 
   lines.push("");
