@@ -44,6 +44,37 @@ export const categories: { slug: CategorySlug; name: string; description: string
 
 const U = (id: string) => `https://images.unsplash.com/photo-${id}?w=800&q=80`;
 
+/** Direct Unsplash URLs for drinks (distinct, product-style photos) */
+const drinkImg = {
+  greenJuice:
+    "https://images.unsplash.com/photo-1610970881699-44a2267bae1f?w=800&q=80",
+  yellowJuice:
+    "https://images.unsplash.com/photo-1546173159-315724a31696?w=800&q=80",
+  redJuice:
+    "https://images.unsplash.com/photo-1622597469330-54f7e09c6f5f?w=800&q=80",
+  orangeJuice:
+    "https://images.unsplash.com/photo-1523677011780-c68aaab83748?w=800&q=80",
+  mojito:
+    "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=800&q=80",
+  mocktail:
+    "https://images.unsplash.com/photo-1572491477727-b5c41e87077b?w=800&q=80",
+  cucumber:
+    "https://images.unsplash.com/photo-1544145945-f9048ea3106a?w=800&q=80",
+  pineapple:
+    "https://images.unsplash.com/photo-1497534448261-4e0c56b9c8e6?w=800&q=80",
+  matcha:
+    "https://images.unsplash.com/photo-1515823662972-da6a73881e03?w=800&q=80",
+  sake:
+    "https://images.unsplash.com/photo-1569520596547-c2a0c1f2c2b0?w=800&q=80".replace(
+      "1569520596547-c2a0c1f2c2b0",
+      "1606923829579-0cbdd6be4e94"
+    ),
+  beer:
+    "https://images.unsplash.com/photo-1437418746472-d7d33570f2dc?w=800&q=80",
+  soft:
+    "https://images.unsplash.com/photo-1629203851127-503e0d4e5a8e?w=800&q=80",
+};
+
 export const dishes: Dish[] = [
   { id: "1", slug: "sushi-platter", name: "Sushi Platter", description: "Chef selection of nigiri and maki with seasonal fish from Dar es Salaam.", price: 85000, category: "sushi", tags: ["popular"], popular: true, image: U("1579871494447-9811cf80d66c"), pairings: ["miso-soup"] },
   { id: "2", slug: "salmon-sashimi", name: "Salmon Sashimi", description: "Silky slices of fresh salmon with wasabi and pickled ginger.", price: 72000, category: "sushi", tags: ["popular", "salmon"], popular: true, image: U("1579584425555-c3ce17fd4351") },
@@ -72,7 +103,6 @@ export const dishes: Dish[] = [
   { id: "25", slug: "houjicha-pudding", name: "Houjicha Pudding", description: "Japanese roasted tea pudding. House dessert favourite.", price: 22000, category: "desserts", tags: ["popular"], popular: true, image: U("1488477186911-f3e5b0c3e0c5") },
   { id: "26", slug: "fresh-fruit", name: "Fresh Fruit Plate", description: "Seasonal tropical fruit.", price: 25000, category: "desserts", tags: ["vegetarian"], vegetarian: true, image: U("1490474418585-ba9bad8fd0ea") },
 
-  // Drinks — from Yamasen Facebook, reviews, featured items
   {
     id: "d1",
     slug: "cold-pressed-green",
@@ -83,7 +113,7 @@ export const dishes: Dish[] = [
     tags: ["juice", "popular", "vegetarian"],
     vegetarian: true,
     popular: true,
-    image: U("1623061771299-1f4b0b6c5a3"),
+    image: drinkImg.greenJuice,
   },
   {
     id: "d2",
@@ -94,7 +124,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["juice", "vegetarian"],
     vegetarian: true,
-    image: U("1600270335758-0b1c6f3a5c3e"),
+    image: drinkImg.yellowJuice,
   },
   {
     id: "d3",
@@ -105,7 +135,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["juice", "vegetarian"],
     vegetarian: true,
-    image: U("1556679343-c7306c1976bc"),
+    image: drinkImg.redJuice,
   },
   {
     id: "d4",
@@ -116,7 +146,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["juice", "vegetarian"],
     vegetarian: true,
-    image: U("1623061771299-1f4b0b6c5a3"),
+    image: drinkImg.orangeJuice,
   },
   {
     id: "d5",
@@ -127,7 +157,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["cocktail", "popular", "signature"],
     popular: true,
-    image: U("1514362545857-3bc16c4c7d0e"),
+    image: drinkImg.mojito,
   },
   {
     id: "d6",
@@ -138,7 +168,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["mocktail", "vegetarian"],
     vegetarian: true,
-    image: U("1556679343-c7306c1976bc"),
+    image: drinkImg.mocktail,
   },
   {
     id: "d7",
@@ -149,7 +179,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["mocktail", "vegetarian"],
     vegetarian: true,
-    image: U("1544145945-f9048ea3106a"),
+    image: drinkImg.cucumber,
   },
   {
     id: "d8",
@@ -161,7 +191,7 @@ export const dishes: Dish[] = [
     tags: ["popular", "soft", "vegetarian"],
     vegetarian: true,
     popular: true,
-    image: U("1556679343-c7306c1976bc"),
+    image: drinkImg.pineapple,
   },
   {
     id: "d9",
@@ -172,7 +202,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["matcha", "vegetarian"],
     vegetarian: true,
-    image: U("1515823662972-da6a73881e03"),
+    image: drinkImg.matcha,
   },
   {
     id: "d10",
@@ -183,7 +213,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["sake", "alcohol", "popular"],
     popular: true,
-    image: U("1514362545857-3bc16c4c7d0e"),
+    image: drinkImg.sake,
   },
   {
     id: "d11",
@@ -193,7 +223,7 @@ export const dishes: Dish[] = [
     price: 15000,
     category: "drinks",
     tags: ["beer", "alcohol"],
-    image: U("1535957948670-6ad3b44ba2c0"),
+    image: drinkImg.beer,
   },
   {
     id: "d12",
@@ -204,7 +234,7 @@ export const dishes: Dish[] = [
     category: "drinks",
     tags: ["soft", "vegetarian"],
     vegetarian: true,
-    image: U("1544145945-f9048ea3106a"),
+    image: drinkImg.soft,
   },
 ];
 
