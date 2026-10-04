@@ -1,61 +1,31 @@
-function TripAdvisorMark() {
-  return (
-    <span className="inline-flex items-center gap-1.5">
-      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden>
-        <circle cx="12" cy="12" r="11" fill="#00aa6c" />
-        <circle cx="8.5" cy="11" r="2.4" fill="white" />
-        <circle cx="15.5" cy="11" r="2.4" fill="white" />
-        <circle cx="8.5" cy="11" r="1" fill="#00aa6c" />
-        <circle cx="15.5" cy="11" r="1" fill="#00aa6c" />
-      </svg>
-      <span className="text-[0.85rem] font-semibold text-[#00aa6c]">Tripadvisor</span>
-    </span>
-  );
-}
-
-function BookingMark() {
-  return (
-    <span className="text-[0.95rem] font-bold tracking-tight">
-      <span className="text-[#003580]">Booking</span>
-      <span className="text-[#009fe3]">.com</span>
-    </span>
-  );
-}
-
-function UberEatsMark() {
-  return (
-    <span className="inline-flex items-center gap-1.5">
-      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-black text-[0.55rem] font-bold text-white">
-        UE
-      </span>
-      <span className="text-[0.85rem] font-semibold text-[#06c167]">Uber Eats</span>
-    </span>
-  );
-}
-
-function GlovoMark() {
-  return (
-    <span className="inline-flex items-center gap-1.5">
-      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#FFC244] text-[0.7rem] font-bold text-black">
-        G
-      </span>
-      <span className="text-[0.85rem] font-bold text-[#1a1a1a]">Glovo</span>
-    </span>
-  );
-}
+import Image from "next/image";
+import { partners as logos } from "@/data/media";
 
 const partners = [
   {
     name: "TripAdvisor",
-    href: "https://www.tripadvisor.com/Restaurant_Review-g293841-d14032948-Reviews-Izumi_Restaurant_Lounge-Kampala_Central_Region.html",
-    Mark: TripAdvisorMark,
+    href: "https://www.tripadvisor.com/Restaurant_Review-g293841-d15006919-Reviews-YAMASEN_Japanese_Restaurant-Kampala_Central_Region.html",
+    src: logos.tripadvisor,
   },
-  { name: "Booking.com", href: "https://www.booking.com", Mark: BookingMark },
-  { name: "Uber Eats", href: "https://www.ubereats.com", Mark: UberEatsMark },
   {
-    name: "Glovo",
-    href: "https://glovoapp.com/ug/en/kampala/izumi-restaurant-and-lounge/",
-    Mark: GlovoMark,
+    name: "Booking.com",
+    href: "https://www.booking.com",
+    src: logos.booking,
+  },
+  {
+    name: "Uber Eats",
+    href: "https://www.ubereats.com",
+    src: logos.uberEats,
+  },
+  {
+    name: "Shop",
+    href: "https://www.instagram.com/yamasen_kampala",
+    src: logos.shop,
+  },
+  {
+    name: "UWA",
+    href: "https://ugandawildlife.org",
+    src: logos.uwa,
   },
 ];
 
@@ -69,23 +39,29 @@ export default function Partners({
       <p className="text-center text-[0.7rem] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-6">
         Trusted partners
       </p>
-      <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-5">
+      <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
         {partners.map((p) => (
           <a
             key={p.name}
             href={p.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="opacity-90 hover:opacity-100 transition-opacity"
+            className="relative h-10 w-[100px] sm:h-12 sm:w-[120px] opacity-90 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
             title={p.name}
           >
-            <p.Mark />
+            <Image
+              src={p.src}
+              alt={p.name}
+              fill
+              className="object-contain"
+              sizes="120px"
+            />
           </a>
         ))}
       </div>
       {showRating && (
         <p className="text-center text-xs text-[var(--text-muted)] mt-5">
-          4.3 on TripAdvisor · 1,400+ reviews
+          4.6 on TripAdvisor · 106 reviews
         </p>
       )}
     </div>
