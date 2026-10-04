@@ -1,25 +1,11 @@
 import type { Metadata } from "next";
-import { Staatliches, Josefin_Sans, Outfit, Quicksand } from "next/font/google";
+import { Outfit, Quicksand } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import Toast from "@/components/Toast";
 import { CartProvider } from "@/context/CartContext";
-
-const staatliches = Staatliches({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-bauhaus",
-  display: "swap",
-});
-
-const josefin = Josefin_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-josefin",
-  display: "swap",
-});
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -37,22 +23,23 @@ const quicksand = Quicksand({
 
 export const metadata: Metadata = {
   title: {
-    default: "Izumi Restaurant & Lounge | Kampala's Finest Pan-Asian Dining",
-    template: "%s | Izumi Restaurant & Lounge",
+    default: "Yamasen Japanese Restaurant | Farm to Table Kampala",
+    template: "%s | Yamasen Japanese Restaurant",
   },
   description:
-    "Kampala's premier Pan-Asian restaurant & lounge. Authentic Japanese sushi, Thai cuisine, live teppanyaki and elegant dining in Kololo. Reserve your table.",
+    "Farm to table Japanese restaurant in Kampala. Organic vegetables from our own farm, seafood from Dar es Salaam, Kyoto trained kitchen. Tank Hill Park, Muyenga.",
   keywords: [
-    "Izumi Restaurant",
-    "Kampala sushi",
-    "Pan-Asian",
-    "Japanese restaurant Uganda",
-    "Kololo dining",
-    "teppanyaki Kampala",
+    "Yamasen",
+    "Japanese restaurant Kampala",
+    "farm to table Uganda",
+    "sushi Kampala",
+    "Tank Hill",
+    "Muyenga dining",
+    "omakase Kampala",
   ],
   openGraph: {
-    title: "Izumi Restaurant & Lounge",
-    description: "The finest Pan-Asian Restaurant & Lounge in Kampala.",
+    title: "Yamasen Japanese Restaurant",
+    description: "Farm to table Japanese dining in Kampala.",
     type: "website",
     locale: "en_UG",
   },
@@ -66,10 +53,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${staatliches.variable} ${josefin.variable} ${outfit.variable} ${quicksand.variable}`}
-    >
+    <html lang="en" className={`${outfit.variable} ${quicksand.variable}`}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
