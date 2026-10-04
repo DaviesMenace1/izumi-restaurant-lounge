@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { venue, gallery } from "@/data/media";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -41,7 +42,7 @@ export default function ExperiencePage() {
       <section className="relative min-h-[40vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=90"
+            src={venue.hallDay}
             alt="Yamasen experience"
             fill
             priority
@@ -62,6 +63,14 @@ export default function ExperiencePage() {
         </div>
       </section>
 
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-1.5 px-1.5 py-1.5">
+        {gallery.slice(2, 6).map((src, i) => (
+          <div key={i} className="relative aspect-[5/4] overflow-hidden">
+            <Image src={src} alt="Yamasen" fill quality={88} className="object-cover" sizes="25vw" />
+          </div>
+        ))}
+      </section>
+
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1100px] w-[92%]">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -73,6 +82,14 @@ export default function ExperiencePage() {
                 <h2 className="text-xl font-semibold text-[var(--text)] mb-3">{exp.title}</h2>
                 <p className="text-sm text-[var(--text-muted)] leading-relaxed">{exp.desc}</p>
               </article>
+            ))}
+          </div>
+
+          <div className="mt-14 grid grid-cols-2 md:grid-cols-3 gap-3">
+            {[venue.outdoor, venue.detail, venue.ambiance].map((src, i) => (
+              <div key={i} className="relative aspect-[4/3] overflow-hidden blob-sm">
+                <Image src={src} alt="Yamasen" fill quality={88} className="object-cover" sizes="33vw" />
+              </div>
             ))}
           </div>
 
