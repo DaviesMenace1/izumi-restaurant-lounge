@@ -35,13 +35,16 @@ export default async function CategoryPage({ params }: Props) {
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] w-[92%]">
           <div className="mb-10">
-            <Link href="/menu" className="text-xs tracking-[0.1em] uppercase text-[var(--text-muted)] hover:text-[var(--gold)]">
-              ← All Menu
+            <Link
+              href="/menu"
+              className="text-xs tracking-[0.1em] uppercase text-[var(--text-muted)] hover:text-[#b71c1c]"
+            >
+              All Menu
             </Link>
-            <p className="text-xs tracking-[0.2em] uppercase text-[var(--gold)] mt-6 mb-2">
-              {cat.icon} Category
+            <p className="text-xs tracking-[0.2em] uppercase text-[#b71c1c] mt-6 mb-2">
+              Category
             </p>
-            <h1 className="font-[family-name:var(--font-cormorant)] text-[clamp(2.2rem,4vw,3.2rem)] font-medium">
+            <h1 className="text-[clamp(2.2rem,4vw,3.2rem)] font-bold">
               {cat.name}
             </h1>
             <p className="text-[var(--text-muted)] mt-2">{cat.description}</p>
@@ -52,7 +55,7 @@ export default async function CategoryPage({ params }: Props) {
               <Link
                 key={dish.id}
                 href={`/menu/dish/${dish.slug}`}
-                className="group bg-[var(--bg-card)] border border-[var(--border)] overflow-hidden hover:border-[rgba(201,168,76,0.4)] transition-all"
+                className="group bg-white border border-[var(--border)] overflow-hidden hover:border-[#b71c1c]/40 transition-all shadow-md blob-card"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -65,10 +68,10 @@ export default async function CategoryPage({ params }: Props) {
                 </div>
                 <div className="p-5">
                   <div className="flex justify-between items-start gap-3 mb-2">
-                    <h2 className="font-[family-name:var(--font-cormorant)] text-xl text-[var(--gold-light)]">
+                    <h2 className="text-xl font-semibold text-[var(--text)] group-hover:text-[#b71c1c] transition-colors">
                       {dish.name}
                     </h2>
-                    <span className="text-sm text-[var(--gold)] whitespace-nowrap">
+                    <span className="text-sm text-[#b71c1c] font-semibold whitespace-nowrap">
                       {formatPrice(dish.price)}
                     </span>
                   </div>
