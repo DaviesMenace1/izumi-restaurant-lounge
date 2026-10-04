@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Quicksand } from "next/font/google";
+import { Outfit, Quicksand, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -18,6 +18,13 @@ const quicksand = Quicksand({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   variable: "--font-quicksand",
+  display: "swap",
+});
+
+const notoJp = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-jp",
   display: "swap",
 });
 
@@ -53,7 +60,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${quicksand.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${quicksand.variable} ${notoJp.variable}`}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
