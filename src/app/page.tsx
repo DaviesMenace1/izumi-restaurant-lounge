@@ -7,7 +7,6 @@ import { venue } from "@/data/media";
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
       <section className="pt-[72px] relative min-h-[88vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -50,7 +49,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WELCOME */}
       <section className="py-20 md:py-28 px-5 bg-[var(--bg)]">
         <ScrollReveal>
           <div className="max-w-2xl mx-auto text-center">
@@ -218,6 +216,31 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Loyalty membership teaser */}
+      <section className="py-16 md:py-20 px-5 bg-[#faf6ef] border-y border-[var(--border)]">
+        <ScrollReveal>
+          <div className="max-w-2xl mx-auto text-center">
+            <p className="eyebrow mb-3">Membership</p>
+            <h2
+              className="text-[clamp(1.7rem,4vw,2.4rem)] font-semibold mb-4 tracking-[0.03em]"
+              style={{ color: "#1a1410" }}
+            >
+              Join Our Loyalty Card
+            </h2>
+            <p className="text-[0.95rem] leading-relaxed mb-4" style={{ color: "#4a4038" }}>
+              Earn 1 stamp for every UGX 30,000 spent. Enter the lottery every 10
+              stamps. Valid at Yamasen, Farm to Table, and Klafts.
+            </p>
+            <p className="text-sm mb-8" style={{ color: "#4a4038" }}>
+              Prizes include Omakase for two, Yamasen vouchers, and Pan-Ya bread.
+            </p>
+            <Link href="/loyalty" className="btn-cream inline-flex justify-center">
+              Join Loyalty Membership
+            </Link>
+          </div>
+        </ScrollReveal>
       </section>
 
       <section className="py-14 md:py-16 px-5 bg-[var(--bg-elevated)] border-y border-[var(--border)]">
