@@ -6,12 +6,12 @@ import { useState, useEffect } from "react";
 import { useCart } from "@/context/CartContext";
 
 const navItems = [
-  { href: "/", label: "Home", jp: "ホーム" },
-  { href: "/about", label: "About", jp: "私たち" },
-  { href: "/menu", label: "Menu", jp: "メニュー" },
-  { href: "/experience", label: "Experience", jp: "体験" },
-  { href: "/reservations", label: "Reservations", jp: "予約" },
-  { href: "/contact", label: "Contact", jp: "連絡" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/menu", label: "Menu" },
+  { href: "/experience", label: "Experience" },
+  { href: "/reservations", label: "Reservations" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function Logo() {
@@ -20,10 +20,10 @@ function Logo() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 64 64"
-        className="h-10 w-10 shrink-0"
+        className="h-9 w-9 shrink-0"
         aria-hidden
       >
-        <rect width="64" height="64" rx="14" fill="#B71C1C" />
+        <rect width="64" height="64" rx="12" fill="#B71C1C" />
         <path
           d="M16 30 L32 14 L48 30"
           stroke="white"
@@ -41,11 +41,14 @@ function Logo() {
         <path d="M22 30 H42" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
       </svg>
       <span className="hidden sm:flex flex-col leading-tight">
-        <span className="text-[1rem] tracking-[0.22em] font-bold text-[#b71c1c]">
+        <span
+          className="text-[1.15rem] tracking-[0.18em] font-semibold text-[var(--text)]"
+          style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+        >
           YAMASEN
         </span>
-        <span className="jp-soft text-[0.65rem] text-[var(--text-muted)]">
-          山泉 · Japanese Restaurant
+        <span className="text-[0.6rem] tracking-[0.2em] uppercase text-[var(--text-muted)]">
+          Japanese Restaurant
         </span>
       </span>
     </span>
@@ -68,8 +71,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300 ${
         scrolled
-          ? "bg-[#f6f1e8]/95 border-b border-[var(--border)] backdrop-blur-md shadow-sm"
-          : "bg-[#f6f1e8]/90 backdrop-blur-sm"
+          ? "bg-[#faf7f2]/97 border-b border-[var(--border)] backdrop-blur-md shadow-sm"
+          : "bg-[#faf7f2]/92 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto max-w-[1200px] w-[92%] h-full flex items-center justify-between">
@@ -82,12 +85,11 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-xs tracking-[0.08em] uppercase transition-colors ${
+              className={`text-[0.7rem] tracking-[0.14em] uppercase font-bold transition-colors ${
                 pathname === item.href
                   ? "text-[#b71c1c]"
-                  : "text-[var(--text-muted)] hover:text-[#b71c1c]"
+                  : "text-[var(--text-muted)] hover:text-[var(--text)]"
               }`}
-              title={item.jp}
             >
               {item.label}
             </Link>
@@ -116,9 +118,9 @@ export default function Header() {
 
           <Link
             href="/reservations"
-            className="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-xs font-medium tracking-[0.1em] uppercase bg-[#b71c1c] text-white hover:bg-[#c62828] transition-colors soft-pill"
+            className="hidden lg:inline-flex btn-cream"
           >
-            予約 · Book
+            Book a Table
           </Link>
 
           <button
@@ -141,20 +143,19 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className={`text-sm tracking-[0.08em] uppercase flex items-center gap-2 ${
+                className={`text-sm tracking-[0.12em] uppercase font-bold ${
                   pathname === item.href ? "text-[#b71c1c]" : "text-[var(--text-muted)]"
                 }`}
               >
-                <span>{item.label}</span>
-                <span className="jp-soft text-[0.7rem]">{item.jp}</span>
+                {item.label}
               </Link>
             ))}
             <Link
               href="/reservations"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 inline-flex justify-center px-5 py-3 text-xs font-medium tracking-[0.1em] uppercase bg-[#b71c1c] text-white soft-pill"
+              className="mt-2 inline-flex justify-center btn-cream"
             >
-              予約 · Book a Table
+              Book a Table
             </Link>
           </nav>
         </div>
