@@ -4,22 +4,18 @@ const socials = [
   {
     name: "Instagram",
     href: "https://www.instagram.com/yamasen_kampala",
-    label: "@yamasen_kampala",
   },
   {
     name: "Facebook",
     href: "https://www.facebook.com/yamasen.cotscots",
-    label: "Yamasen Japanese Restaurant",
   },
   {
     name: "TripAdvisor",
     href: "https://www.tripadvisor.com/Restaurant_Review-g293841-d15006919-Reviews-YAMASEN_Japanese_Restaurant-Kampala_Central_Region.html",
-    label: "4.6 · 106 reviews",
   },
   {
     name: "WhatsApp",
     href: "https://wa.me/256707808010",
-    label: "+256 707 808010",
   },
 ];
 
@@ -29,9 +25,10 @@ export default function Footer() {
       <div className="mx-auto max-w-[1200px] w-[92%] pt-16 pb-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           <div className="lg:col-span-1">
-            <span className="text-2xl tracking-[0.18em] text-white font-bold block mb-3">
+            <span className="text-2xl tracking-[0.18em] text-white font-bold block mb-1">
               YAMASEN
             </span>
+            <p className="jp-soft text-sm text-[#c4b8a8] mb-3">山泉 · 日本料理</p>
             <p className="text-sm text-[#c4b8a8] leading-relaxed mb-5">
               Farm to table Japanese restaurant in Kampala. Organic farm produce,
               Kyoto style cooking, Ugandan inspired dishes.
@@ -53,20 +50,20 @@ export default function Footer() {
 
           <div>
             <p className="text-[0.65rem] tracking-[0.2em] uppercase text-[#b71c1c] mb-4">
-              Explore
+              <span className="jp mr-1">案内</span> Explore
             </p>
             <nav className="flex flex-col gap-2.5 text-sm text-[#c4b8a8]">
-              <Link href="/menu" className="hover:text-white transition-colors">Menu</Link>
-              <Link href="/experience" className="hover:text-white transition-colors">Experience</Link>
-              <Link href="/reservations" className="hover:text-white transition-colors">Reservations</Link>
-              <Link href="/about" className="hover:text-white transition-colors">About</Link>
-              <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+              <Link href="/menu" className="hover:text-white transition-colors">Menu · メニュー</Link>
+              <Link href="/experience" className="hover:text-white transition-colors">Experience · 体験</Link>
+              <Link href="/reservations" className="hover:text-white transition-colors">Reservations · 予約</Link>
+              <Link href="/about" className="hover:text-white transition-colors">About · 私たち</Link>
+              <Link href="/contact" className="hover:text-white transition-colors">Contact · 連絡</Link>
             </nav>
           </div>
 
           <div>
             <p className="text-[0.65rem] tracking-[0.2em] uppercase text-[#b71c1c] mb-4">
-              Visit
+              <span className="jp mr-1">場所</span> Visit
             </p>
             <p className="text-sm text-[#c4b8a8] leading-relaxed mb-3">
               Tank Hill Park
@@ -87,7 +84,7 @@ export default function Footer() {
 
           <div>
             <p className="text-[0.65rem] tracking-[0.2em] uppercase text-[#b71c1c] mb-4">
-              Hours and contact
+              <span className="jp mr-1">営業</span> Hours
             </p>
             <p className="text-sm text-[#c4b8a8] mb-3">
               Monday to Sunday
@@ -110,7 +107,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-[#9a8f82]">
-          <p>© {new Date().getFullYear()} Yamasen Japanese Restaurant. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Yamasen Japanese Restaurant · 山泉</p>
           <p>Instagram · Facebook · TripAdvisor · WhatsApp</p>
         </div>
       </div>
