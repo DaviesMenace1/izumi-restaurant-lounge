@@ -18,7 +18,7 @@ export default function ReservationForm() {
     const occasion = data.get("occasion") || "";
     const notes = data.get("notes") || "";
 
-    let message = `Hello Izumi, I would like to request a reservation:\n\n`;
+    let message = `Hello Yamasen, I would like to request a reservation:\n\n`;
     message += `Name: ${name}\n`;
     message += `Phone: ${phone}\n`;
     message += `Date: ${date}\n`;
@@ -28,7 +28,7 @@ export default function ReservationForm() {
     if (notes) message += `Notes: ${notes}\n`;
 
     const encoded = encodeURIComponent(message);
-    const whatsapp = `https://wa.me/256756244911?text=${encoded}`;
+    const whatsapp = `https://wa.me/256707808010?text=${encoded}`;
 
     setStatus("sending");
     window.open(whatsapp, "_blank");
@@ -54,7 +54,7 @@ export default function ReservationForm() {
             name="name"
             required
             placeholder="Your name"
-            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)] transition-colors"
+            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm soft-pill focus:outline-none focus:border-[#b71c1c] transition-colors"
           />
         </div>
         <div className="flex flex-col gap-1.5">
@@ -67,7 +67,7 @@ export default function ReservationForm() {
             type="tel"
             required
             placeholder="+256 ..."
-            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)] transition-colors"
+            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm soft-pill focus:outline-none focus:border-[#b71c1c] transition-colors"
           />
         </div>
       </div>
@@ -83,7 +83,7 @@ export default function ReservationForm() {
             type="date"
             required
             min={today}
-            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)] transition-colors"
+            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm soft-pill focus:outline-none focus:border-[#b71c1c] transition-colors"
           />
         </div>
         <div className="flex flex-col gap-1.5">
@@ -94,7 +94,7 @@ export default function ReservationForm() {
             id="time"
             name="time"
             required
-            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)] transition-colors"
+            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm soft-pill focus:outline-none focus:border-[#b71c1c] transition-colors"
           >
             <option value="">Select</option>
             {["12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"].map(
@@ -117,7 +117,7 @@ export default function ReservationForm() {
             id="guests"
             name="guests"
             required
-            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)] transition-colors"
+            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm soft-pill focus:outline-none focus:border-[#b71c1c] transition-colors"
           >
             <option value="">Select</option>
             {["1", "2", "3", "4", "5", "6", "7", "8+"].map((g) => (
@@ -135,7 +135,7 @@ export default function ReservationForm() {
             id="occasion"
             name="occasion"
             placeholder="Birthday, date night..."
-            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)] transition-colors"
+            className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm soft-pill focus:outline-none focus:border-[#b71c1c] transition-colors"
           />
         </div>
       </div>
@@ -149,19 +149,20 @@ export default function ReservationForm() {
           name="notes"
           rows={3}
           placeholder="Dietary needs, preferred seating..."
-          className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)] transition-colors resize-y"
+          className="bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] px-4 py-3 text-sm focus:outline-none focus:border-[#b71c1c] transition-colors resize-y"
+          style={{ borderRadius: "18px 24px 16px 22px" }}
         />
       </div>
 
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full py-3.5 text-xs font-medium tracking-[0.1em] uppercase bg-[var(--gold)] text-black hover:bg-[var(--gold-light)] transition-colors disabled:opacity-70"
+        className="w-full py-3.5 text-xs font-semibold tracking-[0.1em] uppercase bg-[#b71c1c] text-white hover:bg-[#c62828] transition-colors disabled:opacity-70 soft-pill"
       >
-        {status === "sending" ? "Opening WhatsApp…" : status === "sent" ? "Request Sent" : "Request Reservation"}
+        {status === "sending" ? "Opening WhatsApp..." : status === "sent" ? "Request Sent" : "Request Reservation"}
       </button>
       <p className="text-center text-xs text-[var(--text-muted)]">
-        We’ll confirm via WhatsApp or phone. For large groups or private dining, call us directly.
+        We will confirm via WhatsApp or phone. For large groups, call us directly.
       </p>
     </form>
   );
