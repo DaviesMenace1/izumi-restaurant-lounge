@@ -15,16 +15,16 @@ export default function HomePage() {
             fill
             priority
             quality={95}
-            className="object-cover"
+            className="object-cover brightness-110 contrast-105"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/65" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
         <div className="relative z-10 px-5 py-20 max-w-3xl mx-auto text-center">
           <h1
             className="text-[clamp(2.4rem,7vw,4rem)] font-semibold tracking-[0.04em] leading-[1.15] mb-5"
-            style={{ color: "#ffffff" }}
+            style={{ color: "#ffffff", textShadow: "0 2px 16px rgba(0,0,0,0.45)" }}
           >
             THE HEART OF
             <br />
@@ -32,7 +32,7 @@ export default function HomePage() {
           </h1>
           <p
             className="text-[0.95rem] md:text-base leading-relaxed max-w-xl mx-auto mb-10"
-            style={{ color: "rgba(255,255,255,0.92)" }}
+            style={{ color: "#ffffff", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}
           >
             Whether you are savoring fresh sushi, house ramen, or farm to table
             bento, every plate reflects our passion for Kyoto craft and Ugandan
@@ -92,7 +92,7 @@ export default function HomePage() {
             alt="Yamasen dining hall"
             fill
             quality={92}
-            className="object-cover"
+            className="object-cover brightness-105"
             sizes="100vw"
           />
         </div>
@@ -162,7 +162,7 @@ export default function HomePage() {
             alt="Yamasen outdoor seating"
             fill
             quality={90}
-            className="object-cover"
+            className="object-cover brightness-105"
             sizes="100vw"
           />
         </div>
@@ -218,7 +218,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Loyalty membership teaser */}
       <section className="py-16 md:py-20 px-5 bg-[#faf6ef] border-y border-[var(--border)]">
         <ScrollReveal>
           <div className="max-w-2xl mx-auto text-center">
@@ -234,7 +233,8 @@ export default function HomePage() {
               stamps. Valid at Yamasen, Farm to Table, and Klafts.
             </p>
             <p className="text-sm mb-8" style={{ color: "#4a4038" }}>
-              Prizes include Omakase for two, Yamasen vouchers, and Pan-Ya bread.
+              Order on WhatsApp with Loyalty member checked. View your stamps on
+              the Loyalty page with the same phone number.
             </p>
             <Link href="/loyalty" className="btn-cream inline-flex justify-center">
               Join Loyalty Membership
@@ -306,16 +306,16 @@ export default function HomePage() {
             alt="Reserve at Yamasen"
             fill
             quality={90}
-            className="object-cover"
+            className="object-cover brightness-110"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/65" />
+          <div className="absolute inset-0 bg-black/45" />
         </div>
         <ScrollReveal>
           <div className="relative z-10 px-5 py-16 max-w-xl mx-auto text-center">
             <p
               className="text-[0.7rem] tracking-[0.28em] uppercase mb-3"
-              style={{ color: "rgba(255,255,255,0.85)" }}
+              style={{ color: "#ffffff" }}
             >
               Reserve Your Table Today
             </p>
@@ -327,20 +327,14 @@ export default function HomePage() {
             </h2>
             <p
               className="text-[0.95rem] leading-relaxed mb-6"
-              style={{ color: "rgba(255,255,255,0.92)" }}
+              style={{ color: "rgba(255,255,255,0.95)" }}
             >
               Book your table and enjoy an unforgettable dining experience at
               Yamasen. Our open air timber hall and Japanese flavours make every
               moment special.
             </p>
-            <p
-              className="text-[0.65rem] tracking-[0.2em] uppercase mb-2"
-              style={{ color: "rgba(255,255,255,0.8)" }}
-            >
-              Booking Information
-            </p>
             <p className="text-sm mb-8" style={{ color: "#ffffff" }}>
-              Call or WhatsApp to reserve:{" "}
+              Call or WhatsApp:{" "}
               <a href="tel:+256707808010" className="underline underline-offset-2">
                 +256 707 808010
               </a>
@@ -359,16 +353,16 @@ export default function HomePage() {
             alt="Yamasen menu"
             fill
             quality={90}
-            className="object-cover"
+            className="object-cover brightness-110"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/65" />
+          <div className="absolute inset-0 bg-black/45" />
         </div>
         <ScrollReveal>
           <div className="relative z-10 px-5 py-16 max-w-xl mx-auto text-center">
             <p
               className="text-[0.7rem] tracking-[0.28em] uppercase mb-3"
-              style={{ color: "rgba(255,255,255,0.85)" }}
+              style={{ color: "#ffffff" }}
             >
               Browse Our Dishes
             </p>
@@ -380,17 +374,11 @@ export default function HomePage() {
             </h2>
             <p
               className="text-[0.95rem] leading-relaxed mb-6"
-              style={{ color: "rgba(255,255,255,0.92)" }}
+              style={{ color: "rgba(255,255,255,0.95)" }}
             >
               From sushi and sashimi to ramen, bento, and Kyoto style plates, our
               menu offers authentic Japanese cuisine crafted with farm produce and
               coastal seafood.
-            </p>
-            <p
-              className="text-[0.65rem] tracking-[0.2em] uppercase mb-2"
-              style={{ color: "rgba(255,255,255,0.8)" }}
-            >
-              Working Hours
             </p>
             <p className="text-sm mb-8" style={{ color: "#ffffff" }}>
               Monday to Sunday · 9:00 AM to 11:00 PM
