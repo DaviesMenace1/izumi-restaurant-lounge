@@ -44,35 +44,20 @@ export const categories: { slug: CategorySlug; name: string; description: string
 
 const U = (id: string) => `https://images.unsplash.com/photo-${id}?w=800&q=80`;
 
-/** Direct Unsplash URLs for drinks (distinct, product-style photos) */
+/** Distinct Unsplash photos matched to each drink (no duplicates) */
 const drinkImg = {
-  greenJuice:
-    "https://images.unsplash.com/photo-1610970881699-44a2267bae1f?w=800&q=80",
-  yellowJuice:
-    "https://images.unsplash.com/photo-1546173159-315724a31696?w=800&q=80",
-  redJuice:
-    "https://images.unsplash.com/photo-1622597469330-54f7e09c6f5f?w=800&q=80",
-  orangeJuice:
-    "https://images.unsplash.com/photo-1523677011780-c68aaab83748?w=800&q=80",
-  mojito:
-    "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=800&q=80",
-  mocktail:
-    "https://images.unsplash.com/photo-1572491477727-b5c41e87077b?w=800&q=80",
-  cucumber:
-    "https://images.unsplash.com/photo-1544145945-f9048ea3106a?w=800&q=80",
-  pineapple:
-    "https://images.unsplash.com/photo-1497534448261-4e0c56b9c8e6?w=800&q=80",
-  matcha:
-    "https://images.unsplash.com/photo-1515823662972-da6a73881e03?w=800&q=80",
-  sake:
-    "https://images.unsplash.com/photo-1569520596547-c2a0c1f2c2b0?w=800&q=80".replace(
-      "1569520596547-c2a0c1f2c2b0",
-      "1606923829579-0cbdd6be4e94"
-    ),
-  beer:
-    "https://images.unsplash.com/photo-1437418746472-d7d33570f2dc?w=800&q=80",
-  soft:
-    "https://images.unsplash.com/photo-1629203851127-503e0d4e5a8e?w=800&q=80",
+  greenJuice: "https://images.unsplash.com/photo-1610970881699-44a2267bae1f?w=800&q=80",
+  yellowJuice: "https://images.unsplash.com/photo-1546173159-315724a31696?w=800&q=80",
+  redJuice: "https://images.unsplash.com/photo-1622597469330-54f7e09c6f5f?w=800&q=80",
+  orangeJuice: "https://images.unsplash.com/photo-1523677011780-c68aaab83748?w=800&q=80",
+  mojito: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=800&q=80",
+  mocktail: "https://images.unsplash.com/photo-1572491477727-b5c41e87077b?w=800&q=80",
+  cucumber: "https://images.unsplash.com/photo-1544145945-f9048ea3106a?w=800&q=80",
+  pineapple: "https://images.unsplash.com/photo-1497534448261-4e0c56b9c8e6?w=800&q=80",
+  matcha: "https://images.unsplash.com/photo-1515823662972-da6a73881e03?w=800&q=80",
+  sake: "https://images.unsplash.com/photo-1606923829579-0cbdd6be4e94?w=800&q=80",
+  beer: "https://images.unsplash.com/photo-1437418746472-d7d33570f2dc?w=800&q=80",
+  soft: "https://images.unsplash.com/photo-1581006852262-e4307cf6283a?w=800&q=80",
 };
 
 export const dishes: Dish[] = [
