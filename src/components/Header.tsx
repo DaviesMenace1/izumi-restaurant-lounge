@@ -70,6 +70,17 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
     <>
       <header
@@ -148,43 +159,76 @@ export default function Header() {
             </Link>
 
             <button
-              className="lg:hidden flex flex-col gap-1.5 p-2"
+              className="lg:hidden flex flex-col justify-center gap-[6px] p-2.5"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen}
             >
-              <span className="w-5 h-[1.5px] bg-[var(--text)] block" />
-              <span className="w-5 h-[1.5px] bg-[var(--text)] block" />
-              <span className="w-5 h-[1.5px] bg-[var(--text)] block" />
+              <span
+                className={`block w-6 h-[2px] bg-[var(--text)] transition-transform duration-300 origin-center ${
+                  menuOpen ? "translate-y-[8px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block w-6 h-[2px] bg-[var(--text)] transition-opacity duration-300 ${
+                  menuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block w-6 h-[2px] bg-[var(--text)] transition-transform duration-300 origin-center ${
+                  menuOpen ? "-translate-y-[8px] -rotate-45" : ""
+                }`}
+              />
             </button>
           </div>
         </div>
+      </header>
 
-        {menuOpen && (
-          <div className="lg:hidden absolute top-[72px] left-0 right-0 bg-white border-b border-[var(--border)] py-6 px-[4%] shadow-lg">
-            <nav className="flex flex-col gap-4">
-              {navItems.map((item) => (
+      {/* Full-screen mobile nav */}
+      {menuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 z-[45] bg-[#faf7f2] flex flex-col"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+        >
+          <div className="h-[72px] shrink-0" aria-hidden />
+          <nav className="flex-1 flex flex-col items-center justify-center gap-1 px-6 pb-16 overflow-y-auto">
+            {navItems.map((item, i) => {
+              const active =
+                pathname === item.href ||
+                (item.href !== "/" && pathname.startsWith(item.href));
+              return (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className={`text-sm tracking-[0.12em] uppercase font-bold ${
-                    pathname === item.href ? "text-[#9a1515]" : "text-[var(--text-muted)]"
+                  className={`mobile-nav-item w-full text-center py-3.5 text-[1.15rem] sm:text-[1.25rem] tracking-[0.18em] uppercase font-bold transition-colors ${
+                    active ? "text-[#9a1515]" : "text-[#1a1410]"
                   }`}
+                  style={{ animationDelay: `${80 + i * 70}ms` }}
                 >
                   {item.label}
                 </Link>
-              ))}
-              <Link
-                href="/reservations"
-                onClick={() => setMenuOpen(false)}
-                className="mt-2 inline-flex justify-center btn-cream"
-              >
-                Book a Table
-              </Link>
-            </nav>
-          </div>
-        )}
-      </header>
+              );
+            })}
+            <Link
+              href="/reservations"
+              onClick={() => setMenuOpen(false)}
+              className="mobile-nav-item mt-6 btn-cream inline-flex justify-center text-sm px-10 py-4"
+              style={{ animationDelay: `${80 + navItems.length * 70}ms` }}
+            >
+              Book a Table
+            </Link>
+            <p
+              className="mobile-nav-item jp text-sm mt-8"
+              style={{ color: "#9a1515", animationDelay: `${80 + (navItems.length + 1) * 70}ms` }}
+            >
+              山泉 · Yamasen
+            </p>
+          </nav>
+        </div>
+      )}
 
       <SearchPanel open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
