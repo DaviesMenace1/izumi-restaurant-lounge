@@ -99,7 +99,7 @@ export default function SearchPanel({ open, onClose }: Props) {
             {results.map((dish) => (
               <li key={dish.id}>
                 <Link
-                  href={`/menu/${dish.category}/${dish.slug}`}
+                  href={`/menu/dish/${dish.slug}`}
                   onClick={onClose}
                   className="flex gap-3 p-2 rounded-xl hover:bg-white border border-transparent hover:border-[var(--border)] transition-colors"
                 >
