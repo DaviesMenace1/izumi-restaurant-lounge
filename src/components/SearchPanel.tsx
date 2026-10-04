@@ -85,6 +85,7 @@ export default function SearchPanel({ open, onClose }: Props) {
         <div className="flex-1 overflow-y-auto px-4 py-4">
           {!q.trim() && (
             <p className="text-sm text-center py-10" style={{ color: "#4a4038" }}>
+              <span className="jp block mb-2" style={{ color: "#9a1515" }}>検索</span>
               Try sushi, ramen, bento, or even a typo like sufhi.
             </p>
           )}
@@ -99,7 +100,7 @@ export default function SearchPanel({ open, onClose }: Props) {
             {results.map((dish) => (
               <li key={dish.id}>
                 <Link
-                  href={`/menu/dish/${dish.slug}`}
+                  href={`/menu/${dish.category}/${dish.slug}`}
                   onClick={onClose}
                   className="flex gap-3 p-2 rounded-xl hover:bg-white border border-transparent hover:border-[var(--border)] transition-colors"
                 >
