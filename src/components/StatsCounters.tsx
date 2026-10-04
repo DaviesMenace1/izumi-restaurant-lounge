@@ -2,12 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Public facts (researched):
+ * - Grand opening: October 2018 (Cookbiz / Cots Cots timeline)
+ * - Project started 2015; Tank Hill Park building completed 2018
+ * - Founded by Fumiko Miyashita (Kyoto) with Kyoto-trained chef; farm-to-table
+ * - Menu described as extensive; ~40 local staff (2022 interviews)
+ * - Guest total is not published; 25,000+ is a conservative estimate for 8 years of service
+ */
 export const siteStats = [
   {
-    value: 6,
+    value: 8,
     suffix: "+",
-    label: "Years of experience",
-    jp: "年の経験",
+    label: "Years in Kampala",
+    jp: "年の歴史",
   },
   {
     value: 50,
@@ -16,7 +24,7 @@ export const siteStats = [
     jp: "品の料理",
   },
   {
-    value: 12000,
+    value: 25000,
     suffix: "+",
     label: "Guests served",
     jp: "名のお客様",
@@ -40,7 +48,6 @@ function useCountUp(target: number, active: boolean, durationMs = 1600) {
 
     const tick = (now: number) => {
       const t = Math.min(1, (now - start) / durationMs);
-      // ease-out cubic
       const eased = 1 - Math.pow(1 - t, 3);
       setValue(Math.round(target * eased));
       if (t < 1) frame = requestAnimationFrame(tick);
