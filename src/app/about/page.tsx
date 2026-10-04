@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { venue } from "@/data/media";
+import StatsCounters from "@/components/StatsCounters";
 
 export const metadata: Metadata = {
   title: "About",
@@ -26,6 +27,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/15" />
         </div>
         <div className="relative z-10 px-5 pb-12 max-w-[1100px] mx-auto w-full">
+          <p className="jp text-sm text-white/90 mb-2">私たちについて</p>
           <p className="text-[0.7rem] tracking-[0.25em] uppercase text-white/90 mb-2">Our Story</p>
           <h1 className="text-[clamp(2.2rem,5vw,3.4rem)] font-bold text-white max-w-2xl leading-tight">
             Farm to table Japanese in Kampala
@@ -64,6 +66,17 @@ export default function AboutPage() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
+          </div>
+
+          <div className="mt-16 py-12 px-4 md:px-8 bg-[var(--bg-elevated)] border border-[var(--border)]" style={{ borderRadius: "1.25rem" }}>
+            <p className="text-center text-xs tracking-[0.2em] uppercase font-bold mb-8" style={{ color: "#4a4038" }}>
+              By the numbers · 数字で見る山泉
+            </p>
+            <StatsCounters />
+            <p className="text-center text-sm mt-8 max-w-lg mx-auto" style={{ color: "#4a4038" }}>
+              Over six years of serving Japanese farm to table cuisine in Kampala,
+              with a growing menu and thousands of guests welcomed at Tank Hill.
+            </p>
           </div>
 
           <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3">
