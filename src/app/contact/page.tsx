@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import { venue } from "@/data/media";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -9,14 +11,31 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="pt-[72px]">
-      <section className="py-16 md:py-24">
+      <section className="relative min-h-[36vh] flex items-end overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={venue.nightExterior}
+            alt="Yamasen at Tank Hill"
+            fill
+            priority
+            quality={90}
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/15" />
+        </div>
+        <div className="relative z-10 px-5 pb-10 max-w-[1100px] mx-auto w-full">
+          <p className="text-[0.7rem] tracking-[0.25em] uppercase text-white/80 mb-2">Visit Us</p>
+          <h1 className="text-[clamp(2rem,5vw,3rem)] font-bold text-white">
+            Tank Hill Park, Muyenga
+          </h1>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20">
         <div className="mx-auto max-w-[1100px] w-[92%]">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <div>
-              <p className="text-xs tracking-[0.2em] uppercase text-[#b71c1c] mb-3">Visit Us</p>
-              <h1 className="text-[clamp(2rem,4vw,2.8rem)] font-bold mb-5">
-                Tank Hill Park, Muyenga
-              </h1>
               <p className="text-[var(--text-muted)] mb-10 leading-relaxed">
                 Yamasen Japanese Restaurant sits at Tank Hill Park on Tank Hill Road.
                 Open daily for lunch and dinner.
@@ -85,6 +104,17 @@ export default function ContactPage() {
                   </span>
                 </li>
               </ul>
+
+              <div className="mt-10 relative aspect-[16/10] overflow-hidden blob-card shadow-md">
+                <Image
+                  src={venue.hallDay}
+                  alt="Yamasen entrance hall"
+                  fill
+                  quality={88}
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                />
+              </div>
             </div>
 
             <div className="bg-white border border-[var(--border)] min-h-[360px] relative overflow-hidden blob-card shadow-md">
