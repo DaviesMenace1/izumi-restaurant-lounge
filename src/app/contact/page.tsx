@@ -19,13 +19,13 @@ export default function ContactPage() {
             fill
             priority
             quality={90}
-            className="object-cover"
+            className="object-cover brightness-110"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-black/15" />
         </div>
         <div className="relative z-10 px-5 pb-10 max-w-[1100px] mx-auto w-full">
-          <p className="text-[0.7rem] tracking-[0.25em] uppercase text-white/80 mb-2">Visit Us</p>
+          <p className="text-[0.7rem] tracking-[0.25em] uppercase text-white/90 mb-2">Visit Us</p>
           <h1 className="text-[clamp(2rem,5vw,3rem)] font-bold text-white">
             Tank Hill Park, Muyenga
           </h1>
@@ -36,52 +36,54 @@ export default function ContactPage() {
         <div className="mx-auto max-w-[1100px] w-[92%]">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <div>
-              <p className="text-[var(--text-muted)] mb-10 leading-relaxed">
+              <p className="mb-10 leading-relaxed" style={{ color: "#4a4038" }}>
                 Yamasen Japanese Restaurant sits at Tank Hill Park on Tank Hill Road.
                 Open daily for lunch and dinner.
               </p>
 
               <ul className="space-y-6">
                 <li>
-                  <strong className="block text-[0.7rem] tracking-[0.12em] uppercase text-[#b71c1c] mb-1">
+                  <strong className="block text-[0.7rem] tracking-[0.12em] uppercase mb-1" style={{ color: "#9a1515" }}>
                     Hours
                   </strong>
-                  <span className="text-[var(--text-muted)]">
+                  <span style={{ color: "#4a4038" }}>
                     Monday to Sunday · 9:00 to 23:00
                   </span>
                 </li>
                 <li>
-                  <strong className="block text-[0.7rem] tracking-[0.12em] uppercase text-[#b71c1c] mb-1">
+                  <strong className="block text-[0.7rem] tracking-[0.12em] uppercase mb-1" style={{ color: "#9a1515" }}>
                     Phone / WhatsApp
                   </strong>
                   <a
                     href="tel:+256707808010"
-                    className="text-[var(--text)] hover:text-[#b71c1c] transition-colors"
+                    className="hover:opacity-80 transition-opacity"
+                    style={{ color: "#1a1410" }}
                   >
                     +256 707 808010
                   </a>
                 </li>
                 <li>
-                  <strong className="block text-[0.7rem] tracking-[0.12em] uppercase text-[#b71c1c] mb-1">
+                  <strong className="block text-[0.7rem] tracking-[0.12em] uppercase mb-1" style={{ color: "#9a1515" }}>
                     Email
                   </strong>
                   <a
                     href="mailto:info@cotscots.com"
-                    className="text-[var(--text)] hover:text-[#b71c1c] transition-colors"
+                    className="hover:opacity-80 transition-opacity"
+                    style={{ color: "#1a1410" }}
                   >
                     info@cotscots.com
                   </a>
                 </li>
                 <li>
-                  <strong className="block text-[0.7rem] tracking-[0.12em] uppercase text-[#b71c1c] mb-1">
+                  <strong className="block text-[0.7rem] tracking-[0.12em] uppercase mb-1" style={{ color: "#9a1515" }}>
                     Social
                   </strong>
-                  <span className="text-[var(--text-muted)] flex flex-wrap gap-x-3 gap-y-1">
+                  <span className="flex flex-wrap gap-x-3 gap-y-1" style={{ color: "#4a4038" }}>
                     <a
                       href="https://www.instagram.com/yamasen_kampala"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-[#b71c1c] transition-colors"
+                      className="hover:text-[#9a1515] transition-colors"
                     >
                       Instagram
                     </a>
@@ -89,17 +91,9 @@ export default function ContactPage() {
                       href="https://www.facebook.com/yamasen.cotscots"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-[#b71c1c] transition-colors"
+                      className="hover:text-[#9a1515] transition-colors"
                     >
                       Facebook
-                    </a>
-                    <a
-                      href="https://www.tripadvisor.com/Restaurant_Review-g293841-d15006919-Reviews-YAMASEN_Japanese_Restaurant-Kampala_Central_Region.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#b71c1c] transition-colors"
-                    >
-                      TripAdvisor
                     </a>
                   </span>
                 </li>
@@ -111,7 +105,7 @@ export default function ContactPage() {
                   alt="Yamasen entrance hall"
                   fill
                   quality={88}
-                  className="object-cover"
+                  className="object-cover brightness-105"
                   sizes="(max-width: 1024px) 100vw, 45vw"
                 />
               </div>
