@@ -29,6 +29,7 @@ export type OrderDetails = {
   customerPhone: string;
   method: "delivery" | "pickup";
   address: string;
+  allergies?: string;
 };
 
 type CartContextValue = {
@@ -166,6 +167,10 @@ export function openWhatsAppOrder(
 
   if (details.method === "delivery") {
     lines.push(`Address: ${details.address}`);
+  }
+
+  if (details.allergies?.trim()) {
+    lines.push(`Allergies: ${details.allergies.trim()}`);
   }
 
   lines.push("");
