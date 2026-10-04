@@ -7,11 +7,12 @@ import { useCart } from "@/context/CartContext";
 
 export default function MenuCard({ dish }: { dish: Dish }) {
   const { addItem } = useCart();
+  const href = `/menu/${dish.category}/${dish.slug}`;
 
   return (
     <article className="group flex flex-col h-full bg-white border border-[var(--border)] overflow-hidden shadow-md hover:shadow-lg hover:border-[#9a1515]/40 transition-all rounded-[1.25rem]">
       <Link
-        href={`/menu/dish/${dish.slug}`}
+        href={href}
         className="relative block w-full aspect-[4/3] overflow-hidden shrink-0"
       >
         <Image
@@ -36,7 +37,7 @@ export default function MenuCard({ dish }: { dish: Dish }) {
 
       <div className="flex flex-col flex-1 p-4 md:p-5">
         <div className="flex items-start justify-between gap-3 mb-2">
-          <Link href={`/menu/dish/${dish.slug}`} className="min-w-0 flex-1">
+          <Link href={href} className="min-w-0 flex-1">
             <h2
               className="text-[1.1rem] md:text-[1.2rem] font-bold text-[#1a1410] leading-snug hover:text-[#9a1515] transition-colors line-clamp-2"
               style={{ fontFamily: "var(--font-display), Georgia, serif" }}
