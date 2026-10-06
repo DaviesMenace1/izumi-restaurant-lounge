@@ -196,7 +196,18 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-[#9a8f82]">
-          <p>© {new Date().getFullYear()} Yamasen Japanese Restaurant · 山泉</p>
+          <p>
+            © {new Date().getFullYear()} Yamasen Japanese Restaurant · 山泉
+            {" · "}
+            <a
+              href="https://wa.me/256745867098"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#c4b8a8] hover:text-white underline underline-offset-2 transition-colors"
+            >
+              Davies Musinguzi
+            </a>
+          </p>
           <div className="flex items-center gap-4">
             {socials.map(({ name, href, Icon }) => (
               <a
