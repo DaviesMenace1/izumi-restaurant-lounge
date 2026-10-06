@@ -18,22 +18,29 @@ export default function HomePage() {
             fill
             priority
             quality={95}
-            className="object-cover brightness-110 contrast-105"
+            className="object-cover brightness-125 contrast-110 saturate-110"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          {/* Light gradient only so text stays readable without dimming the whole photo */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.28) 45%, rgba(0,0,0,0.42) 100%)",
+            }}
+          />
         </div>
 
         <div className="relative z-10 px-5 py-20 max-w-3xl mx-auto text-center">
           <p
             className="jp text-sm md:text-base mb-3 tracking-[0.2em]"
-            style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}
+            style={{ color: "rgba(255,255,255,0.98)", textShadow: "0 1px 10px rgba(0,0,0,0.55)" }}
           >
             ようこそ · 山泉
           </p>
           <h1
             className="text-[clamp(2.4rem,7vw,4rem)] font-semibold tracking-[0.04em] leading-[1.15] mb-5"
-            style={{ color: "#ffffff", textShadow: "0 2px 16px rgba(0,0,0,0.45)" }}
+            style={{ color: "#ffffff", textShadow: "0 2px 18px rgba(0,0,0,0.55)" }}
           >
             THE HEART OF
             <br />
@@ -41,7 +48,7 @@ export default function HomePage() {
           </h1>
           <p
             className="text-[0.95rem] md:text-base leading-relaxed max-w-xl mx-auto mb-10"
-            style={{ color: "#ffffff", textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}
+            style={{ color: "#ffffff", textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}
           >
             Whether you are savoring fresh sushi, house ramen, or farm to table
             bento, every plate reflects our passion for Kyoto craft and Ugandan
@@ -110,7 +117,7 @@ export default function HomePage() {
             alt="Yamasen dining hall"
             fill
             quality={92}
-            className="object-cover brightness-105"
+            className="object-cover brightness-110 contrast-105"
             sizes="100vw"
           />
         </div>
@@ -164,7 +171,7 @@ export default function HomePage() {
                 alt="Yamasen signature dish"
                 fill
                 quality={90}
-                className="object-cover brightness-105"
+                className="object-cover brightness-110 contrast-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -200,7 +207,7 @@ export default function HomePage() {
             alt="Yamasen outdoor seating"
             fill
             quality={90}
-            className="object-cover brightness-105"
+            className="object-cover brightness-110 contrast-105"
             sizes="100vw"
           />
         </div>
@@ -268,7 +275,7 @@ export default function HomePage() {
                 alt="Yamasen Japanese dish"
                 fill
                 quality={90}
-                className="object-cover brightness-105"
+                className="object-cover brightness-110 contrast-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -340,10 +347,10 @@ export default function HomePage() {
             alt="Reserve at Yamasen"
             fill
             quality={90}
-            className="object-cover brightness-110"
+            className="object-cover brightness-115 contrast-105"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-black/35" />
         </div>
         <ScrollReveal>
           <div className="relative z-10 px-5 py-16 max-w-xl mx-auto text-center">
@@ -390,10 +397,10 @@ export default function HomePage() {
             alt="Yamasen menu"
             fill
             quality={90}
-            className="object-cover brightness-110"
+            className="object-cover brightness-115 contrast-105 saturate-105"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-black/35" />
         </div>
         <ScrollReveal>
           <div className="relative z-10 px-5 py-16 max-w-xl mx-auto text-center">
