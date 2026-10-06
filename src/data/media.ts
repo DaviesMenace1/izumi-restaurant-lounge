@@ -36,6 +36,16 @@ export const venue = {
     "https://res.cloudinary.com/r8epy5mg/image/upload/v1791135018/Screenshot_2026-10-04-20-25-52-784_com.google.android.apps.maps-edit_w9aq4c.jpg",
 } as const;
 
+/** Real dish photography from the restaurant */
+export const dishes = {
+  plate1:
+    "https://res.cloudinary.com/r8epy5mg/image/upload/v1791175050/Screenshot_2026-10-05-07-19-59-875_com.google.android.apps.maps-edit_kjf4bv.jpg",
+  plate2:
+    "https://res.cloudinary.com/r8epy5mg/image/upload/v1791175050/Screenshot_2026-10-05-07-35-58-942_com.google.android.apps.maps-edit_x4xwvg.jpg",
+  plate3:
+    "https://res.cloudinary.com/r8epy5mg/image/upload/v1791175054/Screenshot_2026-10-05-07-22-23-242_com.google.android.apps.maps-edit_mkmufl.jpg",
+} as const;
+
 export const partners = {
   uberEats:
     "https://res.cloudinary.com/r8epy5mg/image/upload/v1791135017/ea07c05bc76796c58c54856832b6c6300a19231e_lr6p2q.jpg",
@@ -47,6 +57,8 @@ export const partners = {
     "https://res.cloudinary.com/r8epy5mg/image/upload/v1791129128/Pearl-Afric-PARTNERS6_vq2k4a.jpg",
   uwa:
     "https://res.cloudinary.com/r8epy5mg/image/upload/v1791129129/uwa-logo_snl4mz.png",
+  glovo:
+    "https://res.cloudinary.com/r8epy5mg/image/upload/v1791175191/glovo-logo-png_seeklogo-409492_wvcptr.png",
 } as const;
 
 /** Ordered gallery for mosaic / experience pages */
@@ -61,4 +73,29 @@ export const gallery = [
   venue.detail,
   venue.ambiance,
   venue.closing,
+  dishes.plate1,
+  dishes.plate2,
+  dishes.plate3,
+] as const;
+
+/** Homepage dish slider slides */
+export const dishSlides = [
+  {
+    src: dishes.plate1,
+    title: "Farm to Table Plates",
+    jp: "農場から食卓へ",
+    href: "/menu",
+  },
+  {
+    src: dishes.plate2,
+    title: "Signature Japanese",
+    jp: "看板料理",
+    href: "/menu",
+  },
+  {
+    src: dishes.plate3,
+    title: "Kyoto Craft",
+    jp: "京都の技",
+    href: "/menu",
+  },
 ] as const;
