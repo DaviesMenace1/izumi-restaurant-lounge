@@ -197,8 +197,7 @@ export default function Footer() {
 
         <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-[#9a8f82]">
           <p>
-            © {new Date().getFullYear()} Yamasen Japanese Restaurant · 山泉
-            {" · "}
+            © {new Date().getFullYear()}{" "}
             <a
               href="https://wa.me/256745867098"
               target="_blank"
