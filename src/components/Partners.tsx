@@ -18,6 +18,11 @@ const partners = [
     src: logos.uberEats,
   },
   {
+    name: "Glovo",
+    href: "https://glovoapp.com",
+    src: logos.glovo,
+  },
+  {
     name: "Shop",
     href: "https://www.instagram.com/yamasen_kampala",
     src: logos.shop,
