@@ -25,7 +25,7 @@ const categoryImages: Record<CategorySlug, string> = {
   grills: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=1200&q=90",
   "salads-soups": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=90",
   desserts: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=1200&q=90",
-  drinks: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d0e?w=1200&q=90",
+  drinks: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=1200&q=90",
 };
 
 function MenuContent() {
@@ -54,9 +54,9 @@ function MenuContent() {
   }, [filter, q]);
 
   return (
-    <section className="py-12 md:py-16">
-      <div className="mx-auto max-w-[1100px] w-[92%]">
-        <div className="text-center mb-10">
+    <section className="pb-12 md:pb-16">
+      <div className="mx-auto max-w-[1100px] w-[92%] pt-12 md:pt-16">
+        <div className="text-center mb-8 md:mb-10">
           <p className="jp text-sm text-[#b71c1c] mb-2">メニュー</p>
           <p className="text-xs tracking-[0.25em] uppercase text-[#b71c1c] font-semibold mb-3">
             The Menu
@@ -68,63 +68,72 @@ function MenuContent() {
             Bento, sushi, ramen, drinks and Kyoto style plates. Prices in UGX.
           </p>
         </div>
+      </div>
 
-        <div className="mb-6 flex justify-center">
-          <div className="relative w-full max-w-md">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] pointer-events-none"
-              aria-hidden
-            >
-              <circle cx="11" cy="11" r="7" />
-              <path d="M20 20l-3.5-3.5" strokeLinecap="round" />
-            </svg>
-            <input
-              type="search"
-              placeholder="Search dishes or drinks (typos ok)..."
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              className="w-full bg-white border border-[var(--border)] soft-pill text-[var(--text)] placeholder:text-[var(--text-muted)] pl-11 pr-6 py-3.5 text-sm font-medium focus:outline-none focus:border-[#b71c1c] shadow-sm"
-            />
+      {/* Sticky search + filters */}
+      <div className="sticky top-[72px] z-40 bg-[#faf7f2]/95 backdrop-blur-md border-b border-[var(--border)] shadow-sm">
+        <div className="mx-auto max-w-[1100px] w-[92%] py-3 md:py-4">
+          <div className="mb-3 flex justify-center">
+            <div className="relative w-full max-w-md">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] pointer-events-none"
+                aria-hidden
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="M20 20l-3.5-3.5" strokeLinecap="round" />
+              </svg>
+              <input
+                type="search"
+                placeholder="Search dishes or drinks (typos ok)..."
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                className="w-full bg-white border border-[var(--border)] soft-pill text-[var(--text)] placeholder:text-[var(--text-muted)] pl-11 pr-6 py-3 text-sm font-medium focus:outline-none focus:border-[#b71c1c] shadow-sm"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            {(
+              [
+                ["all", "All"],
+                ["popular", "Popular"],
+                ["bento", "Bento"],
+                ["sushi", "Sushi"],
+                ["appetizers", "Starters"],
+                ["mains", "Mains"],
+                ["ramen-curry", "Ramen"],
+                ["donburi", "Donburi"],
+                ["grills", "Grills"],
+                ["salads-soups", "Salads"],
+                ["desserts", "Desserts"],
+                ["drinks", "Drinks"],
+                ["vegetarian", "Veg"],
+              ] as [Filter, string][]
+            ).map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => setFilter(key)}
+                className={`shrink-0 px-3.5 py-2 text-[0.7rem] tracking-[0.08em] uppercase font-semibold soft-pill border transition-all ${
+                  filter === key
+                    ? "bg-[#b71c1c] text-white border-[#b71c1c] shadow"
+                    : "border-[var(--border)] bg-white text-[var(--text)] hover:border-[#b71c1c] hover:text-[#b71c1c]"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </div>
+      </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {(
-            [
-              ["all", "All"],
-              ["popular", "Popular"],
-              ["bento", "Bento"],
-              ["sushi", "Sushi"],
-              ["appetizers", "Starters"],
-              ["mains", "Mains"],
-              ["ramen-curry", "Ramen"],
-              ["donburi", "Donburi"],
-              ["grills", "Grills"],
-              ["salads-soups", "Salads"],
-              ["drinks", "Drinks"],
-              ["vegetarian", "Veg"],
-            ] as [Filter, string][]
-          ).map(([key, label]) => (
-            <button
-              key={key}
-              onClick={() => setFilter(key)}
-              className={`px-4 py-2.5 text-[0.72rem] tracking-[0.08em] uppercase font-semibold soft-pill border transition-all ${
-                filter === key
-                  ? "bg-[#b71c1c] text-white border-[#b71c1c] shadow"
-                  : "border-[var(--border)] bg-white text-[var(--text)] hover:border-[#b71c1c] hover:text-[#b71c1c]"
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-
+      <div className="mx-auto max-w-[1100px] w-[92%] pt-8">
         {showCategories && (
           <div className="grid grid-cols-2 gap-4 md:gap-6 mb-16">
             {categories.map((cat) => {
