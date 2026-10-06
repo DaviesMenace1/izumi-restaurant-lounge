@@ -3,7 +3,9 @@ import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import Partners from "@/components/Partners";
 import StatsCounters from "@/components/StatsCounters";
-import { venue } from "@/data/media";
+import DishSlider from "@/components/DishSlider";
+import MenuTeaser from "@/components/MenuTeaser";
+import { venue, dishes as dishPhotos } from "@/data/media";
 
 export default function HomePage() {
   return (
@@ -95,6 +97,12 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
+      {/* Dish imagery slideshow */}
+      <DishSlider />
+
+      {/* Menu teaser with real plate photos */}
+      <MenuTeaser />
+
       <section className="px-0">
         <div className="relative w-full aspect-[16/9] md:aspect-[21/9] max-h-[520px] overflow-hidden">
           <Image
@@ -148,27 +156,41 @@ export default function HomePage() {
       </section>
 
       <section className="py-16 md:py-20 px-5 bg-[var(--bg-elevated)]">
-        <ScrollReveal>
-          <div className="max-w-xl mx-auto text-center">
-            <p className="jp text-sm mb-2" style={{ color: "#9a1515" }}>
-              弁当配達
-            </p>
-            <h2
-              className="text-[clamp(1.6rem,3.5vw,2.2rem)] font-semibold mb-4 tracking-[0.03em]"
-              style={{ color: "#1a1410" }}
-            >
-              Need Bento Delivery?
-            </h2>
-            <p className="text-[0.95rem] leading-relaxed mb-8" style={{ color: "#4a4038" }}>
-              Hosting a lunch, office order, or quiet evening at home? Order bento
-              boxes, sushi, and house favourites for delivery across Kampala. Fresh
-              ingredients, complete sets, and easy WhatsApp ordering.
-            </p>
-            <Link href="/menu" className="btn-cream inline-flex justify-center">
-              Order from the Menu
-            </Link>
-          </div>
-        </ScrollReveal>
+        <div className="max-w-[1000px] mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <ScrollReveal direction="left">
+            <div className="relative aspect-[4/3] overflow-hidden menu-card">
+              <Image
+                src={dishPhotos.plate1}
+                alt="Yamasen signature dish"
+                fill
+                quality={90}
+                className="object-cover brightness-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal direction="right">
+            <div>
+              <p className="jp text-sm mb-2" style={{ color: "#9a1515" }}>
+                弁当配達
+              </p>
+              <h2
+                className="text-[clamp(1.6rem,3.5vw,2.2rem)] font-semibold mb-4 tracking-[0.03em]"
+                style={{ color: "#1a1410" }}
+              >
+                Need Bento Delivery?
+              </h2>
+              <p className="text-[0.95rem] leading-relaxed mb-8" style={{ color: "#4a4038" }}>
+                Hosting a lunch, office order, or quiet evening at home? Order bento
+                boxes, sushi, and house favourites for delivery across Kampala. Fresh
+                ingredients, complete sets, and easy WhatsApp ordering.
+              </p>
+              <Link href="/menu" className="btn-cream inline-flex justify-center">
+                Order from the Menu
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
 
       <section>
@@ -238,27 +260,41 @@ export default function HomePage() {
       </section>
 
       <section className="py-16 md:py-20 px-5 bg-[#faf6ef] border-y border-[var(--border)]">
-        <ScrollReveal>
-          <div className="max-w-2xl mx-auto text-center">
-            <p className="jp text-sm mb-2" style={{ color: "#9a1515" }}>
-              会員制度
-            </p>
-            <p className="eyebrow mb-3">Membership</p>
-            <h2
-              className="text-[clamp(1.7rem,4vw,2.4rem)] font-semibold mb-4 tracking-[0.03em]"
-              style={{ color: "#1a1410" }}
-            >
-              Loyalty programme
-            </h2>
-            <p className="text-[0.95rem] leading-relaxed mb-8" style={{ color: "#4a4038" }}>
-              Our loyalty programme is still in the kitchen. We are preparing the
-              details and will share them here when ready.
-            </p>
-            <Link href="/loyalty" className="btn-cream inline-flex justify-center">
-              Learn more
-            </Link>
-          </div>
-        </ScrollReveal>
+        <div className="max-w-[1000px] mx-auto grid md:grid-cols-2 gap-8 items-center">
+          <ScrollReveal>
+            <div className="relative aspect-[4/3] overflow-hidden menu-card order-2 md:order-1">
+              <Image
+                src={dishPhotos.plate2}
+                alt="Yamasen Japanese dish"
+                fill
+                quality={90}
+                className="object-cover brightness-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="text-center md:text-left order-1 md:order-2">
+              <p className="jp text-sm mb-2" style={{ color: "#9a1515" }}>
+                会員制度
+              </p>
+              <p className="eyebrow mb-3">Membership</p>
+              <h2
+                className="text-[clamp(1.7rem,4vw,2.4rem)] font-semibold mb-4 tracking-[0.03em]"
+                style={{ color: "#1a1410" }}
+              >
+                Loyalty programme
+              </h2>
+              <p className="text-[0.95rem] leading-relaxed mb-8" style={{ color: "#4a4038" }}>
+                Our loyalty programme is still in the kitchen. We are preparing the
+                details and will share them here when ready.
+              </p>
+              <Link href="/loyalty" className="btn-cream inline-flex justify-center">
+                Learn more
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
 
       <section className="py-14 md:py-16 px-5 bg-[var(--bg-elevated)] border-y border-[var(--border)]">
@@ -350,7 +386,7 @@ export default function HomePage() {
       <section className="relative min-h-[48vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={venue.tables}
+            src={dishPhotos.plate3}
             alt="Yamasen menu"
             fill
             quality={90}
