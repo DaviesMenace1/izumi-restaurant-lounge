@@ -205,7 +205,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[#c4b8a8] hover:text-white underline underline-offset-2 transition-colors"
             >
-              Davies Musinguzi
+              Davies Musinguzi · +256 745 867098
             </a>
           </p>
           <div className="flex items-center gap-4">
