@@ -2,26 +2,34 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import { formatPrice, type Dish } from "@/data/menu";
 import { useCart } from "@/context/CartContext";
+
+const FALLBACK =
+  "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&q=80";
 
 export default function MenuCard({ dish }: { dish: Dish }) {
   const { addItem } = useCart();
   const href = `/menu/${dish.category}/${dish.slug}`;
+  const [src, setSrc] = useState(dish.image);
 
   return (
     <article className="group flex flex-col h-full bg-white border border-[var(--border)] overflow-hidden shadow-md hover:shadow-lg hover:border-[#9a1515]/40 transition-all rounded-[1.25rem]">
       <Link
         href={href}
-        className="relative block w-full aspect-[4/3] overflow-hidden shrink-0"
+        className="relative block w-full aspect-[4/3] overflow-hidden shrink-0 bg-[#f3eee6]"
       >
         <Image
-          src={dish.image}
+          src={src}
           alt={dish.name}
           fill
           quality={85}
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          onError={() => {
+            if (src !== FALLBACK) setSrc(FALLBACK);
+          }}
         />
         {dish.popular && (
           <span className="absolute top-3 left-3 bg-[#9a1515] text-white text-[0.65rem] tracking-wider uppercase px-2.5 py-1 soft-pill font-bold shadow-sm">
