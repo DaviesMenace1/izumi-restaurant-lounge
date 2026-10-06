@@ -22,16 +22,6 @@ const partners = [
     href: "https://glovoapp.com",
     src: logos.glovo,
   },
-  {
-    name: "Shop",
-    href: "https://www.instagram.com/yamasen_kampala",
-    src: logos.shop,
-  },
-  {
-    name: "UWA",
-    href: "https://ugandawildlife.org",
-    src: logos.uwa,
-  },
 ];
 
 export default function Partners() {
